@@ -1,6 +1,8 @@
 package Controller;
 
 import java.io.IOException;
+import java.util.Random;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,20 +21,44 @@ public class GetBlockValue extends HttpServlet {
 		
 		try {
 			Object blockId = (String)request.getParameter("block");
+			int blockId1=0;
+
+//			For wrong Answer
 			
 			if(blockId == null)
 			{
 				blockId =  request.getAttribute("result");
+				
+//			Converting Object to int
+				blockId1 = Integer.parseInt(new String((String) blockId));
 			}
 			
-			String blockemt=new String((String) blockId);
-			int blockId1 = Integer.parseInt(blockemt);
+			
+//			For 1st reply or Correct Answer
+			else {
+//			Converting Object to int
+				blockId1 = Integer.parseInt(new String((String) blockId));
+			
+//			Randomizing Input Id
+				if(Integer.parseInt(new String((String) blockId)) < 20)
+				{
+					Random random = new Random();
+					blockId1 = random.nextInt(20 - 1) + 1;
+				}
+				else if(Integer.parseInt(new String((String) blockId)) > 20 && Integer.parseInt(new String((String) blockId)) < 51)
+				{
+					Random random = new Random();
+					blockId1 = random.nextInt(50 - 21) + 21;
+				}
+				else
+				{
+					Random random = new Random();
+					blockId1 = random.nextInt(100 - 51) + 51;
+				}
+			}
+
 			
 			BlockDao dao = new BlockDao();
-			
-			
-			
-			
 			
 			General_Knowledge gk = new General_Knowledge(blockId1, null, null, null, null, null, null, null);
 			

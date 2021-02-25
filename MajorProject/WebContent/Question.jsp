@@ -10,6 +10,7 @@
 <body>
 
 <div style="padding: 20%; display:flex; justify-content: center; align-items: center; background-color: cyan; display: block; font-weight: 600;">
+	Question Id ==> <label>${que.id}</label><br>
 	Question ==> <label>${que.question}</label><br>
 	<br>
 	Option 1 ==> <label><a href="answer-match?id=${que.id}&option=${que.option1}"><input type="button" value="${que.option1}"></a></label><br>
