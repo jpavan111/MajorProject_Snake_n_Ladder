@@ -34,6 +34,7 @@
           <a class="nav-link" href="#"style="font-size:1.1rem">CONTACT US<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
+          
           <a class="nav-link" href="#"style="font-size:1.1rem">GAME INSTRUCTION<span class="sr-only">(current)</span></a>
       </li>
     </ul>
