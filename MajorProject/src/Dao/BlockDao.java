@@ -41,7 +41,6 @@ public class BlockDao {
 		General_Knowledge correctAnswer =  session.createNativeQuery(sql, General_Knowledge.class)
 												.setParameter("id", gk.getId())
 												.getSingleResult();
-		
 		session.close();
 		
 		if(gk.getAnswer().equals(correctAnswer.getAnswer()))

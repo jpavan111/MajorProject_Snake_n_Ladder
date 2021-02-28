@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Dao.BlockDao;
 import Entity.General_Knowledge;
+import Entity.VisitedBlock;
 
 @WebServlet("/GetBlockValue")
 public class GetBlockValue extends HttpServlet {
@@ -23,6 +24,10 @@ public class GetBlockValue extends HttpServlet {
 			Object blockId = (String)request.getParameter("block");
 			int blockId1=0;
 
+			
+			
+			
+			
 //			For wrong Answer
 			
 			if(blockId == null)
@@ -40,7 +45,7 @@ public class GetBlockValue extends HttpServlet {
 				blockId1 = Integer.parseInt(new String((String) blockId));
 			
 //			Randomizing Input Id
-				if(Integer.parseInt(new String((String) blockId)) < 20)
+				if(Integer.parseInt(new String((String) blockId)) < 21)
 				{
 					Random random = new Random();
 					blockId1 = random.nextInt(20 - 1) + 1;
@@ -58,18 +63,27 @@ public class GetBlockValue extends HttpServlet {
 			}
 
 			
-			BlockDao dao = new BlockDao();
+			VisitedBlock visit = new VisitedBlock(blockId1, false);
 			
-			General_Knowledge gk = new General_Knowledge(blockId1, null, null, null, null, null, null, null);
+			if(visit.getVisit() != true)
+			{	
+				visit.setVisit(true);
 			
-			General_Knowledge que = dao.getQuestion(gk);
-			
-			que.setAnswer(null);
-			
-			request.setAttribute("que", que);
-			request.getRequestDispatcher("Question.jsp").forward(request, response);
+				BlockDao dao = new BlockDao();
+				
+				General_Knowledge gk = new General_Knowledge(blockId1, null, null, null, null, null, null, null);
+				
+				General_Knowledge que = dao.getQuestion(gk);
+				
+
+				
+				que.setAnswer(null);
+				
+				request.setAttribute("que", que);
+				request.getRequestDispatcher("Question.jsp").forward(request, response);
+			}
 		}
-		catch (NumberFormatException e) {
+		catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Question fetching failed");
 			request.getRequestDispatcher("SNL.jsp").forward(request, response);

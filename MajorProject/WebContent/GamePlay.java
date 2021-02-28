@@ -206,7 +206,7 @@ class Board {
 					else if( tile[i][j].value>=11 && tile[i][j].value<=99  )
 						System.out.print( tile[i][j].value+"  " );
 					else if( tile[i][0].value == 1 )
-						System.out.print( tile[i][j].value+"   " );
+						System.out.print( tile[i][j].value+"  " );
 				}
 				else if( tile[i][j].snake == null && tile[i][j].ladder != null )
 				{
