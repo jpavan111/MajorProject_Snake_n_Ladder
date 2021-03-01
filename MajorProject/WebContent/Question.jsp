@@ -165,6 +165,7 @@ label .glyphicon {
 					<h3>Q${que.id}.${que.question}</h3>
 				</div>
 				<div class="modal-body">
+				
 					<div class="col-xs-3 5"></div>
 					<div class="quiz" id="quiz" data-toggle="buttons">
 						<a href="answer-match?id=${que.id}&option=${que.option1}"><label
