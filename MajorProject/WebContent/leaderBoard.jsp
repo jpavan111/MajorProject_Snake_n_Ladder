@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<jsp:include page="Header.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,37 +32,13 @@
 	integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
 	crossorigin="anonymous" />
 </head>
+
 <body>
 
 
 
-	<div class="container-fluid">
-		<div class="row bg-dark text-light sticky-top" style="height: 60px;">
 
-			<div class="col-3 d-flex align-items-center ">
-				<a href="home.jsp" class="btn text-light btn-link"
-					style="font-weight: bold; font-size: 1.75rem; font-family: cursive;">Snakes
-					and Ladders</a>
-			</div>
 
-			<div class="col-9  d-flex align-items-center justify-content-end">
-
-				<div>
-					<a href="product.jsp" class="btn btn-secondary">Game</a>
-				</div>
-				<div class="ml-1">
-					<a href="product.jsp" class="btn btn-secondary">About us</a>
-				</div>
-				<div class="ml-1">
-					<a href="services.jsp" class="btn btn-secondary">Instructions</a>
-				</div>
-				<div class="ml-1">
-					<a href="login.jsp" class="btn btn-secondary">Log out</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	
 	<%
         String p = request.getParameter("p");
        if("1".equals(p)){
@@ -78,11 +54,11 @@
     
    
 
-	<div class="row bg-light d-flex align-items-center justify-content-center" style="height:100vh" >
+	<div class="bg-light d-flex align-items-center justify-content-center mt-5" >
 	
 	 
 
-		<table class="col-5 table table-striped table-dark">
+		<table class="col-8 table table-striped table-dark">
 			<thead>
 				<tr>
 					<th scope="col">Rank</th>
@@ -97,7 +73,7 @@
 			<c:forEach var="item" items="${playerList}">
 				<tr>
 					<th scope="row"><%=count %></th>
-					<% count = count+1; %>
+					<%count=count+1; %>
 					<td>${item.name}</td>
 					<td>${item.score}</td>
 					
