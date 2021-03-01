@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Dao.BlockDao;
 import Entity.General_Knowledge;
@@ -18,7 +19,7 @@ public class AnswerMatch extends HttpServlet {
 		
 		try {
 			int blockId = Integer.parseInt(request.getParameter("id"));
-			
+
 			String answer = request.getParameter("option");
 			
 			BlockDao dao = new BlockDao();
@@ -28,7 +29,13 @@ public class AnswerMatch extends HttpServlet {
 			Boolean check = dao.getAnswer(gk);
 			
 			if(check == true)
-				response.sendRedirect("SNL.jsp");
+			{	
+				HttpSession session = request.getSession();
+				session.setAttribute("blockid", blockId);
+				
+				request.getRequestDispatcher("SNL.jsp").forward(request, response);
+//				response.sendRedirect("SNL.jsp");
+			}
 			else
 			{
 				String s=String.valueOf(blockId);

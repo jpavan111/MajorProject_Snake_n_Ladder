@@ -1,10 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<% String blockId = (String)session.getAttribute("blockId"); %>    
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+	crossorigin="anonymous">
+
 <style> 
 .box{ 
     float:left;
@@ -328,9 +342,9 @@ img{
 	left:-28vmin;
 }
 #s7{
-	transform:scaleX(0.2) scaleY(0.2) rotate(30deg);
-	top:-34.5vmin;
-	left:38vmin;
+	transform: scaleX(0.2) scaleY(0.2) rotate(68deg);
+    top: -34.5vmin;
+    left: 38vmin;
 }
 
 #s8{
@@ -339,12 +353,63 @@ img{
 	left:41.2vmin;
 }
 
+#cursor {
+	width: 100%;
+	height: 100%;
+	opacity: 0.8;
+	position: absolute;
+	z-index: 999;
+	left: 0px;
+}
+
+.container1 {
+  height:100vh;
+  display:flex;
+  align-items:center; /* vertically aligned! */
+  justify-content: center;
+}
+
+
+/* .overlay {
+    background-color: rgba(1, 1, 1, 0.7);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+ */
+
 </style>
 <meta charset="ISO-8859-1">
 <title>Snakes and Ladders</title>
 </head>
 <body>
 
+<!-- let diceNum = Math.floor(Math.random() * 6)+1 -->
+
+
+<div class="container-fluid">
+<div class="row">
+<div class="container1 col-3 text-center">
+		<!-- <button type="button" class="btn btn-warning"
+								style="font-size: 20px; border-radius: 10px;">
+								Play <i class="fas fa-play"></i>
+							</button> -->
+<div style="display: block">
+	<button type="button" class="btn btn-warning " style="font-size: 20px; border-radius: 10px; width:150px">
+	Pause <i class="fas fa-pause"></i>
+							</button>
+										
+  <button onclick="moveCursor(1)" value="1">1</button>
+  <button onclick="moveCursor(2)" value="2">2</button>
+  <button onclick="moveCursor(3)" value="3">3</button>
+  <button onclick="moveCursor(4)" value="4">4</button>
+  <button onclick="moveCursor(5)" value="5">5</button>
+  <button onclick="moveCursor(6)" value="6">6</button>
+</div>							
+</div>
+<div class="col-6">
 
 <div class="container-sm">
 <div class="container-md">
@@ -352,10 +417,11 @@ img{
 <div class="container-xl">
 <div class="container-xxl">
 
-
+  
 <div class="container">
   <div id='main'>
-  <form action="GetBlockValue">
+<!--   style="pointer-events: none" -->
+  <form action="GetBlockValue" method="post">
 		    <div class='box' id='100'><button onclick="playAudio()" class='button5' name="block" value="100">100</button></div>	
 			<div class='box' id='99'><button onclick="playAudio()" class='button5' name="block" value="99">99</button></div>	
 			<div class='box' id='98'><button onclick="playAudio()" class='button5' name="block" value="98">98</button></div>	
@@ -446,7 +512,7 @@ img{
 			<div class='box' id='13'><button onclick="playAudio()" class='button5' name="block" value="13">13</button></div>
             <div class='box' id='12'><button onclick="playAudio()" class='button5' name="block" value="12">12</button></div>
 		    <div class='box' id='11'><button onclick="playAudio()" class='button5' name="block" value="11">11</button></div>
-			<div class='box' id='1'><button onclick="playAudio()" class='button5' name="block" value="1">1</button></div>
+			<div class='box' id='1'><button onclick="playAudio()" class='button5' name="block" value="1">1<img id="cursor" src="token_red.png" /></button></div>
             <div class='box' id='2'><button onclick="playAudio()" class='button5' name="block" value="2">2</button></div>	
 			<div class='box' id='3'><button onclick="playAudio()" class='button5' name="block" value="3">3</button></div>	
 			<div class='box' id='4'><button onclick="playAudio()" class='button5' name="block" value="4">4</button></div>
@@ -480,11 +546,67 @@ img{
 		<audio id="myAudio">
           <source src="click.mp3" type="audio/mpeg">
        </audio>
+       
 	<script>
      var x = document.getElementById("myAudio"); 
      function playAudio() { 
                            x.play();
                     }
+     /*/////////////////////////////////////////////////////////// */
+     
+     if(<%= blockId %> == null)
+ 		var position = 1;
+     else
+    	var position = <%= blockId %>;
+    	 
+ var currentPosition = 1;
+var snakeAndLadderPos = [
+	
+	{old: 2, new: 23},
+	{old: 11, new: 28},
+	{old: 24, new: 6},
+	{old: 15, new: 34},
+	{old: 25, new: 44},
+	{old: 59, new: 38},
+	{old: 32, new: 53},
+	{old: 50, new: 30},
+	{old: 51, new: 72},
+	{old: 68, new: 36},
+	{old: 58, new: 65},
+	{old: 59, new: 38},
+	{old: 60, new: 79},
+	{old: 94, new: 75},
+	{old: 77, new: 98},
+	{old: 76, new: 66},
+	{old: 67, new: 88},
+	{old: 91, new: 72},
+	{old: 99, new: 78}
+];
+
+function moveCursor(digits) {
+	var cursorElem = document.getElementById("cursor");
+	var newPosElem = document.getElementById(position = position + digits);
+	newPosElem.children[0].append(cursorElem);
+	checkSnakeOrLadder();
+	
+	
+	document.getElementById("cursor").click();
+	currentPosition = document.getElementById("cursor");
+}
+
+
+function checkSnakeOrLadder() {
+	var cursorElem = document.getElementById("cursor");
+	for(var i = 0; i < snakeAndLadderPos.length; i++){
+		if(snakeAndLadderPos[i].old === position){
+			position = snakeAndLadderPos[i].new;
+			break;
+		}
+	}
+	var newPosElem = document.getElementById(position);
+	newPosElem.children[0].append(cursorElem);
+}
+     
      </script>
      
   </div>
@@ -495,5 +617,16 @@ img{
 </div>
 </div>
 </div>
+</div>
+			<div class="container1 col-3 text-center">
+							<button type="button" class="btn btn-warning"
+								style="font-size: 20px; border-radius: 10px; width:150px; margin-left:0px">
+								Exit <i class="fas fa-sign-out-alt"></i>
+							</button>
+							</div>
+							</div>
+							</div>
 </body>
 </html>
+
+
