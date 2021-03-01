@@ -170,33 +170,32 @@ label .glyphicon {
 						<a href="answer-match?id=${que.id}&option=${que.option1}"><label
 							class="element-animation1 btn btn-lg btn-danger btn-block mt-1"><span
 							class="btn-label"><i
-								class="glyphicon glyphicon-chevron-right"></i></span> <!-- <input
-							type="radio" name="q_answer" value="1"> Computer Style
-							Sheets -->
+								class="glyphicon glyphicon-chevron-right"></i></span>
 							<h5>${que.option1}</h5></label></a><br>
+							
+							
 						<a href="answer-match?id=${que.id}&option=${que.option2}"><label
 							class="element-animation2 btn btn-lg btn-danger btn-block mt-1"><span
 							class="btn-label"><i
-								class="glyphicon glyphicon-chevron-right"></i></span> <!-- <input
-							type="radio" name="q_answer" value="2">Cascading Style
-							Sheets -->
+								class="glyphicon glyphicon-chevron-right"></i></span>
 							<h5>${que.option2}</h5></label></a><br>
+						
 						
 						<a href="answer-match?id=${que.id}&option=${que.option3}"><label
 							class="element-animation3 btn btn-lg btn-danger btn-block mt-1"><span
 							class="btn-label"><i
-								class="glyphicon glyphicon-chevron-right"></i></span> <!-- <input
-							type="radio" name="q_answer" value="3">Creative Style
-							Sheets --> <h5>${que.option3}</h5></label></a><br>
+								class="glyphicon glyphicon-chevron-right"></i></span>
+								<h5>${que.option3}</h5></label></a><br>
+							
 							
 						<a href="answer-match?id=${que.id}&option=${que.option4}">
 						<label
 							class="element-animation4 btn btn-lg btn-danger btn-block mt-1"><span
 							class="btn-label"><i
 								class="glyphicon glyphicon-chevron-right"></i></span>
-						<!--  <input
-							type="radio" name="q_answer" value="4"> Colorful Style
-							Sheets --> <h5>${que.option4}</h5></label></a>
+							<h5>${que.option4}</h5></label></a>
+							
+							
 					</div>
 				</div>
 			</div>
