@@ -93,8 +93,8 @@ img{
 
 #l1{
 	transform:scaleX(0.15) scaleY(0.2) rotate(31deg);
-	top:34.3vmin;
-	left:-29.5vmin;
+	top: 24.3vmin;
+    left: -28.5vmin;
 }
 
 #l2{

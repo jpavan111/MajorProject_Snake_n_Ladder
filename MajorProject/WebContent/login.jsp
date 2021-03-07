@@ -73,8 +73,8 @@
           <div class="content">
             <h3>New here ?</h3>
             <p>
-             Get ready to re-live your all time favorite game Snake and Ladder . 
-             The perfect Education board game that assures you won't get bored. 
+             Get ready to re-live your all time favorite game Snake and Ladder. 
+             The perfect Educational board game that assures you won't get bored! 
             </p>
             <button class="btn transparent" id="sign-up-btn">
               Sign up
@@ -84,10 +84,9 @@
         </div>
         <div class="panel right-panel">
           <div class="content">
-            <h3>Already One of us ?</h3>
+            <h3>Already One of us?</h3>
             <p>
-             You are our old companion and we are happy that you are back and wish you best of luck and
-              we are happy for you to Welcome back dear.
+             We welcome you back as you are our old companion & wish you luck!
             </p>
             <button class="btn transparent" id="sign-in-btn">
               Sign in

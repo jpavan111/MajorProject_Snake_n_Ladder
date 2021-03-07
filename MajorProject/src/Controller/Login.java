@@ -24,13 +24,15 @@ public class Login extends HttpServlet {
 
 		
 		try {
-			/*if (dao.check(uname, pass)) {*/
-			if (uname=="" && pass=="") {
-				HttpSession session = request.getSession();
+			if (dao.check(uname, pass)) {
 				
+			/*if (uname=="user" && pass=="user") {*/
+				
+				HttpSession session = request.getSession();
 				session.setAttribute("username", uname);
 				response.sendRedirect("index.jsp");
-			} else {
+			}
+			else {
 				response.sendRedirect("login.jsp");
 			}
 		} catch (Exception e) {
