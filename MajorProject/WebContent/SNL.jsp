@@ -1,8 +1,8 @@
+<%@page import="org.hibernate.internal.build.AllowSysOut"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-<% String blockId = (String)session.getAttribute("blockId"); %>    
-    
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,382 +20,19 @@
 	crossorigin="anonymous">
 
 <style> 
-.box{ 
-    float:left;
-	height:9.6vmin;
-	width:9.6vmin;
-	border:0.2vmin solid black;
-	text-align:center;
-	line-height:9.4vmin;
-	font-size:3vmin;
-	background-color:rgb(243, 245, 137);
-
-}	
-
-#main{
-	position: absolute;
-	margin:auto;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	border:2vmin solid rgb(46, 75, 92);
-	height:100vmin;
-	width:100vmin;
- }
-
- .button2 {
-  position: relative;
-  background-color:#bbd494;
-  border: none;
-  font-size: 18px;
-  color: #FFFFFF;
-  padding: 0px;
-   width: 100%;
-   height:auto;
-  text-align: center;
-  webkit-transition-duration: 0.4s; /* Safari */
- transition-duration: 0.4s;
-  text-decoration: none;
-  overflow: hidden;
-  cursor: pointer;
- }
-.button2:hover {background-color: #549072;}
-
-
-.button2:after {
-  content: "";
-  background: #90EE90;
-  display: block;
-  position: absolute;
-  padding-top: 300%;
-  padding-left: 350%;
-  margin-left: -20px!important;
-  margin-top: -120%;
-  opacity: 0;
-  transition: all 0.8s;
-}
-
-.button2:active:after {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-  transition: 0s;
-} 
- .button1 {
-  position: relative;
-  background-color:#e7c73a;
-  border: none;
-  font-size: 18px;
-  color: #051d60;
-  padding: 0px;
-  width: 100%;
-  height:auto;
-  text-align: center;
-  webkit-transition-duration: 0.4s; /* Safari */
- transition-duration: 0.4s;
-  text-decoration: none;
-  overflow: hidden;
-  cursor: pointer;
-}
-.button1:hover {background-color: #ebfa07;}
-
-
-.button1:after {
-  content: "";
-  background: #90EE90;
-  display: block;
-  position: absolute;
-  padding-top: 300%;
-  padding-left: 350%;
-  margin-left: -20px!important;
-  margin-top: -120%;
-  opacity: 0;
-  transition: all 0.8s;
-}
-
-.button1:active:after {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-  transition: 0s;
-} 
- 
- .button3 {
-  position: relative;
-  background-color: #d9847b;
-  border: none;
-  font-size: 18px;
-  color:#FFFFFF;
-  padding: 0px;
-  width: 100%;
-  height:auto;
-  text-align: center;
-  webkit-transition-duration: 0.4s; /* Safari */
- transition-duration: 0.4s;
-  text-decoration: none;
-  overflow: hidden;
-  cursor: pointer;
-}
-.button3:hover {background-color: #a54252;}
-
-
-.button3:after {
-  content: "";
-  background: #90EE90;
-  display: block;
-  position: absolute;
-  padding-top: 300%;
-  padding-left: 350%;
-  margin-left: -20px!important;
-  margin-top: -120%;
-  opacity: 0;
-  transition: all 0.8s;
-}
-
-.button3:active:after {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-  transition: 0s;
-} 
- .button4 {
-  position: relative;
-  background-color:#77c2f1;
-  border: none;
-  font-size: 18px;
-  color: #051d60;
-  padding: 0px;
-  width: 100%;
-  height:auto;
-  text-align: center;
-  webkit-transition-duration: 0.4s; /* Safari */
- transition-duration: 0.4s;
-  text-decoration: none;
-  overflow: hidden;
-  cursor: pointer;
-}
-.button4:hover {background-color: #07ebfa;}
-
-
-.button4:after {
-  content: "";
-  background: #90EE90;
-  display: block;
-  position: absolute;
-  padding-top: 300%;
-  padding-left: 350%;
-  margin-left: -20px!important;
-  margin-top: -120%;
-  opacity: 0;
-  transition: all 0.8s;
-}
-
-.button4:active:after {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-  transition: 0s;
-} 
- .button5 {
-  position: relative;
-  background-color:#384c60;
-  border: none;
-  font-size: 18px;
-  color:#FFFFFF;
-  padding: 0px;
-  width: 100%;
-  height:auto;
-  text-align: center;
-  webkit-transition-duration: 0.4s; /* Safari */
- transition-duration: 0.4s;
-  text-decoration: none;
-  overflow: hidden;
-  cursor: pointer;
-}
-.button5:hover {background-color: #b349b3;}
-
-
-.button5:after {
-  content: "";
-  background: #90EE90;
-  display: block;
-  position: absolute;
-  padding-top: 300%;
-  padding-left: 350%;
-  margin-left: -20px!important;
-  margin-top: -120%;
-  opacity: 0;
-  transition: all 0.8s;
-}
-
-.button5:active:after {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-  transition: 0s;
-} 
-
-img{
-	height:100%;
-	width:100%;
-}
-
-
-#main img{
-	position: absolute;
-}
-
-
-#l1{
-	transform:scaleX(0.15) scaleY(0.2) rotate(31deg);
-	top:34.3vmin;
-	left:-29.5vmin;
-}
-
-#l2{
-	transform:scaleX(0.15) scaleY(0.2) rotate(31deg);
-	top:24.5vmin;
-	left:9.7vmin;
-}
-#l3{
-	transform:scaleX(0.15) scaleY(0.2) rotate(31deg);
-	top:-14.7vmin;
-	left:-39.3vmin;
-}
-
-#l4{
-	transform:scaleX(0.15) scaleY(0.2) rotate(31deg);
-	top:-24.4vmin;
-	left:19.5vmin;
-}
-
-#l5{
-	transform:scaleX(0.15) scaleY(0.2) rotate(-31deg);
-	top:14.7vmin;
-	left:-9.7vmin;
-}
-
-#l6{
-	transform:scaleX(0.15) scaleY(0.2) rotate(-31deg);
-	top:4.9vmin;
-	left:29.5vmin;
-}
-
-#l7{
-	transform:scaleX(0.15) scaleY(0.2) rotate(-31deg);
-	top:-14.7vmin;
-	left:39.3vmin;
-}
-
-#l8{
-	transform:scaleX(0.15) scaleY(0.2) rotate(-31deg);
-	top:-34.3vmin;
-	left:-19.5vmin;
-}
-
-#l9{
-	transform:scaleX(0.2) scaleY(0.2) rotate(65deg);
-	top:-10vmin;
-	left:-14.8vmin;
-}
-
-#l10{
-	transform:scaleX(0.17) scaleY(0.2) rotate(-65deg);
-	top:29.2vmin;
-	left:34.2vmin;
-}
-
-#s1{
-	transform:scaleX(0.3) scaleY(0.35) rotate(90deg);
-	left:8.7vmin;
-	top:-1vmin;
-}
-
-#s2{
-	transform:scaleX(0.2) scaleY(0.2);
-	left:-29.4vmin;
-	top:4.3vmin;
-}
-
-#s3{
-	transform:scaleX(0.18) scaleY(0.18);
-	top:-20vmin;
-	left:0.5vmin;
-}
-
-#s4{
-	transform:scaleX(0.3) scaleY(0.2) rotate(10deg);
-	top:37vmin;
-	left:-6vmin;
-}
-
-#s5{
-	transform:scaleX(0.19) scaleY(0.19) rotate(90deg);
-	top:-35vmin;
-	left:10vmin;
-}
-
-#s6{
-	transform:scaleX(0.17) scaleY(0.17) rotate(5deg);
-	top:-34.5vmin;
-	left:-28vmin;
-}
-#s7{
-	transform: scaleX(0.2) scaleY(0.2) rotate(68deg);
-    top: -34.5vmin;
-    left: 38vmin;
-}
-
-#s8{
-	transform:scaleX(0.2) scaleY(0.2) rotate(50deg);
-	top:15.2vmin;
-	left:41.2vmin;
-}
-
-#cursor {
-	width: 100%;
-	height: 100%;
-	opacity: 0.8;
-	position: absolute;
-	z-index: 999;
-	left: 0px;
-}
-
-.container1 {
-  height:100vh;
-  display:flex;
-  align-items:center; /* vertically aligned! */
-  justify-content: center;
-}
-
-
-/* .overlay {
-    background-color: rgba(1, 1, 1, 0.7);
-    bottom: 0;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-}
- */
-
+	<%@ include file="GameCss.css"%>
 </style>
+
 <meta charset="ISO-8859-1">
 <title>Snakes and Ladders</title>
 </head>
-<body>
-
-<!-- let diceNum = Math.floor(Math.random() * 6)+1 -->
+<body onload="cursorPosition()">
 
 
 <div class="container-fluid">
 <div class="row">
 <div class="container1 col-3 text-center">
-		<!-- <button type="button" class="btn btn-warning"
-								style="font-size: 20px; border-radius: 10px;">
-								Play <i class="fas fa-play"></i>
-							</button> -->
+
 <div style="display: block">
 	<button type="button" class="btn btn-warning " style="font-size: 20px; border-radius: 10px; width:150px">
 	Pause <i class="fas fa-pause"></i>
@@ -421,7 +58,7 @@ img{
 <div class="container">
   <div id='main'>
 <!--   style="pointer-events: none" -->
-  <form action="GetBlockValue" method="post">
+  <form action="GetBlockValue" method="post" >
 		    <div class='box' id='100'><button onclick="playAudio()" class='button5' name="block" value="100">100</button></div>	
 			<div class='box' id='99'><button onclick="playAudio()" class='button5' name="block" value="99">99</button></div>	
 			<div class='box' id='98'><button onclick="playAudio()" class='button5' name="block" value="98">98</button></div>	
@@ -512,7 +149,7 @@ img{
 			<div class='box' id='13'><button onclick="playAudio()" class='button5' name="block" value="13">13</button></div>
             <div class='box' id='12'><button onclick="playAudio()" class='button5' name="block" value="12">12</button></div>
 		    <div class='box' id='11'><button onclick="playAudio()" class='button5' name="block" value="11">11</button></div>
-			<div class='box' id='1'><button onclick="playAudio()" class='button5' name="block" value="1">1<img id="cursor" src="token_red.png" /></button></div>
+			<div class='box' id='1'><button onclick="playAudio()" class='button5' name="block" value="1">1<img id="cursor" src="./images/token_red.png" /></button></div>
             <div class='box' id='2'><button onclick="playAudio()" class='button5' name="block" value="2">2</button></div>	
 			<div class='box' id='3'><button onclick="playAudio()" class='button5' name="block" value="3">3</button></div>	
 			<div class='box' id='4'><button onclick="playAudio()" class='button5' name="block" value="4">4</button></div>
@@ -523,92 +160,61 @@ img{
 			<div class='box' id='9'><button onclick="playAudio()" class='button5' name="block" value="9">9</button></div>
 			<div class='box' id='10'><button onclick="playAudio()" class='button5' name="block" value="10">10</button></div>
 			</form>
-	    <img src='ladder1.png' id='l1'>
-		<img src='ladder1.png' id='l2'>
-		<img src='ladder1.png' id='l3'>
-		<img src='ladder1.png' id='l4'>
-		<img src='ladder1.png' id='l5'>
-		<img src='ladder1.png' id='l6'>
-		<img src='ladder1.png' id='l7'>
-		<img src='ladder1.png' id='l8'>
-		<img src='ladder1.png' id='l9'>
-		<img src='ladder1.png' id='l10'>
-		<img src='s1.png' id='s1'>
-		<img src='s2.png' id='s2'>
-		<img src='s3.png' id='s3'>
-		<img src='s4.png' id='s4'>
-		<img src='s5.png' id='s5'>
-		<img src='s6.png' id='s6'>
-		<img src='s7.png' id='s7'>
-		<img src='s8.png' id='s8'>
+	    
+	    <img src='./images/ladder1.png' id='l1'>
+		<img src='./images/ladder1.png' id='l2'>
+		<img src='./images/ladder1.png' id='l3'>
+		<img src='./images/ladder1.png' id='l4'>
+		<img src='./images/ladder1.png' id='l5'>
+		<img src='./images/ladder1.png' id='l6'>
+		<img src='./images/ladder1.png' id='l7'>
+		<img src='./images/ladder1.png' id='l8'>
+		<img src='./images/ladder1.png' id='l9'>
+		<img src='./images/ladder1.png' id='l10'>
+		<img src='./images/s1.png' id='s1'>
+		<img src='./images/s2.png' id='s2'>
+		<img src='./images/s3.png' id='s3'>
+		<img src='./images/s4.png' id='s4'>
+		<img src='./images/s5.png' id='s5'>
+		<img src='./images/s6.png' id='s6'>
+		<img src='./images/s7.png' id='s7'>
+		<img src='./images/s8.png' id='s8'>
+			          
+		
 			                     
 	<div>
 		<audio id="myAudio">
-          <source src="click.mp3" type="audio/mpeg">
+          <source src="./images/click.mp3" type="audio/mpeg">
        </audio>
+
+
+  <% 
+   int positionBack = 1;
+   if (request.getParameter("pos") != null)
+	   positionBack = Integer.parseInt(request.getParameter("pos"));
+   else
+	   positionBack = 1;
+   
+   System.out.println(positionBack);
+  %>
        
 	<script>
-     var x = document.getElementById("myAudio"); 
-     function playAudio() { 
-                           x.play();
-                    }
-     /*/////////////////////////////////////////////////////////// */
-     
-     if(<%= blockId %> == null)
- 		var position = 1;
-     else
-    	var position = <%= blockId %>;
+		
+	
+	 function cursorPosition()
+     {
     	 
- var currentPosition = 1;
-var snakeAndLadderPos = [
-	
-	{old: 2, new: 23},
-	{old: 11, new: 28},
-	{old: 24, new: 6},
-	{old: 15, new: 34},
-	{old: 25, new: 44},
-	{old: 59, new: 38},
-	{old: 32, new: 53},
-	{old: 50, new: 30},
-	{old: 51, new: 72},
-	{old: 68, new: 36},
-	{old: 58, new: 65},
-	{old: 59, new: 38},
-	{old: 60, new: 79},
-	{old: 94, new: 75},
-	{old: 77, new: 98},
-	{old: 76, new: 66},
-	{old: 67, new: 88},
-	{old: 91, new: 72},
-	{old: 99, new: 78}
-];
-
-function moveCursor(digits) {
-	var cursorElem = document.getElementById("cursor");
-	var newPosElem = document.getElementById(position = position + digits);
-	newPosElem.children[0].append(cursorElem);
-	checkSnakeOrLadder();
-	
-	
-	document.getElementById("cursor").click();
-	currentPosition = document.getElementById("cursor");
-}
-
-
-function checkSnakeOrLadder() {
-	var cursorElem = document.getElementById("cursor");
-	for(var i = 0; i < snakeAndLadderPos.length; i++){
-		if(snakeAndLadderPos[i].old === position){
-			position = snakeAndLadderPos[i].new;
-			break;
-		}
-	}
-	var newPosElem = document.getElementById(position);
-	newPosElem.children[0].append(cursorElem);
-}
-     
+    	 position = <%= positionBack %>;
+    	 var cursorElem = document.getElementById("cursor");
+    	 var newPosElem = document.getElementById(position);
+    		newPosElem.children[0].append(cursorElem);
+    	
+     } 
+	 
+	 
      </script>
-     
+     <script src="GameScript.js" type="text/javascript"></script>
+     	
   </div>
 	</div>
 </div>
@@ -618,14 +224,14 @@ function checkSnakeOrLadder() {
 </div>
 </div>
 </div>
-			<div class="container1 col-3 text-center">
-							<button type="button" class="btn btn-warning"
-								style="font-size: 20px; border-radius: 10px; width:150px; margin-left:0px">
-								Exit <i class="fas fa-sign-out-alt"></i>
-							</button>
-							</div>
-							</div>
-							</div>
+		<div class="container1 col-3 text-center">
+			<button type="button" formaction="welcome.jsp" class="btn btn-warning"
+					style="font-size: 20px; border-radius: 10px; width:150px; margin-left:0px">
+					Exit <i class="fas fa-sign-out-alt"></i>
+			</button>
+		</div>
+	</div>
+</div>
 </body>
 </html>
 
