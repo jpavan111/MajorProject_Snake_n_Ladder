@@ -10,16 +10,25 @@ import javax.servlet.http.HttpSession;
 
 import Dao.BlockDao;
 import Entity.General_Knowledge;
+import Entity.Player;
 
 @WebServlet("/answer-match")
 public class AnswerMatch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	 doPost(request,response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//doGet(request, response);
 		
 		try {
 			int blockId = Integer.parseInt(request.getParameter("id"));
 
+			int valp=Integer.parseInt(request.getParameter("pos"));
+			Player currentPos=new Player();
+			currentPos.setPosition(valp);
 			String answer = request.getParameter("option");
 			
 			BlockDao dao = new BlockDao();
@@ -30,27 +39,28 @@ public class AnswerMatch extends HttpServlet {
 			
 			if(check == true)
 			{	
-				HttpSession session = request.getSession();
-				session.setAttribute("blockid", blockId);
-				
+//				HttpSession session = request.getSession();
+//				session.setAttribute("blockid", blockId);
+				request.setAttribute("currentpos", currentPos.getPosition());
 				request.getRequestDispatcher("SNL.jsp").forward(request, response);
 //				response.sendRedirect("SNL.jsp");
 			}
 			else
 			{
-				String s=String.valueOf(blockId);
-				request.setAttribute("result", s);
-				request.getRequestDispatcher("GetBlockValue").forward(request, response);
+//				String s=String.valueOf(blockId);
+//				request.setAttribute("currentpos", currentPos.getPosition());
+//				request.setAttribute("result", s);
+//				request.getRequestDispatcher("GetBlockValue").forward(request, response);
+			
+				
+				request.setAttribute("currentpos", currentPos.getPosition());
+				request.getRequestDispatcher("SNL.jsp").forward(request, response);
 			}
 		}
 		
 		catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
 	}
 
 }

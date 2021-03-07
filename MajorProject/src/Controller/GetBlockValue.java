@@ -11,19 +11,35 @@ import javax.servlet.http.HttpServletResponse;
 
 import Dao.BlockDao;
 import Entity.General_Knowledge;
+import Entity.Player;
 import Entity.VisitedBlock;
 
 @WebServlet("/GetBlockValue")
 public class GetBlockValue extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
+	static Player newPlayer = new Player();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		doGet(request, response);
 		
 		try {
 			Object blockId = (String)request.getParameter("block");
 			int blockId1=0;
-
+			
+			
+			if(Integer.parseInt(new String((String) blockId)) >= 1)
+			{
+				newPlayer.setPosition(Integer.parseInt(new String((String) blockId)));
+			}
+			else if(request.getParameter("currentpos") != null){
+				newPlayer.setPosition(Integer.parseInt(request.getParameter("currentpos")));
+			}
+			
 			
 			
 			
@@ -75,10 +91,9 @@ public class GetBlockValue extends HttpServlet {
 				
 				General_Knowledge que = dao.getQuestion(gk);
 				
-
 				
 				que.setAnswer(null);
-				
+				request.setAttribute("valp", newPlayer);
 				request.setAttribute("que", que);
 				request.getRequestDispatcher("Question.jsp").forward(request, response);
 			}
@@ -88,11 +103,6 @@ public class GetBlockValue extends HttpServlet {
 			System.out.println("Question fetching failed");
 			request.getRequestDispatcher("SNL.jsp").forward(request, response);
 		}		
-	}
-
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
 	}
 
 }
