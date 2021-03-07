@@ -22,43 +22,43 @@
 <style> 
 	<%@ include file="GameCss.css"%>
 </style>
-
 <meta charset="ISO-8859-1">
 <title>Snakes and Ladders</title>
 </head>
 <body onload="cursorPosition()">
-
-
 <div class="container-fluid">
 <div class="row">
-<div class="container1 col-3 text-center">
 
-<div style="display: block">
-	<button type="button" class="btn btn-warning " style="font-size: 20px; border-radius: 10px; width:150px">
+
+
+
+<div class="col-3 text-center">
+<div class="container1" style="display: block; margin-left: 35%; margin-top: 80%">
+	<button type="button" class="btn btn-danger" style="width: 70%; font-size: 20px; border-radius: 10px; width:150px">
 	Pause <i class="fas fa-pause"></i>
 							</button>
-										
+		<div style="margin: 3%;">								
   <button onclick="moveCursor(1)" value="1">1</button>
   <button onclick="moveCursor(2)" value="2">2</button>
   <button onclick="moveCursor(3)" value="3">3</button>
   <button onclick="moveCursor(4)" value="4">4</button>
   <button onclick="moveCursor(5)" value="5">5</button>
   <button onclick="moveCursor(6)" value="6">6</button>
-</div>							
+</div></div>							
 </div>
-<div class="col-6">
 
+
+<div class="col-6">
 <div class="container-sm">
 <div class="container-md">
 <div class="container-lg">
 <div class="container-xl">
 <div class="container-xxl">
-
   
 <div class="container">
   <div id='main'>
 <!--   style="pointer-events: none" -->
-  <form action="GetBlockValue" method="post" >
+  <form action="GetBlockValue" method="post" style="pointer-events: none">
 		    <div class='box' id='100'><button onclick="playAudio()" class='button5' name="block" value="100">100</button></div>	
 			<div class='box' id='99'><button onclick="playAudio()" class='button5' name="block" value="99">99</button></div>	
 			<div class='box' id='98'><button onclick="playAudio()" class='button5' name="block" value="98">98</button></div>	
@@ -186,8 +186,9 @@
 		<audio id="myAudio">
           <source src="./images/click.mp3" type="audio/mpeg">
        </audio>
-
-
+       
+       
+       
   <% 
    int positionBack = 1;
    if (request.getParameter("pos") != null)
@@ -198,9 +199,9 @@
    System.out.println(positionBack);
   %>
        
+       
 	<script>
-		
-	
+
 	 function cursorPosition()
      {
     	 
@@ -224,15 +225,15 @@
 </div>
 </div>
 </div>
-		<div class="container1 col-3 text-center">
-			<button type="button" formaction="welcome.jsp" class="btn btn-warning"
-					style="font-size: 20px; border-radius: 10px; width:150px; margin-left:0px">
-					Exit <i class="fas fa-sign-out-alt"></i>
-			</button>
+<div class="col-3">
+		<div class="container2 text-center" style="display: block; margin-right: 35%; margin-top: 85%">
+			<a href="index.jsp">
+						<button type="button" class="btn btn-danger" style="width: 70% ;font-size: 20px; border-radius: 10px;">
+							Exit <i class="fas fa-pause"></i>
+			</button></a>
+			</div>
 		</div>
 	</div>
 </div>
 </body>
 </html>
-
-
