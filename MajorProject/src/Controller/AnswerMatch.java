@@ -42,7 +42,7 @@ public class AnswerMatch extends HttpServlet {
 //				HttpSession session = request.getSession();
 //				session.setAttribute("blockid", blockId);
 				request.setAttribute("currentpos", currentPos.getPosition());
-				request.getRequestDispatcher("SNL.jsp").forward(request, response);
+				request.getRequestDispatcher("game.jsp").forward(request, response);
 //				response.sendRedirect("SNL.jsp");
 			}
 			else
@@ -54,7 +54,7 @@ public class AnswerMatch extends HttpServlet {
 			
 				
 				request.setAttribute("currentpos", currentPos.getPosition());
-				request.getRequestDispatcher("SNL.jsp").forward(request, response);
+				request.getRequestDispatcher("game.jsp").forward(request, response);
 			}
 		}
 		

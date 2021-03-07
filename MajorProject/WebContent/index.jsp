@@ -26,7 +26,7 @@
 
 </div>
 <div class="d-flex align-content-center justify-content-center">
-<a href="SNL.jsp" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-top:2.5%">Lets start</a>
+<a href="game.jsp" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-top:2.5%">Lets start</a>
 </div>
 </body>
 </html>
