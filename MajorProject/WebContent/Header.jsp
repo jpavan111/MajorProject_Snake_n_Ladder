@@ -30,7 +30,7 @@
       </li>
       
       <li class="nav-item">
-          <a class="nav-link" href="Logout"style="font-size:1.1rem">LOGOUT<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="logout"style="font-size:1.1rem">LOGOUT<span class="sr-only">(current)</span></a>
       </li>
       
     </ul>
