@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-<title>Insert title here</title>
+<title>Question</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -67,6 +67,45 @@
 <%@ include file="QuestionCss.css"%>
 </style>
 
+<%-- <%
+class ValueObject{
+	
+	 private int id;
+	 private String option;
+	 private int pos;
+	 
+	 public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
+		}
+
+		public String getOption() {
+			return option;
+		}
+
+		public void setOption(String option) {
+			this.option = option;
+		}
+
+		public int getPos() {
+			return pos;
+		}
+
+		public void setPos(int pos) {
+			this.pos = pos;
+		}
+
+}
+
+ValueObject obj1=new ValueObject();
+obj1.setId(Integer.parseInt((String)request.getAttribute("que.id")));
+obj1.setOption((String)request.getAttribute("que.option1"));
+obj1.setPos(Integer.parseInt((String)request.getAttribute("valp.position")));
+
+%> --%>
 
 <body id="bdy">
 	<div class="container">
@@ -78,6 +117,7 @@
 				<div class="modal-body">
 					<div class="col-xs-3 5"></div>
 					<div class="quiz" id="quiz" data-toggle="buttons">
+						
 						<a href="answer-match?id=${que.id}&option=${que.option1}&pos=${valp.position}"><label
 							class="element-animation1 btn btn-lg btn-danger btn-block mt-1"><span
 							class="btn-label"><i

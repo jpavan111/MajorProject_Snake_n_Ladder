@@ -25,7 +25,7 @@ public class AnswerMatch extends HttpServlet {
 		
 		try {
 			int blockId = Integer.parseInt(request.getParameter("id"));
-
+			
 			int valp=Integer.parseInt(request.getParameter("pos"));
 			Player currentPos=new Player();
 			currentPos.setPosition(valp);
@@ -39,19 +39,14 @@ public class AnswerMatch extends HttpServlet {
 			
 			if(check == true)
 			{	
-//				HttpSession session = request.getSession();
-//				session.setAttribute("blockid", blockId);
 				request.setAttribute("currentpos", currentPos.getPosition());
+				
 				request.getRequestDispatcher("game.jsp").forward(request, response);
-//				response.sendRedirect("SNL.jsp");
 			}
 			else
 			{
-//				String s=String.valueOf(blockId);
+//				String s = String.valueOf(blockId);
 //				request.setAttribute("currentpos", currentPos.getPosition());
-//				request.setAttribute("result", s);
-//				request.getRequestDispatcher("GetBlockValue").forward(request, response);
-			
 				
 				request.setAttribute("currentpos", currentPos.getPosition());
 				request.getRequestDispatcher("game.jsp").forward(request, response);

@@ -95,7 +95,7 @@ public class GetBlockValue extends HttpServlet {
 				que.setAnswer(null);
 				request.setAttribute("valp", newPlayer);
 				request.setAttribute("que", que);
-				request.getRequestDispatcher("Question1.jsp").forward(request, response);
+				request.getRequestDispatcher("question.jsp").forward(request, response);
 			}
 		}
 		catch (Exception e) {
