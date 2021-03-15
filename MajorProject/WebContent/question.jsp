@@ -67,45 +67,6 @@
 <%@ include file="QuestionCss.css"%>
 </style>
 
-<%-- <%
-class ValueObject{
-	
-	 private int id;
-	 private String option;
-	 private int pos;
-	 
-	 public int getId() {
-			return id;
-		}
-
-		public void setId(int id) {
-			this.id = id;
-		}
-
-		public String getOption() {
-			return option;
-		}
-
-		public void setOption(String option) {
-			this.option = option;
-		}
-
-		public int getPos() {
-			return pos;
-		}
-
-		public void setPos(int pos) {
-			this.pos = pos;
-		}
-
-}
-
-ValueObject obj1=new ValueObject();
-obj1.setId(Integer.parseInt((String)request.getAttribute("que.id")));
-obj1.setOption((String)request.getAttribute("que.option1"));
-obj1.setPos(Integer.parseInt((String)request.getAttribute("valp.position")));
-
-%> --%>
 
 <body id="bdy">
 	<div class="container">
@@ -118,33 +79,52 @@ obj1.setPos(Integer.parseInt((String)request.getAttribute("valp.position")));
 					<div class="col-xs-3 5"></div>
 					<div class="quiz" id="quiz" data-toggle="buttons">
 						
-						<a href="answer-match?id=${que.id}&option=${que.option1}&pos=${valp.position}"><label
-							class="element-animation1 btn btn-lg btn-danger btn-block mt-1"><span
-							class="btn-label"><i
-								class="glyphicon glyphicon-chevron-right"></i></span>
-							<h5>${que.option1}</h5></label></a><br>
+							
+							<form action="answer-match" method="post">
+								<label class="element-animation1 btn btn-lg btn-danger btn-block mt-1">
+								<span class="btn-label">
+								<i class="glyphicon glyphicon-chevron-right"></i></span>
+								<input type="submit" style="display: none">${que.option1}</label>
+								<input type="hidden" name="id" value="${que.id}">
+								<input type="hidden" name="option" value="${que.option1}">
+								<input type="hidden" name="pos" value="${valp.position}">
+							</form>
 							
 							
-						<a href="answer-match?id=${que.id}&option=${que.option2}&pos=${valp.position}"><label
-							class="element-animation2 btn btn-lg btn-danger btn-block mt-1"><span
-							class="btn-label"><i
-								class="glyphicon glyphicon-chevron-right"></i></span>
-							<h5>${que.option2}</h5></label></a><br>
-						
-						
-						<a href="answer-match?id=${que.id}&option=${que.option3}&pos=${valp.position}"><label
-							class="element-animation3 btn btn-lg btn-danger btn-block mt-1"><span
-							class="btn-label"><i
-								class="glyphicon glyphicon-chevron-right"></i></span>
-								<h5>${que.option3}</h5></label></a><br>
+							
+							<form action="answer-match" method="post">
+								<label class="element-animation2 btn btn-lg btn-danger btn-block mt-1">
+								<span class="btn-label">
+								<i class="glyphicon glyphicon-chevron-right"></i></span>
+								<input type="submit" style="display: none">${que.option2}</label>
+								<input type="hidden" name="id" value="${que.id}">
+								<input type="hidden" name="option" value="${que.option2}">
+								<input type="hidden" name="pos" value="${valp.position}">
+							</form>
 							
 							
-						<a href="answer-match?id=${que.id}&option=${que.option4}&pos=${valp.position}">
-						<label
-							class="element-animation4 btn btn-lg btn-danger btn-block mt-1"><span
-							class="btn-label"><i
-								class="glyphicon glyphicon-chevron-right"></i></span>
-							<h5>${que.option4}</h5></label></a>
+							
+							<form action="answer-match" method="post">
+								<label class="element-animation3 btn btn-lg btn-danger btn-block mt-1">
+								<span class="btn-label">
+								<i class="glyphicon glyphicon-chevron-right"></i></span>
+								<input type="submit" style="display: none">${que.option3}</label>
+								<input type="hidden" name="id" value="${que.id}">
+								<input type="hidden" name="option" value="${que.option3}">
+								<input type="hidden" name="pos" value="${valp.position}">
+							</form>
+							
+							
+							
+							<form action="answer-match" method="post">
+								<label class="element-animation4 btn btn-lg btn-danger btn-block mt-1">
+								<span class="btn-label">
+								<i class="glyphicon glyphicon-chevron-right"></i></span>
+								<input type="submit" style="display: none">${que.option4}</label>
+								<input type="hidden" name="id" value="${que.id}">
+								<input type="hidden" name="option" value="${que.option4}">
+								<input type="hidden" name="pos" value="${valp.position}">
+							</form>
 							
 					</div>
 				</div>
