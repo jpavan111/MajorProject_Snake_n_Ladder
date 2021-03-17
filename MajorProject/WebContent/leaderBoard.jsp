@@ -2,6 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="Header.jsp"></jsp:include>
+
+<%
+	if(session.getAttribute("newSession") == null)
+		response.sendRedirect("login.jsp");
+%>  
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,26 +41,6 @@
 </head>
 
 <body>
-
-
-
-
-
-	<%
-        String p = request.getParameter("p");
-       if("1".equals(p)){
-    	 // System.out.println("channn"); 
-       }else
-       {
-    	   String redirectURL = "read-leaderboard";
- 	      response.sendRedirect(redirectURL); 
-       }
-    	   
-    
-    %>
-    
-   
-
 	<div class="bg-light d-flex align-items-center justify-content-center mt-5" >
 	
 	 
@@ -69,16 +56,20 @@
 			</thead>
 			
 			<tbody>
-			<%! int  count=1; %>
+			<% 	int count=1;
+		    	if(count==1)
+		    	{
+		    	%>
 			<c:forEach var="item" items="${playerList}">
 				<tr>
-					<th scope="row"><%=count %></th>
-					<%count=count+1; %>
+					<th scope="row"><%= count++ %></th>
 					<td>${item.name}</td>
 					<td>${item.score}</td>
 					
 				</tr>
 			 </c:forEach>
+			  <%
+			 }count=1; %>
 			</tbody>
 		</table>
 

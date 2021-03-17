@@ -16,9 +16,13 @@ import javax.persistence.Table;
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private int id;
+		@Column(nullable = false, unique = true)
 		private String username;
+		@Column(nullable = false, unique = true)
 		private String email;
+		@Column(nullable = false)
 		private String password;
+		@Column(nullable = false)
 		private String myhash;
 		@Column(name= "active", columnDefinition = "int(1) default '0'")
 		private int active;

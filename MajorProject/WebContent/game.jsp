@@ -1,7 +1,13 @@
 <%@page import="org.hibernate.internal.build.AllowSysOut"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
+
+
+<%
+	if(session.getAttribute("newSession") == null)
+		response.sendRedirect("login.jsp");
+%>  
+
 	
 <!DOCTYPE html>
 <html>
@@ -20,7 +26,7 @@
 	crossorigin="anonymous">
 
 <style> 
-	<%@ include file="GameCss.css"%>
+	<%@ include file="./styles/GameCss.css"%>
 </style>
 <meta charset="ISO-8859-1">
 <title>Snakes and Ladders</title>

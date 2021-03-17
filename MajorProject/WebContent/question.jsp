@@ -64,7 +64,7 @@
     }
 }
 
-<%@ include file="QuestionCss.css"%>
+<%@ include file="./styles/QuestionCss.css"%>
 </style>
 
 

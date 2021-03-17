@@ -19,8 +19,8 @@ public class UpdatePassword extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String userNewPassword = request.getParameter("userNewPassword");
-		String confirmPassword = request.getParameter("confirmPassword");
+		String userNewPassword = request.getParameter("password");
+		String confirmPassword = request.getParameter("confirm");
 		String email = request.getParameter("email");
 		
 		if(userNewPassword == null || confirmPassword == null || !userNewPassword.equals(confirmPassword))

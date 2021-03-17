@@ -1,0 +1,40 @@
+@import 'utilities' ;
+
+
+
+    .securityCode {
+        width: 70%;
+        height: 65px;
+        background: url('../images/blueBg.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: absolute;
+        p {
+            text-align: center;
+            line-height: 70px;
+        color: #FFF;
+        font-family:"Montserrat";
+        font-size: 5rem;
+        font-weight: bold;
+        letter-spacing: 10px;
+        user-select: none;
+        }
+        .icons {
+            position: absolute;
+            bottom: 0;
+            right: 10px;
+            .fas {
+                font-size: 1rem;
+                color: #fff;
+                padding: 10px 5px;
+                cursor: pointer;
+                transition: 0.2s ease;
+                &:hover {
+                    color: $blue;
+                }
+            }
+        }
+    }
+   
+    
