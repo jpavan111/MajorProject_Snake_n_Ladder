@@ -1,0 +1,46 @@
+
+
+.securityCode {
+  width: 70%;
+  height: 65px;
+  background: url("../images/blueBg.jpg");
+  border-radius: 30px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+ .securityCode p {
+  text-align: center;
+  line-height: 70px;
+  color: #FFF;
+  font-family: "Montserrat";
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 10px;
+  user-select: none;
+}
+
+.securityCode .icons {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+}
+
+.securityCode .icons .fas {
+  font-size: 1.5rem;
+  color: #fff;
+  padding: 10px 5px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+ .securityCode .icons .fas:hover {
+  color: #037AE2;
+}
+
+
+
+
+ 

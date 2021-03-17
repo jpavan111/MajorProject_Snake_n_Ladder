@@ -9,35 +9,40 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Dao.LoginDao;
+import Dao.PlayerDao;
 import Entity.User;
 
-
-/**
- * Servlet implementation class LoginServlet
- */
 @WebServlet("/login-servlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try
 		{
+//			Getting User Entered Parameters
 			String email=request.getParameter("email");
 			String password=request.getParameter("password");
 			
+//			Checking the answer
 			LoginDao dao = new LoginDao();
 			User user = new User(null, email, password, null);
 			boolean check =  dao.authenticateUser(user);
 			
+//			Extracting player details
+			PlayerDao pdao = new PlayerDao();
+			User p = pdao.getPlayerDetails(user);
+			
+			
 			if(check == true) {
-//				HttpSession session=request.getSession();
-//				session.setAttribute("my-auth", 1);
+				
+//				Setting player object into Session
+				HttpSession session=request.getSession();
+				session.setAttribute("newSession", 1);
+				session.setAttribute("playerObject", p);
 				
 				response.sendRedirect("index.jsp");
-			} else {
+			}
+			else {
 				throw new Exception("Authentication Failed");
 			}
 			
