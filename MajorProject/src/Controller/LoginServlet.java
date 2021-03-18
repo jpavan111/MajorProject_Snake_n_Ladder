@@ -32,6 +32,9 @@ public class LoginServlet extends HttpServlet {
 			PlayerDao pdao = new PlayerDao();
 			User p = pdao.getPlayerDetails(user);
 			
+			p.setPassword(null);
+			p.setMyhash(null);
+			p.setActive(1);
 			
 			if(check == true) {
 				
@@ -39,6 +42,9 @@ public class LoginServlet extends HttpServlet {
 				HttpSession session=request.getSession();
 				session.setAttribute("newSession", 1);
 				session.setAttribute("playerObject", p);
+				session.setAttribute("playerId", p.getId());
+				session.setAttribute("playerName", p.getUsername());
+				session.setAttribute("playerEmail", p.getEmail());
 				
 				response.sendRedirect("index.jsp");
 			}

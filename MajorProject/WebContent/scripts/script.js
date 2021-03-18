@@ -24,19 +24,14 @@ function createCaptcha()  {
     let code = a + b + c + d + e + f + g ;
     return code ;
 } 
-submitBtn.addEventListener('click',() => {
-    let val = input.value ;
-    if(val == '') {
-        alert('Please Enter The Captcha') ;
-    }
-    else if(val === code.textContent) {
-        
-    }
-    else {
-        alert('Wrong Captcha !') ;
-    }
-}) 
-readTextBtn.addEventListener('click', () => {
-    let text = code.textContent ;
-    responsiveVoice.speak(text,{rate:0.8});
-})
+
+    
+    function onDiff() {
+    	   let val = input.value ;
+    	  if (val === code.textContent) {
+    	    input.setCustomValidity('');
+    	  } else {
+    	    input.setCustomValidity('Wrong Captcha');
+    	  }
+    	}
+    

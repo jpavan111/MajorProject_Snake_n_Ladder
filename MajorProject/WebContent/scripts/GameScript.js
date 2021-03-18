@@ -1,6 +1,6 @@
 
 
-var x = document.getElementById("myAudio"); 
+	 var x = document.getElementById("myAudio"); 
      function playAudio() { 
                            x.play();
                     }
@@ -10,7 +10,7 @@ var x = document.getElementById("myAudio");
      /*/////////////////////////////////////////////////////////// */
      
      
-     var position = 1;
+    var position = 1;
     
     
  	var currentPosition = 1;
@@ -37,6 +37,8 @@ var x = document.getElementById("myAudio");
 	{old: 99, new: 78}
 ];
 
+
+
 function moveCursor(digits) {
 	var cursorElem = document.getElementById("cursor");
 	var newPosElem = document.getElementById(position = position + digits);
@@ -47,6 +49,8 @@ function moveCursor(digits) {
  	document.getElementById("cursor").click(); 
 	currentPosition = document.getElementById("cursor");
 }
+
+
 
 
 function checkSnakeOrLadder() {

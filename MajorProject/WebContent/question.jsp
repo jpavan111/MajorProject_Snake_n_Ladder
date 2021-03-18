@@ -1,3 +1,4 @@
+<%@page import="Entity.General_Knowledge"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	
@@ -68,12 +69,52 @@
 </style>
 
 
+<% 
+  	/* Getting Player Object from Session */
+	General_Knowledge que = null;
+	General_Knowledge selectedOption1 = null;
+	General_Knowledge selectedOption2 = null;
+	General_Knowledge selectedOption3 = null;
+	General_Knowledge selectedOption4 = null;
+	
+
+  	if(session.getAttribute("newSession") == null)
+		response.sendRedirect("login.jsp");
+	else
+	{
+		que = (General_Knowledge) request.getSession().getAttribute("que");
+		
+		/* selectedOption1 = que;
+		selectedOption1.setOption2(null);
+		selectedOption1.setOption3(null);
+		selectedOption1.setOption4(null);
+		
+		selectedOption2 = que;
+		selectedOption2.setOption1(null);
+		selectedOption2.setOption3(null);
+		selectedOption2.setOption4(null);
+	
+		selectedOption3 = que;
+		selectedOption3.setOption1(null);
+		selectedOption3.setOption2(null);
+		selectedOption3.setOption4(null);
+		
+		selectedOption4 = que;
+		selectedOption4.setOption1(null);
+		selectedOption4.setOption2(null);
+		selectedOption4.setOption3(null); */
+	
+		//System.out.println(player.getPlayerName());
+		//System.out.println(que.getId());
+	}
+%>
+
 <body id="bdy">
 	<div class="container">
 		<div class="modal-dialog " style="margin-top: 12%">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3>Q${que.id}.${que.question}</h3>
+					<h3>Q${que.getId()}.${que.getQuestion()}</h3>
 				</div>
 				<div class="modal-body">
 					<div class="col-xs-3 5"></div>
@@ -84,10 +125,8 @@
 								<label class="element-animation1 btn btn-lg btn-danger btn-block mt-1">
 								<span class="btn-label">
 								<i class="glyphicon glyphicon-chevron-right"></i></span>
-								<input type="submit" style="display: none">${que.option1}</label>
-								<input type="hidden" name="id" value="${que.id}">
-								<input type="hidden" name="option" value="${que.option1}">
-								<input type="hidden" name="pos" value="${valp.position}">
+								<input type="submit" style="display: none">${que.getOption1()}</label>
+								<input type="hidden" name="id" value="${que.getOption1()}">
 							</form>
 							
 							
@@ -96,10 +135,8 @@
 								<label class="element-animation2 btn btn-lg btn-danger btn-block mt-1">
 								<span class="btn-label">
 								<i class="glyphicon glyphicon-chevron-right"></i></span>
-								<input type="submit" style="display: none">${que.option2}</label>
-								<input type="hidden" name="id" value="${que.id}">
-								<input type="hidden" name="option" value="${que.option2}">
-								<input type="hidden" name="pos" value="${valp.position}">
+								<input type="submit" style="display: none">${que.getOption2()}</label>
+								<input type="hidden" name="id" value="${que.getOption2()}">
 							</form>
 							
 							
@@ -108,10 +145,8 @@
 								<label class="element-animation3 btn btn-lg btn-danger btn-block mt-1">
 								<span class="btn-label">
 								<i class="glyphicon glyphicon-chevron-right"></i></span>
-								<input type="submit" style="display: none">${que.option3}</label>
-								<input type="hidden" name="id" value="${que.id}">
-								<input type="hidden" name="option" value="${que.option3}">
-								<input type="hidden" name="pos" value="${valp.position}">
+								<input type="submit" style="display: none">${que.getOption3()}</label>
+								<input type="hidden" name="id" value="${que.getOption3()}">
 							</form>
 							
 							
@@ -120,11 +155,10 @@
 								<label class="element-animation4 btn btn-lg btn-danger btn-block mt-1">
 								<span class="btn-label">
 								<i class="glyphicon glyphicon-chevron-right"></i></span>
-								<input type="submit" style="display: none">${que.option4}</label>
-								<input type="hidden" name="id" value="${que.id}">
-								<input type="hidden" name="option" value="${que.option4}">
-								<input type="hidden" name="pos" value="${valp.position}">
+								<input type="submit" style="display: none">${que.getOption4()}</label>
+								<input type="hidden" name="id" value="${que.getOption4()}">
 							</form>
+							
 							
 					</div>
 				</div>

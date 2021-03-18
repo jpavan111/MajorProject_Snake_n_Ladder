@@ -55,8 +55,8 @@
 
 
 			<div class="userInput">
-	            <i class="fas fa-captcha"></i>
-    	        <input type="text" placeholder="Enter Captcha here" required /> 
+            	<i class="fas fa-captcha"></i>
+            	<input type="text" placeholder="Enter Captcha here" onChange="onDiff()" required /> 
         	</div>
             
             

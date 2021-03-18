@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Dao.BlockDao;
+import Dao.ReadLeaderBoardDao;
 import Entity.General_Knowledge;
+import Entity.Leaderboard;
 import Entity.Player;
 
 @WebServlet("/answer-match")
@@ -21,35 +23,42 @@ public class AnswerMatch extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//doGet(request, response);
 		
 		try {
-			int blockId = Integer.parseInt(request.getParameter("id"));
+			String answer = request.getParameter("id");
 			
-			int valp=Integer.parseInt(request.getParameter("pos"));
-			Player currentPos=new Player();
-			currentPos.setPosition(valp);
-			String answer = request.getParameter("option");
+			Player player = (Player)request.getSession().getAttribute("itsme");
+			
+			General_Knowledge que = (General_Knowledge) request.getSession().getAttribute("que");
 			
 			BlockDao dao = new BlockDao();
 			
-			General_Knowledge gk = new General_Knowledge(blockId, null, null, null, null, null, null, answer);
+			General_Knowledge gk = new General_Knowledge(que.getId(), null, null, null, null, null, null, answer);
 			
 			Boolean check = dao.getAnswer(gk);
 			
 			if(check == true)
 			{	
-				request.setAttribute("currentpos", currentPos.getPosition());
+				player.setGkScore(player.getGkScore()+1);
 				
-				request.getRequestDispatcher("game.jsp").forward(request, response);
+//				Updating score into leaderboard
+				Leaderboard lb = new Leaderboard();
+				lb.setId(player.getPlayerId());
+				lb.setName(player.getPlayerName());
+				lb.setScore(player.getGkScore());
+				
+				ReadLeaderBoardDao score = new ReadLeaderBoardDao();
+				score.setGK_Score(lb);
+				
+//				System.out.println("Score: "+lb.getScore());
+				
+				request.getSession().setAttribute("itsme", player);
+				response.sendRedirect("game.jsp");
 			}
 			else
 			{
-//				String s = String.valueOf(blockId);
-//				request.setAttribute("currentpos", currentPos.getPosition());
-				
-				request.setAttribute("currentpos", currentPos.getPosition());
-				request.getRequestDispatcher("game.jsp").forward(request, response);
+				request.getSession().setAttribute("itsme", player);
+				response.sendRedirect("game.jsp");
 			}
 		}
 		
