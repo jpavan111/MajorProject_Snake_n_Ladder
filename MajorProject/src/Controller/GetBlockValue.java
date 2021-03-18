@@ -18,7 +18,7 @@ import Entity.VisitedBlock;
 public class GetBlockValue extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	static Player newPlayer = new Player();
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
@@ -29,57 +29,32 @@ public class GetBlockValue extends HttpServlet {
 		
 		try {
 			Object blockId = (String)request.getParameter("block");
-			int blockId1=0;
+			Player player = (Player)request.getSession().getAttribute("itsme");
+			
+			 int pos=Integer.parseInt(new String((String) blockId));
+			 player.setPosition(pos);
 			
 			
-			if(Integer.parseInt(new String((String) blockId)) >= 1)
-			{
-				newPlayer.setPosition(Integer.parseInt(new String((String) blockId)));
-			}
-			else if(request.getParameter("currentpos") != null){
-				newPlayer.setPosition(Integer.parseInt(request.getParameter("currentpos")));
-			}
-			
-			
-			
-			
-			
-//			For wrong Answer
-			
-			if(blockId == null)
-			{
-				blockId =  request.getAttribute("result");
-				
-//			Converting Object to int
-				blockId1 = Integer.parseInt(new String((String) blockId));
-			}
-			
-			
-//			For 1st reply or Correct Answer
-			else {
-//			Converting Object to int
-				blockId1 = Integer.parseInt(new String((String) blockId));
-			
-//			Randomizing Input Id
-				if(Integer.parseInt(new String((String) blockId)) < 21)
+			int questionNo=0;
+				if(player.getPosition()< 21)
 				{
 					Random random = new Random();
-					blockId1 = random.nextInt(20 - 1) + 1;
+					questionNo = random.nextInt(20 - 1) + 1;
 				}
-				else if(Integer.parseInt(new String((String) blockId)) > 20 && Integer.parseInt(new String((String) blockId)) < 51)
+				else if(player.getPosition() > 20 && player.getPosition() < 51)
 				{
 					Random random = new Random();
-					blockId1 = random.nextInt(50 - 21) + 21;
+					questionNo = random.nextInt(50 - 21) + 21;
 				}
 				else
 				{
 					Random random = new Random();
-					blockId1 = random.nextInt(100 - 51) + 51;
+					questionNo = random.nextInt(100 - 51) + 51;
 				}
-			}
+			
 
 			
-			VisitedBlock visit = new VisitedBlock(blockId1, false);
+			VisitedBlock visit = new VisitedBlock(questionNo, false);
 			
 			if(visit.getVisit() != true)
 			{	
@@ -87,21 +62,21 @@ public class GetBlockValue extends HttpServlet {
 			
 				BlockDao dao = new BlockDao();
 				
-				General_Knowledge gk = new General_Knowledge(blockId1, null, null, null, null, null, null, null);
+				General_Knowledge gk = new General_Knowledge(questionNo, null, null, null, null, null, null, null);
 				
 				General_Knowledge que = dao.getQuestion(gk);
 				
 				
 				que.setAnswer(null);
-				request.setAttribute("valp", newPlayer);
-				request.setAttribute("que", que);
-				request.getRequestDispatcher("question.jsp").forward(request, response);
+				request.getSession().setAttribute("itsme", player);
+				request.getSession().setAttribute("que", que);
+				response.sendRedirect("question.jsp");
 			}
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Question fetching failed");
-			request.getRequestDispatcher("game.jsp").forward(request, response);
+			response.sendRedirect("game.jsp");
 		}		
 	}
 
