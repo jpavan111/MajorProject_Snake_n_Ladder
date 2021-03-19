@@ -53,14 +53,23 @@ public class ReadLeaderBoardDao {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 
-		String sql = "INSERT INTO leaderboard(id, name, score) values(?,?,?)";
-		
-		session.createNativeQuery(sql, Leaderboard.class)
-				.setParameter(1, objlb.getId())
-				.setParameter(2, objlb.getName())
-				.setParameter(3, objlb.getScore())
-				.executeUpdate();
-		
+		try {
+			String sql1 = "SELECT * FROM leaderboard where id=:id";
+			
+			Leaderboard objectSearch = session.createNativeQuery(sql1, Leaderboard.class)
+												.setParameter("id", objlb.getId())
+												.getSingleResult();
+			
+			
+			String sql3 = "UPDATE leaderboard SET score=0 where id=:id";
+			
+			session.createNativeQuery(sql3)
+					.setParameter("id", objlb.getId())
+					.executeUpdate();
+			
+		} catch (Exception e) {
+			session.save(objlb);
+		}
 		session.getTransaction().commit();
 		session.close();
 	}

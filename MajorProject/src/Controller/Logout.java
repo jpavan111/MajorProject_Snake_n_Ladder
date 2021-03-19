@@ -16,8 +16,12 @@ public class Logout extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		session.invalidate();// used for to remove all the data
-		response.sendRedirect("login.jsp");// after logout it will redirect to u login page
+		session.removeAttribute("que");
+		session.removeAttribute("itsme");
+		session.removeAttribute("newSession");
+		session.removeAttribute("playerObject");
+		session.invalidate();						// used for to remove all the data
+		response.sendRedirect("login.jsp");			// after logout it will redirect to u login page
 	}
 
 }
