@@ -20,21 +20,17 @@ public class OtpMatch extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String userOtp = request.getParameter("userOtp");
-		OtpClass otpObj = (OtpClass) request.getAttribute("otpObject");
-//		OtpClass otpObj = (OtpClass)otpObj1;
-//		System.out.println(otpObj.getEmail());
+		OtpClass otpObj = (OtpClass) request.getSession().getAttribute("otpObj");
 		
 		if(userOtp == null)
 		{
-			request.setAttribute("otpObj", otpObj);
 		    request.getRequestDispatcher("ConfirmOTP.jsp").forward(request, response);
 		}
 		else
 		{
 			try {
-				if(userOtp.equals(String.valueOf(otpObj.getEmail())))
+				if(userOtp.equals(otpObj.getRandomOtp()))
 				{
-					request.setAttribute("otpObj", otpObj);
 					request.getRequestDispatcher("UpdatePassword.jsp").forward(request, response);
 				}
 				else
@@ -44,7 +40,6 @@ public class OtpMatch extends HttpServlet {
 				
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
-				request.setAttribute("otpObj", otpObj);
 			    request.getRequestDispatcher("ConfirmOTP.jsp").forward(request, response);
 			}
 		}

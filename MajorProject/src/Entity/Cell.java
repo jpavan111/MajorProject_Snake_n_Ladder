@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Tile")
-public class Tile {
+public class Cell {
 	
 	@Id
 	@Column(name="Value")
@@ -19,11 +19,11 @@ public class Tile {
 	@Column(name="Ladder")
 	Ladder ladder;
 
-	public Tile() {
+	public Cell() {
 		super();
 	}
 
-	public Tile(int value, Snake snake, Ladder ladder) {
+	public Cell(int value, Snake snake, Ladder ladder) {
 		super();
 		this.value = value;
 		this.snake = snake;

@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Dao.UserDao;
 import Entity.OtpClass;
@@ -22,19 +23,22 @@ public class UpdatePassword extends HttpServlet {
 		
 		String userNewPassword = request.getParameter("password");
 		String confirmPassword = request.getParameter("confirm");
-		Object otpObj1 =  (Object)request.getParameter("otpObj");
-		OtpClass otpObj= (OtpClass)otpObj1;
-		String email = String.valueOf(otpObj.getEmail());
+		OtpClass otpObj = (OtpClass) request.getSession().getAttribute("otpObj");
+		String email = otpObj.getEmail();
 		
 		if(userNewPassword == null || confirmPassword == null || !userNewPassword.equals(confirmPassword))
 		{
-		    request.setAttribute("emailOtp", email);
 		    request.getRequestDispatcher("UpdatePassword.jsp").forward(request, response);
 		}
 		else
 		{
 			UserDao dao = new UserDao();
 			dao.confirmPassword(email, userNewPassword);
+			
+			HttpSession otpSession = request.getSession();
+			otpSession.removeAttribute("otpObj");
+			otpSession.invalidate();
+			
 			response.sendRedirect("login.jsp");
 		}
 		

@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -351,6 +350,7 @@ form.sign-in-form {
             <h2 class="title">Recover Your Password</h2>
              <div class="input-field">
               <i class="fas fa-envelope"></i>
+              
               <input type="email" name="email" placeholder="Enter Your Email ID"
                 class="form-control" id="exampleInputEmail1"
 				aria-describedby="emailHelp" 
@@ -359,7 +359,6 @@ form.sign-in-form {
 				oninput="setCustomValidity(' ')"
 				oninvalid="this.setCustomValidity('*Please enter valid Email')"/>
             </div>
-           
                       
             <input type="submit" value="Submit" class="btn"/>
             
