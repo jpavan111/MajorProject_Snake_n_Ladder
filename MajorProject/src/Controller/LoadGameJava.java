@@ -15,8 +15,8 @@ import Entity.Leaderboard;
 import Entity.Player;
 import Entity.User;
 
-@WebServlet("/load-game")
-public class LoadGame extends HttpServlet {
+@WebServlet("/load-game-java")
+public class LoadGameJava extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,21 +41,22 @@ public class LoadGame extends HttpServlet {
 			player.setJavaScore(0);
 			
 			
-//			Creating + Inserting player entry into leaderboard
+//			Creating + Inserting player entry into leader board
 			ReadLeaderBoardDao lb = new ReadLeaderBoardDao();
 			Leaderboard objlb= new Leaderboard();
 			objlb.setId(player.getPlayerId());
 			objlb.setName(player.getPlayerName());
-			objlb.setScore(0);
-			lb.createGetLeaderboard(objlb);
+			objlb.setGkScore(0);
+			objlb.setJavaScore(0);
+			lb.createGetLeaderboardJava(objlb);
 			
 			
 			request.getSession().setAttribute("itsme", player);
-			response.sendRedirect("game.jsp");
+			response.sendRedirect("Java_game.jsp");
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());
-			request.getRequestDispatcher("game.jsp").forward(request, response);
+			request.getRequestDispatcher("Java_game.jsp").forward(request, response);
 		}
 	}
 

@@ -2,12 +2,14 @@ package Entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Java_Questions")
-public class Java_Questions {
+@Table(name="Java")
+public class JavaMcq {
 	
 	@Id
 	@Column(name="Id")
@@ -34,11 +36,12 @@ public class Java_Questions {
 	@Column(name="Answer", nullable = false)
 	private String Answer;
 	
-	public Java_Questions() {
+	
+	public JavaMcq() {
 		super();
 	}
 
-	public Java_Questions(int id, String stage, String question, String option1, String option2, String option3,
+	public JavaMcq(int id, String stage, String question, String option1, String option2, String option3,
 			String option4, String answer) {
 		super();
 		this.id = id;
@@ -114,4 +117,5 @@ public class Java_Questions {
 	public void setAnswer(String answer) {
 		Answer = answer;
 	}
+
 }

@@ -58,7 +58,6 @@ else {
 
 
 		<form action="load-game" method="post">
-		
 <!-- 			<button class="button"> -->
 			<input class="button" type="submit" value="Play with G.K." />
 			<input type="hidden" name="obj" value="${playerObj}">
@@ -66,14 +65,11 @@ else {
 		<!-- 	</button> -->
 		&nbsp &nbsp
 		
-		<a href="game.jsp">
-			<button class="button">
-				<b><span>Play </span></b><br>
-				<h6>
-					<b>with JAVA</b>
-				</h6>
-			</button>
-		</a>
+		<form action="load-game-java" method="post">
+<!-- 			<button class="button"> -->
+			<input class="button" type="submit" value="Play with Java" />
+			<input type="hidden" name="obj" value="${playerObj}">
+			</form>
 		
 	</div>
 

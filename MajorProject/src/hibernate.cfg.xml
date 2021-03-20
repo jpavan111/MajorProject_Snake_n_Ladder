@@ -20,13 +20,7 @@
 		<mapping class="Entity.Player" />
 		<mapping class="Entity.Leaderboard" />
 		<mapping class="Entity.User"/>
-		
-		<!-- <mapping class="Entity.Java_Questions" /> -->
-		
-		<!-- <mapping class="Entity.Ladder" />
-		<mapping class="Entity.Snake" />
-		<mapping class="Entity.Tile" />
-		<mapping class="Entity.Dice" /> -->
+		<mapping class="Entity.JavaMcq"/>
 		
 	</session-factory>
 </hibernate-configuration>

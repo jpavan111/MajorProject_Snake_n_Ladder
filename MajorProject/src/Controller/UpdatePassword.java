@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Dao.UserDao;
+import Entity.OtpClass;
 
 @WebServlet("/update-password")
 public class UpdatePassword extends HttpServlet {
@@ -21,7 +22,9 @@ public class UpdatePassword extends HttpServlet {
 		
 		String userNewPassword = request.getParameter("password");
 		String confirmPassword = request.getParameter("confirm");
-		String email = request.getParameter("email");
+		Object otpObj1 =  (Object)request.getParameter("otpObj");
+		OtpClass otpObj= (OtpClass)otpObj1;
+		String email = String.valueOf(otpObj.getEmail());
 		
 		if(userNewPassword == null || confirmPassword == null || !userNewPassword.equals(confirmPassword))
 		{

@@ -9,13 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Dao.BlockDao;
+import Dao.JavaBlockDao;
 import Dao.ReadLeaderBoardDao;
 import Entity.General_Knowledge;
+import Entity.JavaMcq;
 import Entity.Leaderboard;
 import Entity.Player;
 
-@WebServlet("/answer-match")
-public class AnswerMatch extends HttpServlet {
+@WebServlet("/answer-match-java")
+public class AnswerMatchJava extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,41 +31,43 @@ public class AnswerMatch extends HttpServlet {
 			
 			Player player = (Player)request.getSession().getAttribute("itsme");
 			
-			General_Knowledge que = (General_Knowledge) request.getSession().getAttribute("que");
+			JavaMcq que = (JavaMcq) request.getSession().getAttribute("que");
 			
-			BlockDao dao = new BlockDao();
+			JavaBlockDao dao = new JavaBlockDao();
 			
-			General_Knowledge gk = new General_Knowledge(que.getId(), null, null, null, null, null, null, answer);
+			JavaMcq java = new JavaMcq(que.getId(), null, null, null, null, null, null, answer);
 			
-			Boolean check = dao.getAnswer(gk);
+			Boolean check = dao.getAnswer(java);
 			
 			if(check == true)
 			{	
-				player.setGkScore(player.getGkScore()+1);
+				player.setJavaScore(player.getJavaScore()+1);
 				
 //				Updating score into leaderboard
 				Leaderboard lb = new Leaderboard();
 				lb.setId(player.getPlayerId());
 				lb.setName(player.getPlayerName());
-				lb.setScore(player.getGkScore());
+				lb.setGkScore(0);
+				lb.setJavaScore(player.getJavaScore());
 				
 				ReadLeaderBoardDao score = new ReadLeaderBoardDao();
-				score.setGK_Score(lb);
+				score.setJava_Score(lb);
 				
 //				System.out.println("Score: "+lb.getScore());
 				
 				request.getSession().setAttribute("itsme", player);
-				response.sendRedirect("game.jsp");
+				response.sendRedirect("Java_game.jsp");
 			}
 			else
 			{
 				request.getSession().setAttribute("itsme", player);
-				response.sendRedirect("game.jsp");
+				response.sendRedirect("Java_game.jsp");
 			}
 		}
 		
 		catch (NumberFormatException e) {
 			e.printStackTrace();
+			response.sendRedirect("logout");
 		}
 	}
 
