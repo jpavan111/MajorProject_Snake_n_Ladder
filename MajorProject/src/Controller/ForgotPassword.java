@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Dao.ForgotMailService;
 import Entity.OtpClass;
@@ -32,7 +33,6 @@ public class ForgotPassword extends HttpServlet {
 
 	    
 	    
-	    
 	    ForgotMailService forgot = new ForgotMailService(email, randomOtp);
 	    String otp = forgot.sendForgotEmail();
 	    
@@ -40,7 +40,10 @@ public class ForgotPassword extends HttpServlet {
 	    otpObj.setRandomOtp(otp);
 	    otpObj.setEmail(email);
 	    
-	    request.setAttribute("otpObj", otpObj);
+	    HttpSession otpSession = request.getSession();
+	    otpSession.setAttribute("otpObj", otpObj);
+		
+//	    request.setAttribute("otpObj", otpObj);
 	    request.getRequestDispatcher("ConfirmOTP.jsp").forward(request, response);
 	}
 

@@ -1,4 +1,3 @@
-
 <%@page import="Entity.OtpClass"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -345,11 +344,6 @@ form.sign-in-form {
     </style>
   </head>
   <body>
-  
-    <% Object otpObj1 = (Object) request.getAttribute("otpObj");
-   		OtpClass otpObj = (OtpClass)otpObj1;
-    	System.out.println(String.valueOf(otpObj.getEmail()));
-    %>
     
     <div class="container">
       <div class="forms-container">
@@ -374,8 +368,6 @@ form.sign-in-form {
               class="form-control" id="confirm_passwordid"
               name="confirm" onChange="onChange()"/>
             </div>
-            
-           <input type="hidden" name="email" value="${otpObj}">
                       
             <input type="submit" value="Submit" class="btn"/>
             

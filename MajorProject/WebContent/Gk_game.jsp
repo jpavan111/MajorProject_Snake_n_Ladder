@@ -1,3 +1,5 @@
+
+
 <%@page import="Entity.Player"%>
 <%@page import="org.hibernate.internal.build.AllowSysOut"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -57,7 +59,6 @@
   
 <div class="container">
   <div id='main'>
-<!--   style="pointer-events: none" -->
   <form action="GetBlockValueGk" method="post" style="pointer-events: none">
 		    <div class='box' id='100'><button onclick="playAudio()" class='button5' name="block" value="100">100</button></div>	
 			<div class='box' id='99'><button onclick="playAudio()" class='button5' name="block" value="99">99</button></div>	
@@ -197,7 +198,6 @@
 	else
 	{
 		player = (Player)request.getSession().getAttribute("itsme");
-		//System.out.println(player.getPlayerName());
 	}
   
   

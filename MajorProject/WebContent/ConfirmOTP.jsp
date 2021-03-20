@@ -1,4 +1,3 @@
-
 <%@page import="Entity.OtpClass"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -347,21 +346,14 @@ form.sign-in-form {
   </head>
   <body>
   
-  <% 
-  	 Object otpObj1 = (Object) request.getAttribute("otpObj");
-     OtpClass ob=(OtpClass)otpObj1;
-  %>
-  
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-          <form action="otp-match?otpObject=<%= ob %>" method="post" class="sign-in-form">
+          <form action="otp-match" method="post" class="sign-in-form">
             <h2 class="title">Verify Your Account</h2>
              <div class="input-field">
               <i class="fas fa-otp"></i>
              <input type="text" name="userOtp" placeholder="Enter OTP here"/>
-			 <%-- <input type="hidden" name="otpObject" value="${ob}"> --%>
-			 
             </div>
                       
             <input type="submit" value="Submit" class="btn"/>
