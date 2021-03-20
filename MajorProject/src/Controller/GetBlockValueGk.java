@@ -14,8 +14,8 @@ import Entity.General_Knowledge;
 import Entity.Player;
 import Entity.VisitedBlock;
 
-@WebServlet("/GetBlockValue")
-public class GetBlockValue extends HttpServlet {
+@WebServlet("/GetBlockValueGk")
+public class GetBlockValueGk extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
@@ -70,13 +70,13 @@ public class GetBlockValue extends HttpServlet {
 				que.setAnswer(null);
 				request.getSession().setAttribute("itsme", player);
 				request.getSession().setAttribute("que", que);
-				response.sendRedirect("question.jsp");
+				response.sendRedirect("Gk_question.jsp");
 			}
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Question fetching failed");
-			response.sendRedirect("game.jsp");
+			response.sendRedirect("Gk_game.jsp");
 		}		
 	}
 

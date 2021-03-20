@@ -1,6 +1,8 @@
 
+<%@page import="Entity.OtpClass"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,7 +14,7 @@
       src="https://kit.fontawesome.com/64d58efce2.js"
       crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <title>Enter otp</title>
+    <title>Enter OTP</title>
     
     <style>
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
@@ -344,19 +346,23 @@ form.sign-in-form {
     </style>
   </head>
   <body>
+  
+  <% 
+  	 Object otpObj1 = (Object) request.getAttribute("otpObj");
+     OtpClass ob=(OtpClass)otpObj1;
+  %>
+  
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-          <form action="otp-match" method="post" class="sign-in-form">
+          <form action="otp-match?otpObject=<%= ob %>" method="post" class="sign-in-form">
             <h2 class="title">Verify Your Account</h2>
              <div class="input-field">
               <i class="fas fa-otp"></i>
              <input type="text" name="userOtp" placeholder="Enter OTP here"/>
-			 <input type="hidden" name="emailOtp" value="${randomOtp}">
-			 <input type="hidden" name="email" value="${emailOtp}">
-				
+			 <%-- <input type="hidden" name="otpObject" value="${ob}"> --%>
+			 
             </div>
-           
                       
             <input type="submit" value="Submit" class="btn"/>
             

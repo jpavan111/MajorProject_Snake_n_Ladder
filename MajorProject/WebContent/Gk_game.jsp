@@ -23,7 +23,7 @@
 	<%@ include file="./styles/GameCss.css"%>
 </style>
 <meta charset="ISO-8859-1">
-<title>Snakes and Ladders</title>
+<title>GK Snakes and Ladders</title>
 </head>
 <body onload="cursorPosition()">
 <div class="container-fluid">
@@ -58,7 +58,7 @@
 <div class="container">
   <div id='main'>
 <!--   style="pointer-events: none" -->
-  <form action="GetBlockValue" method="post" style="pointer-events: none">
+  <form action="GetBlockValueGk" method="post" style="pointer-events: none">
 		    <div class='box' id='100'><button onclick="playAudio()" class='button5' name="block" value="100">100</button></div>	
 			<div class='box' id='99'><button onclick="playAudio()" class='button5' name="block" value="99">99</button></div>	
 			<div class='box' id='98'><button onclick="playAudio()" class='button5' name="block" value="98">98</button></div>	
@@ -204,11 +204,6 @@
   
    int positionBack = player.getPosition();
    System.out.println(positionBack);
-   
-   /* if (request.getParameter("pos") != null)
-	   positionBack = Integer.parseInt(request.getParameter("pos"));
-   else
-	   positionBack = 1; */
   %>
        
        

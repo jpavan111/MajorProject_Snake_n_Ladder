@@ -1,4 +1,4 @@
-<%@page import="Entity.General_Knowledge"%>
+<%@page import="Entity.JavaMcq"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	
@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-<title>Question</title>
+<title>Java Question</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -71,41 +71,13 @@
 
 <% 
   	/* Getting Player Object from Session */
-	General_Knowledge que = null;
-	General_Knowledge selectedOption1 = null;
-	General_Knowledge selectedOption2 = null;
-	General_Knowledge selectedOption3 = null;
-	General_Knowledge selectedOption4 = null;
-	
+	JavaMcq que = null;
 
   	if(session.getAttribute("newSession") == null)
 		response.sendRedirect("login.jsp");
 	else
 	{
-		que = (General_Knowledge) request.getSession().getAttribute("que");
-		
-		/* selectedOption1 = que;
-		selectedOption1.setOption2(null);
-		selectedOption1.setOption3(null);
-		selectedOption1.setOption4(null);
-		
-		selectedOption2 = que;
-		selectedOption2.setOption1(null);
-		selectedOption2.setOption3(null);
-		selectedOption2.setOption4(null);
-	
-		selectedOption3 = que;
-		selectedOption3.setOption1(null);
-		selectedOption3.setOption2(null);
-		selectedOption3.setOption4(null);
-		
-		selectedOption4 = que;
-		selectedOption4.setOption1(null);
-		selectedOption4.setOption2(null);
-		selectedOption4.setOption3(null); */
-	
-		//System.out.println(player.getPlayerName());
-		//System.out.println(que.getId());
+		que = (JavaMcq) request.getSession().getAttribute("que");
 	}
 %>
 
@@ -121,7 +93,7 @@
 					<div class="quiz" id="quiz" data-toggle="buttons">
 						
 							
-							<form action="answer-match" method="post">
+							<form action="answer-match-java" method="post">
 								<label class="element-animation1 btn btn-lg btn-danger btn-block mt-1">
 								<span class="btn-label">
 								<i class="glyphicon glyphicon-chevron-right"></i></span>
@@ -131,7 +103,7 @@
 							
 							
 							
-							<form action="answer-match" method="post">
+							<form action="answer-match-java" method="post">
 								<label class="element-animation2 btn btn-lg btn-danger btn-block mt-1">
 								<span class="btn-label">
 								<i class="glyphicon glyphicon-chevron-right"></i></span>
@@ -141,7 +113,7 @@
 							
 							
 							
-							<form action="answer-match" method="post">
+							<form action="answer-match-java" method="post">
 								<label class="element-animation3 btn btn-lg btn-danger btn-block mt-1">
 								<span class="btn-label">
 								<i class="glyphicon glyphicon-chevron-right"></i></span>
@@ -151,7 +123,7 @@
 							
 							
 							
-							<form action="answer-match" method="post">
+							<form action="answer-match-java" method="post">
 								<label class="element-animation4 btn btn-lg btn-danger btn-block mt-1">
 								<span class="btn-label">
 								<i class="glyphicon glyphicon-chevron-right"></i></span>

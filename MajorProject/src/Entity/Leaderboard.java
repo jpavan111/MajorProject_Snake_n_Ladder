@@ -16,17 +16,20 @@ public class Leaderboard {
 	@Column(nullable = false)
 	private String name;
 	@Column(nullable = false)
-	private int score;
-	
-	
+	private int javaScore;
+	@Column(nullable = false)
+	private int gkScore;
+
 	public Leaderboard() {
 		super();
 	}
-	public Leaderboard(int id, String name, int score) {
+	
+	public Leaderboard(int id, String name, int javaScore, int gkScore) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.score = score;
+		this.javaScore = javaScore;
+		this.gkScore = gkScore;
 	}
 	public int getId() {
 		return id;
@@ -40,12 +43,16 @@ public class Leaderboard {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getScore() {
-		return score;
+	public int getJavaScore() {
+		return javaScore;
 	}
-	public void setScore(int score) {
-		this.score = score;
+	public void setJavaScore(int javaScore) {
+		this.javaScore = javaScore;
 	}
-	
-
+	public int getGkScore() {
+		return gkScore;
+	}
+	public void setGkScore(int gkScore) {
+		this.gkScore = gkScore;
+	}
 }

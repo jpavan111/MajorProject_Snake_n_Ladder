@@ -21,7 +21,7 @@ public class ReadLeaderBoardAction extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ReadLeaderBoardDao rv = new ReadLeaderBoardDao();		
-		List<Leaderboard> list=rv.readLeaderBoard();
+		List<Leaderboard> list = rv.readLeaderBoard();
 		
 		request.setAttribute("playerList",list);
 		

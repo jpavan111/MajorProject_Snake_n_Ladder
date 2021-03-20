@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Entity.OtpClass;
+
 @WebServlet("/otp-match")
 public class OtpMatch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -18,21 +20,21 @@ public class OtpMatch extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String userOtp = request.getParameter("userOtp");
-		String emailOtp = request.getParameter("emailOtp");
-		String email = request.getParameter("email");
+		OtpClass otpObj = (OtpClass) request.getAttribute("otpObject");
+//		OtpClass otpObj = (OtpClass)otpObj1;
+//		System.out.println(otpObj.getEmail());
 		
 		if(userOtp == null)
 		{
-			request.setAttribute("randomOtp", emailOtp);
-		    request.setAttribute("emailOtp", email);
+			request.setAttribute("otpObj", otpObj);
 		    request.getRequestDispatcher("ConfirmOTP.jsp").forward(request, response);
 		}
 		else
 		{
 			try {
-				if(userOtp.equals(emailOtp))
+				if(userOtp.equals(String.valueOf(otpObj.getEmail())))
 				{
-				    request.setAttribute("emailOtp", email);
+					request.setAttribute("otpObj", otpObj);
 					request.getRequestDispatcher("UpdatePassword.jsp").forward(request, response);
 				}
 				else
@@ -42,8 +44,7 @@ public class OtpMatch extends HttpServlet {
 				
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
-				request.setAttribute("randomOtp", emailOtp);
-			    request.setAttribute("emailOtp", email);
+				request.setAttribute("otpObj", otpObj);
 			    request.getRequestDispatcher("ConfirmOTP.jsp").forward(request, response);
 			}
 		}
