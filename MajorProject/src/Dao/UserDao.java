@@ -39,5 +39,29 @@ private static final SessionFactory sessionFactory = new Configuration().configu
 		session.close();
 		
 	}
+
+	public boolean checkUser(String email, String username) {
+		
+		Session session = sessionFactory.openSession();
+		
+		String sql = "SELECT * FROM user WHERE email=:email or username=:username";
+		
+		User user = null;
+		try {
+			user = session.createNativeQuery(sql, User.class)
+								.setParameter("email", email)
+								.setParameter("username", username)
+								.getSingleResult();
+			
+			if(user.getEmail().equals(email) || user.getUsername().equals(username))
+				return false;
+			
+		} catch (Exception e) {
+			System.out.println("Error in User dao");
+		}
+		
+		session.close();
+		return true;
+	}
 	
 }

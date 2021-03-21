@@ -23,5 +23,10 @@ public class Logout extends HttpServlet {
 		session.invalidate();						// used for to remove all the data
 		response.sendRedirect("login.jsp");			// after logout it will redirect to u login page
 	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doGet(request, response);
+	}
 
 }

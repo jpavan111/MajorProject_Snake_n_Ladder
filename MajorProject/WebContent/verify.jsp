@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Email Sent</title>
 <style>
 	<%@ include file="./styles/verify.css"%>
 </style>

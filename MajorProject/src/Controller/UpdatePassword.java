@@ -39,7 +39,8 @@ public class UpdatePassword extends HttpServlet {
 			otpSession.removeAttribute("otpObj");
 			otpSession.invalidate();
 			
-			response.sendRedirect("login.jsp");
+			request.setAttribute("updatedPassword", 1);
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 		
 	}

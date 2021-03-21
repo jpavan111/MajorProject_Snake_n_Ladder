@@ -1,15 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
-<%
-	HttpSession sessionError = request.getSession();
-	sessionError.removeAttribute("otpObj");
-	sessionError.removeAttribute("newSession");
-	sessionError.removeAttribute("que");
-	sessionError.removeAttribute("itsme");
-	sessionError.removeAttribute("playerObject");
-	sessionError.invalidate();
-%>
 	
 <!DOCTYPE html>
 <html>
