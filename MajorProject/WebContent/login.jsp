@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page errorPage="error.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,13 +37,13 @@
                 pattern="^[a-zA-Z0-9.!#$%&+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$"
 				onchange="try{setCustomValidity('')}catch(e){}"
 				oninput="setCustomValidity(' ')"
-				oninvalid="this.setCustomValidity('*Please enter valid Email')"/>
+				oninvalid="this.setCustomValidity('*Please enter valid Email')" required="required"/>
               
               
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" name="password" placeholder="Password" />
+              <input type="password" name="password" placeholder="Password" readonly="readonly"/>
             </div>
             
             
