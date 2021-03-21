@@ -1,10 +1,9 @@
-
-
 <%@page import="Entity.Player"%>
 <%@page import="org.hibernate.internal.build.AllowSysOut"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-	
+<%@page errorPage="error.jsp" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,10 +29,6 @@
 <body onload="cursorPosition()">
 <div class="container-fluid">
 <div class="row">
-
-
-
-
 <div class="col-3 text-center">
 <div class="container1" style="display: block; margin-left: 35%; margin-top: 80%">
 	<button type="button" class="btn btn-danger" style="width: 70%; font-size: 20px; border-radius: 10px; width:150px">
@@ -48,8 +43,6 @@
   <button onclick="moveCursor(6)" value="6">6</button>
 </div></div>							
 </div>
-
-
 <div class="col-6">
 <div class="container-sm">
 <div class="container-md">
@@ -200,15 +193,12 @@
 		player = (Player)request.getSession().getAttribute("itsme");
 	}
   
-  
-  
    int positionBack = player.getPosition();
    System.out.println(positionBack);
   %>
        
        
 	<script>
-
 	 function cursorPosition()
      {
     	 
@@ -245,9 +235,6 @@
 		{old: 91, new: 72},
 		{old: 99, new: 78}
 	];
-
-
-
 	function moveCursor(digits) {
 		var cursorElem = document.getElementById("cursor");
 		var newPosElem = document.getElementById(position = position + digits);
@@ -258,10 +245,6 @@
 	 	document.getElementById("cursor").click(); 
 		currentPosition = document.getElementById("cursor");
 	}
-
-
-
-
 	function checkSnakeOrLadder() {
 		var cursorElem = document.getElementById("cursor");
 		for(var i = 0; i < snakeAndLadderPos.length; i++){
