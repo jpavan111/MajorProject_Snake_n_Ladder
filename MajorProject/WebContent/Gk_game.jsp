@@ -23,6 +23,7 @@
 <style> 
 	<%@ include file="./styles/GameCss.css"%>
 </style>
+
 <meta charset="ISO-8859-1">
 <title>GK Snakes and Ladders</title>
 </head>

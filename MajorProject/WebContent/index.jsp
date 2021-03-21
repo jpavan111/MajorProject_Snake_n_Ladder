@@ -22,6 +22,7 @@ else {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
@@ -45,7 +46,25 @@ else {
 				<a href="read-leaderboard"><li>Leader board</li></a>
 				<a href="#"><li>Contact Us</li></a>
 				<a href="#"><li>About</li></a>
-				<a href="logout"><li>Log Out</li></a>
+				
+				<!-- UserProfile -->
+
+				<button class="btn" type="button" id="dropdownMenuButton"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<span class="navbar-text p-0">
+					<i class='fas fa-user-tie' style='font-size:30px;color:white'></i>
+					</span>
+					<span class="d-flex justify-content-center align-items-center" style='color:white'>&nbsp;Hi ${playerObject.getUsername()}</span>
+				</button>
+				
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" href="load-profile"><i class="fas fa-user-cog"></i>&nbsp; Profile</a>
+					<a class="dropdown-item" href="logout"><i class="fas fa-sign-out-alt"></i>&nbsp; Log Out</a>
+				</div>
+		</div>
+		</ul>
+	</div>
+	<!-- UserProfile End -->
 			</ul>
 		</div>
 		<img src="menu-icon.png" class="menu-icon" onclick="showMenu()">

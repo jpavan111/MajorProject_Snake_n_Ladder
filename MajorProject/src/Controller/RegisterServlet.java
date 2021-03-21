@@ -16,52 +16,60 @@ import Dao.SendingEmail;
 import Dao.UserDao;
 import Entity.User;
 
-
 @WebServlet("/register-servlet")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
 
 	private UserDao userDao;
 
-    public void init() {
-        userDao = new UserDao();
-    }
+	public void init() {
+		userDao = new UserDao();
+	}
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        register(request, response);
-    }
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        doPost(request, response);
-    }
+		try {
+			String username = request.getParameter("username");
+			String email = request.getParameter("email");
+			String password = request.getParameter("password");
+			String newPassword = DigestUtils.md5Hex(password);
+			String myHash;
 
-    private void register(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String username = request.getParameter("username");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        String newPassword=DigestUtils.md5Hex(password);
-       	String myHash;
-    	Random random=new Random();
-    	random.nextInt(999999);
-    	myHash=DigestUtils.md5Hex(""+random);
-       
-	
-    	User user = new User();
-        user.setUsername(username);
-        user.setEmail(email);
-        user.setPassword(newPassword);
-        user.setMyhash(myHash);
-    	
-    	 SendingEmail sm = new SendingEmail(email, myHash);
-    	 sm.sendEmail();
-   		
+			UserDao dao = new UserDao();
+			boolean check = dao.checkUser(email, username);
+			
+				if (check == true) {
+					Random random = new Random();
+					random.nextInt(999999);
+					myHash = DigestUtils.md5Hex("" + random);
 
-        userDao.createUser(user);
+					User user = new User();
+					user.setUsername(username);
+					user.setEmail(email);
+					user.setPassword(newPassword);
+					user.setMyhash(myHash);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("verify.jsp");
-        dispatcher.forward(request, response);
-    }
+					SendingEmail sm = new SendingEmail(email, myHash);
+					sm.sendEmail();
+
+					userDao.createUser(user);
+
+					RequestDispatcher dispatcher = request.getRequestDispatcher("verify.jsp");
+					dispatcher.forward(request, response);
+				} else
+					throw new Exception("User already exists!");
+		}
+
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+			request.setAttribute("userExistance", 1);
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+		}
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doPost(request, response);
+	}
 }

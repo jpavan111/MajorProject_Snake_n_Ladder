@@ -27,12 +27,9 @@ public class ReadLeaderBoardAction extends HttpServlet {
 		
 		request.getRequestDispatcher("leaderBoard.jsp?p=1").forward(request, response);
 	}
-
-	
 	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		doGet(request, response);
 	}
 

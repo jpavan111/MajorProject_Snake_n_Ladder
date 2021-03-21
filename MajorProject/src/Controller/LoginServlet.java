@@ -1,6 +1,8 @@
 package Controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -56,7 +58,8 @@ public class LoginServlet extends HttpServlet {
 		}catch(Exception e)
 		{
 			System.out.println(e.getMessage());
-			response.sendRedirect("login.jsp");
+			request.setAttribute("loginAuth", 1);
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}
 

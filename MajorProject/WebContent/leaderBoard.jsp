@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="Header.jsp"></jsp:include>
-<%@page errorPage="error.jsp" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%-- <jsp:include page="Header.jsp"></jsp:include> --%>
+<%@page errorPage="error.jsp"%>
 
 <%
-	if(session.getAttribute("newSession") == null)
-		response.sendRedirect("login.jsp");
-%>  
+if (session.getAttribute("newSession") == null)
+	response.sendRedirect("login.jsp");
+%>
 
 
 <!DOCTYPE html>
@@ -15,7 +15,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Leader Board</title>
-
+<jsp:include page="Header.jsp"></jsp:include>
+<style>
+body {
+	background-image: url('./images/leaderboardBg.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	font-family: 'Numans', sans-serif;
+}
+</style>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
@@ -39,77 +48,58 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
 	integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
 	crossorigin="anonymous" />
+
+<style>
+table {
+	border: 1px solid black;
+	width: 200px;
+}
+
+th {
+	width: 200px;
+}
+</style>
 </head>
 
 <body>
-	<div
-		class="bg-light d-flex align-items-center justify-content-center mt-5">
 
 
+
+	<div class=" d-flex align-items-center justify-content-center mt-5 ">
 		<div>
-			<table class="col-8 table table-striped table-dark">
+			<table
+				class="col-11 table table-striped table-dark mr-20 align-center  pr-8 ">
 				<thead>
 					<tr>
 						<th scope="col">Rank</th>
 						<th scope="col">Name</th>
 						<th scope="col">G.K. Score</th>
-
+						<th scope="col">Java Score</th>
+						<th scope="col">Total</th>
 					</tr>
 				</thead>
 
 				<tbody>
-					<% 	int count=1;
-		    	if(count==1)
-		    	{
-		    	%>
+					<%
+					int count = 1;
+					if (count == 1) {
+					%>
 					<c:forEach var="item" items="${playerList}">
 						<tr>
-							<th scope="row"><%= count++ %></th>
+							<th scope="row"><%=count++%></th>
 							<td>${item.name}</td>
 							<td>${item.gkScore}</td>
-
-						</tr>
-					</c:forEach>
-					<%
-			 }count=1; %>
-				</tbody>
-			</table>
-		</div>
-
-		<div>
-			<table class="col-8 table table-striped table-dark">
-				<thead>
-					<tr>
-						<th scope="col">Rank</th>
-						<th scope="col">Name</th>
-						<th scope="col">Java Score</th>
-
-					</tr>
-				</thead>
-
-
-				<tbody>
-					<% 	int count1=1;
-		    	if(count1==1)
-		    	{
-		    	%>
-					<c:forEach var="item" items="${playerList}">
-						<tr>
-							<th scope="row"><%= count++ %></th>
-							<td>${item.name}</td>
 							<td>${item.javaScore}</td>
-
+							<td>${item.total}</td>
 						</tr>
 					</c:forEach>
 					<%
-			 }count1=1; %>
+					}
+					count = 1;
+					%>
 				</tbody>
 			</table>
 		</div>
-
 	</div>
-
-
-
 </body>
 </html>

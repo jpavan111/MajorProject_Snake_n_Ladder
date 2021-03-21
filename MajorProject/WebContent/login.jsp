@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page errorPage="error.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +29,25 @@
         
         
           <form action="login-servlet" method="post" class="sign-in-form">
+          
+          
+          <c:if test="${userExistance == 1}">
+          	<h3 style="color: red">User Already Exists!</h3>
+          </c:if>
+          
+          <c:if test="${loginAuth == 1}">
+          	<h3 style="color: red">Enter valid Email/Password!</h3>
+          </c:if>
+          
+          <c:if test="${updatedPassword == 1}">
+          	<h3 style="color: green">Password Updated Successfully!</h3>
+          </c:if>
+          
+           <c:if test="${profileUpdationStatus == 1}">
+          	<h3 style="color: green">Profile Updation Successful <br>&nbsp;&nbsp;&nbsp; Login again to continue!</h3>
+          </c:if>
+          
+          
             <h2 class="title">Sign in</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
@@ -44,7 +64,7 @@
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" name="password" placeholder="Password" readonly="readonly"/>
+              <input type="password" name="password" placeholder="Password" required="required"/>
             </div>
             
             
