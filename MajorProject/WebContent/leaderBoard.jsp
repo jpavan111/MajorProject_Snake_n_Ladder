@@ -41,103 +41,18 @@ if (session.getAttribute("newSession") == null)
 	crossorigin="anonymous" />
 
 <style>
-.button {
-  border-radius: 4px;
-  background-color: #ffea00;
-  border: none;
-  color: #080229;
-  text-align: center;
-  font-size: 25px;
-  padding: 3px;
-  width: 150px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  
-}
-
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.button:hover span {
-  padding-right: 25px;
-}
-.button:hover {
-  background-color: #8df7c9;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-
-body {
-	background-image: url('./images/leaderboardBg.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	height: 100%;
-	font-family: 'Numans', sans-serif;
-}
+	<%@ include file= "./styles/leaderBoard.css" %>
 </style>
-<style>
-table {
-	border: 1px solid black;
-	width: 200px;
-}
 
-th {
-	width: 200px;
-}
-</style>
 <style>
 <%@ include file= "./styles/index.css" %>
 </style>
+
 </head>
 
 <body>
 
-<div class="nav-bar">
-		<div class="nav-logo">
-			<img src="./images/logo.png">
-		</div>
-		<div class="nav-links" id="mobileMenu">
-			<ul>
-				<a href="index.jsp"><li>Home</li></a>
-				<a href="GameInstructions.jsp"><li>Instructions</li></a>
-				<a href="leaderBoard.jsp"><li>Leader board</li></a>
-				<a href="AboutUs.jsp"><li>About Us</li></a>
-				
-				<!-- UserProfile -->
-
-				<button class="btn" type="button" id="dropdownMenuButton"
-					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<span class="navbar-text p-0">
-					<i class='fas fa-user-tie' style='font-size:30px;color:white'></i>
-					</span>
-					<span class="d-flex justify-content-center align-items-center" style='color:white'>&nbsp;Hi ${playerObject.getUsername()}</span>
-				</button>
-				
-				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					<a class="dropdown-item" href="load-profile"><i class="fas fa-user-cog"></i>&nbsp; Profile</a>
-					<a class="dropdown-item" href="logout"><i class="fas fa-sign-out-alt"></i>&nbsp; Log Out</a>
-				</div>
-		</div>
-		</ul>
-	</div>
+<jsp:include page="Header.jsp"></jsp:include>
 
 	<div class=" d-flex align-items-center justify-content-center mt-5 ">
 		<div>
@@ -160,6 +75,5 @@ th {
 	</div>
 			
 		</div>
-	</div>
 </body>
 </html>

@@ -1,0 +1,61 @@
+@charset "ISO-8859-1";
+
+.button {
+  border-radius: 4px;
+  background-color: #ffea00;
+  border: none;
+  color: #080229;
+  text-align: center;
+  font-size: 25px;
+  padding: 3px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+.button:hover {
+  background-color: #8df7c9;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+body {
+	background-image: url('./images/leaderboardBg.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	font-family: 'Numans', sans-serif;
+}
+
+table {
+	border: 1px solid black;
+	width: 200px;
+}
+
+th {
+	width: 200px;
+}
