@@ -47,11 +47,10 @@ public class AnswerMatchGk extends HttpServlet {
 				lb.setName(player.getPlayerName());
 				lb.setGkScore(player.getGkScore());
 				lb.setJavaScore(0);
+				lb.setDate(player.getInstance());
 				
 				ReadLeaderBoardDao score = new ReadLeaderBoardDao();
 				score.setGK_Score(lb);
-				
-//				System.out.println("Score: "+lb.getScore());
 				
 				request.getSession().setAttribute("itsme", player);
 				response.sendRedirect("Gk_game.jsp");

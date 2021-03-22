@@ -49,11 +49,10 @@ public class AnswerMatchJava extends HttpServlet {
 				lb.setName(player.getPlayerName());
 				lb.setGkScore(0);
 				lb.setJavaScore(player.getJavaScore());
+				lb.setDate(player.getInstance());
 				
 				ReadLeaderBoardDao score = new ReadLeaderBoardDao();
 				score.setJava_Score(lb);
-				
-//				System.out.println("Score: "+lb.getScore());
 				
 				request.getSession().setAttribute("itsme", player);
 				response.sendRedirect("Java_game.jsp");

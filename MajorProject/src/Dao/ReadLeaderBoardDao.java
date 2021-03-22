@@ -12,116 +12,112 @@ import Entity.Leaderboard;
 public class ReadLeaderBoardDao {
 	private static final SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
-	
 	public ReadLeaderBoardDao() {
 		super();
 	}
 
-
+	
+	
 	public List<Leaderboard> readLeaderBoard() {
-		Session session=sessionFactory.openSession();
-		
-		String sql = "SELECT * FROM leaderboard";
+		Session session = sessionFactory.openSession();
+
+		String sql = "SELECT * FROM leaderboard ORDER BY gkScore DESC";
 		List<Leaderboard> list = session.createNativeQuery(sql, Leaderboard.class).list();
-		
-		//list.stream().map(p -> p.getTopic()).forEach(System.out::println);
-		
+
 		session.close();
 		return list;
 	}
 
-
+	
+	
 	public void setGK_Score(Leaderboard lb) {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		
-		String sql = "UPDATE leaderboard SET gkScore=:gkScore where id=:id";
-		
+
+		String sql = "UPDATE leaderboard SET gkScore=:gkScore where date=:date AND name=:name";
+
 		session.createNativeQuery(sql)
 				.setParameter("gkScore", lb.getGkScore())
-				.setParameter("id", lb.getId())
+				.setParameter("date", lb.getDate())
+				.setParameter("name", lb.getName())
 				.executeUpdate();
-		
+
 		session.getTransaction().commit();
 		session.close();
-		
 	}
 
+	
+	
+	public void createGetLeaderboardGk(Leaderboard objlb) {
 
-	public void createGetLeaderboard(Leaderboard objlb) {
-		
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-
+		
 		try {
-			String sql1 = "SELECT * FROM leaderboard where id=:id";
-			
-			Leaderboard objectSearch = session.createNativeQuery(sql1, Leaderboard.class)
-												.setParameter("id", objlb.getId())
-												.getSingleResult();
-			
-			
-			String sql3 = "UPDATE leaderboard SET gkScore=0 where id=:id";
-			
-			session.createNativeQuery(sql3)
-					.setParameter("id", objlb.getId())
-					.executeUpdate();
-			
-		} catch (Exception e) {
 			session.save(objlb);
 		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
 		session.getTransaction().commit();
 		session.close();
 	}
+
 	
 	
 	
 	
+////////////////////////////// Java //////////////////////////////////
+
 	
 	
-	
-//	Java Score
 	public void setJava_Score(Leaderboard lb) {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		
-		String sql = "UPDATE leaderboard SET javaScore=:javaScore where id=:id";
-		
+
+		String sql = "UPDATE leaderboard SET javaScore=:javaScore WHERE date=:date AND name=:name";
+
 		session.createNativeQuery(sql)
 				.setParameter("javaScore", lb.getJavaScore())
-				.setParameter("id", lb.getId())
+				.setParameter("date", lb.getDate())
+				.setParameter("name", lb.getName())
 				.executeUpdate();
-		
+
 		session.getTransaction().commit();
 		session.close();
 	}
+
 	
 	
 	
-public void createGetLeaderboardJava(Leaderboard objlb) {
-		
+	public void createGetLeaderboardJava(Leaderboard objlb) {
+
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 
 		try {
-			String sql1 = "SELECT * FROM leaderboard where id=:id";
-			
-			Leaderboard objectSearch = session.createNativeQuery(sql1, Leaderboard.class)
-												.setParameter("id", objlb.getId())
-												.getSingleResult();
-			
-			
-			String sql3 = "UPDATE leaderboard SET javaScore=0 where id=:id";
-			
-			session.createNativeQuery(sql3)
-					.setParameter("id", objlb.getId())
-					.executeUpdate();
-			
-		} catch (Exception e) {
 			session.save(objlb);
 		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
 		session.getTransaction().commit();
 		session.close();
 	}
+
+
+
+	public List<Leaderboard> readLeaderBoardJava() {
+		Session session = sessionFactory.openSession();
+
+		String sql = "SELECT * FROM leaderboard ORDER BY javaScore DESC";
+		List<Leaderboard> list = session.createNativeQuery(sql, Leaderboard.class).list();
+
+		session.close();
+		return list;
+	}
+
 	
 }
