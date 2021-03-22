@@ -43,9 +43,9 @@ else {
 		<div class="nav-links" id="mobileMenu">
 			<ul>
 				<a href="index.jsp"><li>Home</li></a>
+				<a href="GameInstructions.jsp"><li>Instructions</li></a>
 				<a href="read-leaderboard"><li>Leader board</li></a>
-				<a href="#"><li>Contact Us</li></a>
-				<a href="#"><li>About</li></a>
+				<a href="AboutUs.jsp"><li>About Us</li></a>
 				
 				<!-- UserProfile -->
 
@@ -72,32 +72,38 @@ else {
 
 	<div class="hero">
 		<h1>Snakes & Ladders</h1>
-		<br>
 		<h3>Learn With Fun</h3>
 
 
 		<form action="load-game" method="post">
 <!-- 			<button class="button"> -->
-			<input class="button" type="submit" value="Play with G.K." />
+			<button class="button" type="submit" ><span><b>Play</b></span><h6><b>with G.K.</b></h6></button>
 			<input type="hidden" name="obj" value="${playerObj}">
-			</form>
+		</form>
 		<!-- 	</button> -->
 		&nbsp &nbsp
 		
 		<form action="load-game-java" method="post">
 <!-- 			<button class="button"> -->
-			<input class="button" type="submit" value="Play with Java" />
+			<button class="button" type="submit" ><span><b>Play</b></span><h6><b>with Java</b></h6></button>
 			<input type="hidden" name="obj" value="${playerObj}">
-			</form>
+		</form>
 		
 	</div>
 
 
-
+<!-- 
 	<div class="laan">
-		<img src="./images/la.png"> <img src="./images/sn.png"> <img
-			src="./images/la.png"> <img src="./images/sn.png">
+		 <img src="./images/sn.png">
+		<img src="./images/la.png"> 
 	</div>
+ -->
+	<div class="snn">
+          <img src="./images/sn.png">
+          <span style="margin-left: 10%"></span>
+          <img src="./images/la.png">
+     </div>
+
 
 	<script>
 		function showMenu() {
