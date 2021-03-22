@@ -44,7 +44,7 @@ else {
 			<ul>
 				<a href="index.jsp"><li>Home</li></a>
 				<a href="GameInstructions.jsp"><li>Instructions</li></a>
-				<a href="read-leaderboard"><li>Leader board</li></a>
+				<a href="leaderBoard.jsp"><li>Leader board</li></a>
 				<a href="AboutUs.jsp"><li>About Us</li></a>
 				
 				<!-- UserProfile -->
@@ -81,7 +81,7 @@ else {
 			<input type="hidden" name="obj" value="${playerObj}">
 		</form>
 		<!-- 	</button> -->
-		&nbsp &nbsp
+		&nbsp; &nbsp;
 		
 		<form action="load-game-java" method="post">
 <!-- 			<button class="button"> -->
@@ -98,12 +98,12 @@ else {
 		<img src="./images/la.png"> 
 	</div>
  -->
-	<div class="snn">
+	<!-- <div class="snn">
           <img src="./images/sn.png">
           <span style="margin-left: 10%"></span>
           <img src="./images/la.png">
      </div>
-
+ -->
 
 	<script>
 		function showMenu() {

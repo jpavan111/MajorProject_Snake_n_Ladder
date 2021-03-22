@@ -11,6 +11,7 @@ import javax.persistence.Table;
 public class Leaderboard {
 	@Id
 //	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int leaderboardId;
 	@Column(nullable = false)
 	private int id;
 	@Column(nullable = false)
@@ -19,17 +20,34 @@ public class Leaderboard {
 	private int javaScore;
 	@Column(nullable = false)
 	private int gkScore;
+	@Column(nullable = false)
+	private String date;
 
 	public Leaderboard() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 	
-	public Leaderboard(int id, String name, int javaScore, int gkScore) {
+	public Leaderboard(int id, String name, int javaScore, int gkScore, String date) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.javaScore = javaScore;
 		this.gkScore = gkScore;
+		this.date = date;
+	}
+
+	public int getLeaderboardId() {
+		return leaderboardId;
+	}
+	public void setLeaderboardId(int leaderboardId) {
+		this.leaderboardId = leaderboardId;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
 	}
 	public int getId() {
 		return id;

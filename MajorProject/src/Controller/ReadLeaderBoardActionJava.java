@@ -14,18 +14,18 @@ import Entity.Leaderboard;
 
 
 
-@WebServlet("/read-leaderboard-gk")
-public class ReadLeaderBoardAction extends HttpServlet {
+@WebServlet("/read-leaderboard-java")
+public class ReadLeaderBoardActionJava extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ReadLeaderBoardDao rv = new ReadLeaderBoardDao();		
-		List<Leaderboard> list = rv.readLeaderBoard();
+		List<Leaderboard> list = rv.readLeaderBoardJava();
 		
 		request.setAttribute("playerList",list);
 		
-		request.getRequestDispatcher("leaderBoardGk.jsp?p=1").forward(request, response);
+		request.getRequestDispatcher("leaderBoardJava.jsp?p=1").forward(request, response);
 	}
 	
 	

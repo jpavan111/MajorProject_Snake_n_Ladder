@@ -1,6 +1,9 @@
 package Controller;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
@@ -39,7 +42,14 @@ public class LoadGameJava extends HttpServlet {
 			player.setPosition(1);
 			player.setGkScore(0);
 			player.setJavaScore(0);
-			
+
+//			Generating & saving current date-time
+			LocalDateTime myDateObj = LocalDateTime.now();
+		    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+		    String formattedDate = myDateObj.format(myFormatObj);
+		    System.out.println("Saving formatted date-time: " + formattedDate);
+		    
+			player.setInstance(formattedDate);
 			
 //			Creating + Inserting player entry into leader board
 			ReadLeaderBoardDao lb = new ReadLeaderBoardDao();
@@ -48,6 +58,8 @@ public class LoadGameJava extends HttpServlet {
 			objlb.setName(player.getPlayerName());
 			objlb.setGkScore(0);
 			objlb.setJavaScore(0);
+			objlb.setDate(formattedDate);
+			
 			lb.createGetLeaderboardJava(objlb);
 			
 			

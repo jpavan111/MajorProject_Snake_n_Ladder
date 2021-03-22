@@ -41,6 +41,50 @@ if (session.getAttribute("newSession") == null)
 	crossorigin="anonymous" />
 
 <style>
+.button {
+  border-radius: 4px;
+  background-color: #ffea00;
+  border: none;
+  color: #080229;
+  text-align: center;
+  font-size: 25px;
+  padding: 3px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+.button:hover {
+  background-color: #8df7c9;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
 body {
 	background-image: url('./images/leaderboardBg.jpg');
 	background-size: cover;
@@ -74,7 +118,7 @@ th {
 			<ul>
 				<a href="index.jsp"><li>Home</li></a>
 				<a href="GameInstructions.jsp"><li>Instructions</li></a>
-				<a href="read-leaderboard"><li>Leader board</li></a>
+				<a href="leaderBoard.jsp"><li>Leader board</li></a>
 				<a href="AboutUs.jsp"><li>About Us</li></a>
 				
 				<!-- UserProfile -->
@@ -97,38 +141,24 @@ th {
 
 	<div class=" d-flex align-items-center justify-content-center mt-5 ">
 		<div>
-			<table
-				class="col-11 table table-striped table-dark mr-20 align-center  pr-8 ">
-				<thead>
-					<tr>
-						<th scope="col">Rank</th>
-						<th scope="col">Name</th>
-						<th scope="col">G.K. Score</th>
-						<th scope="col">Java Score</th>
-						<th scope="col">Total</th>
-					</tr>
-				</thead>
+			<form action="read-leaderboard-gk" method="post">
+<!-- 			<button class="button"> -->
+			<button class="button" type="submit" ><span><b>G.K</b></span><h6><b>Leaderboard</b></h6></button>
 
-				<tbody>
-					<%
-					int count = 1;
-					if (count == 1) {
-					%>
-					<c:forEach var="item" items="${playerList}">
-						<tr>
-							<th scope="row"><%=count++%></th>
-							<td>${item.name}</td>
-							<td>${item.gkScore}</td>
-							<td>${item.javaScore}</td>
-							<td>${item.gkScore + item.javaScore}</td>
-						</tr>
-					</c:forEach>
-					<%
-					}
-					count = 1;
-					%>
-				</tbody>
-			</table>
+			
+			</form>
+		<!-- 	</button> -->
+		&nbsp; &nbsp;
+		
+		<form action="read-leaderboard-java" method="post">
+<!-- 			<button class="button"> -->
+			<button class="button" type="submit" ><span><b>JAVA</b></span><h6><b>Leaderboard</b></h6></button>
+
+			
+			</form>
+		
+	</div>
+			
 		</div>
 	</div>
 </body>
