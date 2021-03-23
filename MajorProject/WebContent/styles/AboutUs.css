@@ -1,0 +1,83 @@
+@charset "ISO-8859-1";
+
+.flip-card {
+	background-color: transparent;
+	width: 50px;
+	height: 200px;
+	perspective: 1000px;
+	border-radius: 5%;
+}
+
+.flip-card-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transition: transform 0.6s;
+	transform-style: preserve-3d;
+	border-radius: 5%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+}
+
+.flip-card:hover .flip-card-inner {
+	transform: rotateY(180deg);
+	border-radius: 5%;
+}
+
+.flip-card-front, .flip-card-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	border-radius: 5%;
+}
+
+.flip-card-front {
+	background-color: #bbb;
+	color: black;
+	border-radius: 5%;
+}
+
+.flip-card-back {
+	background-image: linear-gradient(to top, #dddcd7 24%, #e2c9cc 30%, #e7627d 46%, #b8235a
+		59%, #801357 71%, #3d1635 84%, #1c1a27 100%);
+	color: white;
+	transform: rotateY(180deg);
+	border-radius: 5%;
+}
+
+.fa1 {
+	padding: 20px;
+	font-size: 30px;
+	border-radius: 30%;
+	width: 50px;
+	text-align: center;
+	text-decoration: none;
+	margin: 5px 5px;
+}
+
+.fa1:hover {
+	opacity: 0.6;
+	color: rgb(0, 0, 0);
+}
+
+.fa1-facebook {
+	background: #3B5998;
+	color: white;
+}
+
+.fa1-twitter {
+	background: #55ACEE;
+	color: white;
+}
+
+.fa1-linkedin {
+	background: #007bb5;
+	color: white;
+}
+
+.fa1-instagram {
+	background: #125688;
+	color: white;
+}
