@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page errorPage="error.jsp"%>
 
 <%
@@ -50,470 +49,126 @@ if (session.getAttribute("newSession") == null)
 
 
 <style>
-<%@ include file="./styles/index.css" %>
+	<%@ include file="./styles/index.css" %>
+	<%@ include file="./styles/AboutUs.css" %>
 </style>
-<style>
-.flip-card {
-	background-color: transparent;
-	width: 350px;
-	height: 300px;
-	perspective: 1000px;
-	border-radius: 5%;
-}
 
-.flip-card-inner {
-	position: relative;
-	width: 100%;
-	height: 100%;
-	text-align: center;
-	transition: transform 0.6s;
-	transform-style: preserve-3d;
-	border-radius: 5%;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
-}
-
-.flip-card:hover .flip-card-inner {
-	transform: rotateY(180deg);
-	border-radius: 5%;
-}
-
-.flip-card-front, .flip-card-back {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	border-radius: 5%;
-}
-
-.flip-card-front {
-	background-color: #bbb;
-	color: black;
-	border-radius: 5%;
-}
-
-.flip-card-back {
-	background-image: linear-gradient(to top, #dddcd7 24%, #e2c9cc 30%, #e7627d 46%, #b8235a
-		59%, #801357 71%, #3d1635 84%, #1c1a27 100%);
-	color: white;
-	transform: rotateY(180deg);
-	border-radius: 5%;
-}
-
-.fa1 {
-	padding: 20px;
-	font-size: 30px;
-	border-radius: 30%;
-	width: 50px;
-	text-align: center;
-	text-decoration: none;
-	margin: 5px 5px;
-}
-
-.fa1:hover {
-	opacity: 0.6;
-	color: rgb(0, 0, 0);
-}
-
-.fa1-facebook {
-	background: #3B5998;
-	color: white;
-}
-
-.fa1-twitter {
-	background: #55ACEE;
-	color: white;
-}
-
-.fa1-linkedin {
-	background: #007bb5;
-	color: white;
-}
-
-.fa1-instagram {
-	background: #125688;
-	color: white;
-}
-</style>
 </head>
 <body>
 
-
-	<div class="nav-bar">
-		<div class="nav-logo">
-			<img src="./images/logo.png">
-		</div>
-		<div class="nav-links" id="mobileMenu">
-			<ul>
-				<a href="index.jsp"><li>Home</li></a>
-				<a href="GameInstructions.jsp"><li>Instructions</li></a>
-				<a href="read-leaderboard"><li>Leader board</li></a>
-				<a href="AboutUs.jsp"><li>About Us</li></a>
-				
-				<!-- UserProfile -->
-
-				<button class="btn" type="button" id="dropdownMenuButton"
-					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<span class="navbar-text p-0">
-					<i class='fas fa-user-tie' style='font-size:30px;color:white'></i>
-					</span>
-					<span class="d-flex justify-content-center align-items-center" style='color:white'>&nbsp;Hi ${playerObject.getUsername()}</span>
-				</button>
-				
-				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					<a class="dropdown-item" href="load-profile"><i class="fas fa-user-cog"></i>&nbsp; Profile</a>
-					<a class="dropdown-item" href="logout"><i class="fas fa-sign-out-alt"></i>&nbsp; Log Out</a>
-				</div>
-		</div>
-		</ul>
-	</div>
+	<jsp:include page="Header.jsp"></jsp:include>
 
 	<div class="container-fluid">
 		<div class="row text-dark justify-content-center align-items-center"
 			style="height: 100%; background-color: #000;">
 
-
-			<div class="col-3 flip-card m-3">
+			<%
+				String imgSrc[] =  {"./images/SumitVyas.jpeg",
+									"./images/VaibhavBaraskar.jpeg",
+									"./images/TejasRane.jpg",
+									"./images/AbhayTiwari.jpeg",
+									"./images/PoojaDerle.jpeg",
+									"./images/ArijitSaha.jpeg",
+									"./images/SnehaMore.jpeg",
+									"./images/PavanJadhav.jpeg",
+									"./images/KomalValivadekar.jpg",
+									"./images/AjinkyaPatwardhan.jpeg",
+									"./images/VikasKandgul.png",
+									"./images/SahilBhagwat.jpeg"};
+			
+				String name[] = {"Sumit Vyas","Vaibhav Baraskar","Tejas Rane","Abhay Tiwari"
+								,"Pooja Derle","Arijit Saha","Sneha More","Pawan Jadav","Komal Valwadekar"
+								,"Ajinkya Patwardhan","Vikas Khadgul","Sahil Bhagwat"};
+				
+				String mobile[] =  {"8989482700","7058091900","9370102116","9179665156","7057853329",
+									"8133056380","7588417971","8956783901","9284161610","7757049562","8983428370","8149460110"};
+				
+				String linkdin[] =  {"https://www.linkedin.com/in/sumit-vyas-4b7a9415a",
+									"https://www.linkedin.com/in/vaibhav-baraskar-33a12a155",
+									"https://www.linkedin.com/in/tejas-rane-000958209/",
+									"https://www.linkedin.com/in/abhay-tiwari-4349a8209/",
+									"https://www.linkedin.com/in/pooja-derle-4a85391a6",
+									"https://www.linkedin.com/in/arijit-saha-b35a10b9/",
+									"https://www.linkedin.com/in/sneha-more-45277a167",
+									"https://www.linkedin.com/in/pavan-jadhav-0b409989/",
+									"https://www.linkedin.com/in/komal-valivadekar-78b796168",
+									"https://www.linkedin.com/in/ajinkya-patwardhan-716150ab",
+									"https://www.linkedin.com/in/vikas-kandgul-7366bab5",
+									"https://www.linkedin.com/in/sahil-manoj-bhagwat-014551137/"};
+				
+				String github[] =  {"https://github.com/sumitvyas786",
+									"https://github.com/VaibhavBaraskar",
+									"https://github.com/tejasgopalrane",
+									"https://github.com/abhaytwr02",
+									"https://github.com/poojaakgw/PoojaderleE-DAC2020",
+									"https://github.com/ArijitSahaE-dac2020",
+									"https://github.com/SnehaRmore",
+									"https://github.com/jpavan111",
+									"https://github.com/komalvalivadekar20",
+									"https://github.com/Ajinkya107/Ajinkya_Patwardhan_E-Dac2020",
+									"https://github.com/vikaskandgul007",
+									"https://github.com/sahil318"};
+				
+			String mailtoLink[] =  {"mailto:sumitvyas786@gmail.com",
+									"mailto:vaibhavbaraskar51@gmail.com",
+									"mailto:tejasgopalrane@gmail.com",
+									"mailto:abhaytwr02@gmail.com",
+									"mailto:poojaderle07@gmail.com",
+									"mailto:arijitsaha240@gmail.com",
+									"mailto:moresneha7588@gmail.com",
+									"mailto:jpavan111@gmail.com",
+									"mailto:komalvalivadekar2905@gmail.com",
+									"mailto:ajinkyapatwardhan1@gmail.com",
+									"mailto:vikaskandgul@gmail.com",
+									"mailto:sahilbhagwat000@gmail.com"};
+				
+			   String mail[] = {"sumitvyas786@gmail.com",
+								"vaibhavbaraskar51@gmail.com",
+								"tejasgopalrane@gmail.com",
+								"abhaytwr02@gmail.com",
+								"poojaderle07@gmail.com",
+								"arijitsaha240@gmail.com",
+								"moresneha7588@gmail.com",
+								"jpavan111@gmail.com",
+								"komalvalivadekar2905@gmail.com",
+								"ajinkyapatwardhan1@gmail.com",
+								"vikaskandgul@gmail.com",
+								"sahilbhagwat000@gmail.com"};
+				
+				for(int i=0; i < imgSrc.length; i++)
+				{
+			%>
+				
+				<div class="col-3 flip-card m-3">
 				<div class="flip-card-inner">
 					<div class="flip-card-front">
-						<img src="./images/SumitVyas.jpeg" alt="Avatar"
+						<img src=<%= imgSrc[i] %> alt="Avatar"
 							style="width: 100%; height: 100%; border-radius: 5%; box-shadow: white 0px 0px 10px 8px;" />
 					</div>
 					<div class="flip-card-back"
 						style="box-shadow: white 0px 0px 10px 8px;">
-						<h4 class="mt-4">Sumit Vyas</h4>
-						<p class="m-0 p-0">Developer &amp; Engineer</p>
-						<p class="m-0 p-0">8989482700</p>
+						<h4 class="mt-4"><%= name[i] %></h4>
+						<p class="m-0 p-0">Developer, Engineer</p>
+						<p class="m-0 p-0"><%= mobile[i] %></p>
 						<p>
-							<a href="mailto:sumitvyas786@gmail.com" style="color: #2fdbf7;">sumitvyas786@gmail.com</a>
+							<a href=<%= mailtoLink[i] %> style="color: #2fdbf7"><%= mail[i] %></a>
 						</p>
 
 						<p class="mt-2">
-							<a href="https://www.linkedin.com/in/sumit-vyas-4b7a9415a"
-								class="fab fa-linkedin fa-4x m-2" target="_blank"></a> <a
-								href=" https://github.com/sumitvyas786"
+							<a href=<%= linkdin[i] %>
+								class="fab fa-linkedin fa-4x m-2" target="_blank"></a>
+								<a href=<%= github[i] %> style=""
 								class="fab fa-github-square fa-4x m-2" target="_blank"></a>
 						</p>
 
 					</div>
 				</div>
 			</div>
-
-
-
-			<div class="col-3 flip-card m-3">
-				<div class="flip-card-inner">
-					<div class="flip-card-front">
-						<img src="./images/VaibhavBaraskar.jpeg" alt="Avatar"
-							style="width: 100%; height: 100%; border-radius: 5%; box-shadow: white 0px 0px 10px 8px;" />
-					</div>
-					<div class="flip-card-back"
-						style="box-shadow: white 0px 0px 10px 8px;">
-						<h4 class="mt-4">Vaibhav Baraskar</h4>
-						<p class="m-0 p-0">Developer &amp; Engineer</p>
-						<p class="m-0 p-0">7058091900</p>
-						<p>
-							<a href="mailto:vaibhavbaraskar51@gmail.com"
-								style="color: #2fdbf7;">vaibhavbaraskar51@gmail.com</a>
-						</p>
-
-						<p class="mt-2">
-							<a href="www.linkedin.com/in/vaibhav-baraskar-33a12a155"
-								class="fab fa-linkedin fa-4x m-2" target="_blank"></a> <a
-								href="https://github.com/VaibhavBaraskar"
-								class="fab fa-github-square fa-4x m-2" target="_blank"></a>
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-
-			<div class="col-3 flip-card m-3">
-				<div class="flip-card-inner">
-					<div class="flip-card-front">
-						<img src="./images/VikasKandgul.jpeg" alt="Avatar"
-							style="width: 100%; height: 100%; border-radius: 5%; box-shadow: white 0px 0px 10px 8px;" />
-					</div>
-					<div class="flip-card-back"
-						style="box-shadow: white 0px 0px 10px 8px;">
-						<h4 class="mt-4">Vikas Kandgul</h4>
-						<p class="m-0 p-0">Developer &amp; Engineer</p>
-						<p class="m-0 p-0">8983428370</p>
-						<p>
-							<a href="mailto:vikaskandgul@gmail.com" style="color: #2fdbf7;">vikaskandgul@gmail.com</a>
-						</p>
-
-						<p class="mt-2">
-							<a href="www.linkedin.com/in/vikas-kandgul-7366bab5"
-								class="fab fa-linkedin fa-4x m-2" target="_blank"></a> <a
-								href="https://github.com/vikaskandgul007"
-								class="fab fa-github-square fa-4x m-2" target="_blank"></a>
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-
-
-			<div class="col-3 flip-card m-3">
-				<div class="flip-card-inner">
-					<div class="flip-card-front">
-						<img src="./images/Sachin.jpg" alt="Avatar"
-							style="width: 100%; height: 100%; border-radius: 5%; box-shadow: white 0px 0px 10px 8px;" />
-					</div>
-					<div class="flip-card-back"
-						style="box-shadow: white 0px 0px 10px 8px;">
-						<h4 class="mt-4">Tejas Rane</h4>
-						<p class="m-0 p-0">Developer &amp; Engineer</p>
-						<p class="m-0 p-0">9370102116</p>
-						<p>
-							<a href="mailto:tejasgopalrane@gmail.com" style="color: #2fdbf7;">tejasgopalrane@gmail.com</a>
-						</p>
-
-						<p class="mt-2">
-							<a href="https://www.linkedin.com/in/tejas-rane-000958209/"
-								class="fab fa-linkedin fa-4x m-2" target="_blank"></a> <a
-								href="https://github.com/tejasgopalrane"
-								class="fab fa-github-square fa-4x m-2" target="_blank"></a>
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-
-
-			<div class="col-3 flip-card m-3">
-				<div class="flip-card-inner">
-					<div class="flip-card-front">
-						<img src="./images/AbhayTiwari.jpeg" alt="Avatar"
-							style="width: 100%; height: 100%; border-radius: 5%; box-shadow: white 0px 0px 10px 8px;" />
-					</div>
-					<div class="flip-card-back"
-						style="box-shadow: white 0px 0px 10px 8px;">
-						<h4 class="mt-4">Abhay Tiwari</h4>
-						<p class="m-0 p-0">Developer &amp; Engineer</p>
-						<p class="m-0 p-0">9179665156</p>
-						<p>
-							<a href="mailto:abhaytwr02@gmail.com" style="color: #2fdbf7;">abhaytwr02@gmail.com</a>
-						</p>
-
-						<p class="mt-2">
-							<a href="https://www.linkedin.com/in/abhay-tiwari-4349a8209/"
-								class="fab fa-linkedin fa-4x m-2" target="_blank"></a> <a
-								href="https://github.com/abhaytwr02"
-								class="fab fa-github-square fa-4x m-2" target="_blank"></a>
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-
-			<div class="col-3 flip-card m-3">
-				<div class="flip-card-inner">
-					<div class="flip-card-front">
-						<img src="./images/PoojaDerle.jpeg" alt="Avatar"
-							style="width: 100%; height: 100%; border-radius: 5%; box-shadow: white 0px 0px 10px 8px;" />
-					</div>
-					<div class="flip-card-back"
-						style="box-shadow: white 0px 0px 10px 8px;">
-						<h4 class="mt-4">Pooja Derle</h4>
-						<p class="m-0 p-0">Developer &amp; Engineer</p>
-						<p class="m-0 p-0">7057853329</p>
-						<p>
-							<a href="mailto:poojaderle07@gmail.com" style="color: #2fdbf7;">poojaderle07@gmail.com</a>
-						</p>
-
-						<p class="mt-2">
-							<a href="https://www.linkedin.com/in/pooja-derle-4a85391a6"
-								class="fab fa-linkedin fa-4x m-2" target="_blank"></a> <a
-								href="https://github.com/poojaakgw/PoojaderleE-DAC2020"
-								class="fab fa-github-square fa-4x m-2" target="_blank"></a>
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-
-
-			<div class="col-3 flip-card m-3">
-				<div class="flip-card-inner">
-					<div class="flip-card-front">
-						<img src="./images/ArijitSaha.jpeg" alt="Avatar"
-							style="width: 100%; height: 100%; border-radius: 5%; box-shadow: white 0px 0px 10px 8px;" />
-					</div>
-					<div class="flip-card-back"
-						style="box-shadow: white 0px 0px 10px 8px;">
-						<h4 class="mt-4">Arijit Saha</h4>
-						<p class="m-0 p-0">Developer &amp; Engineer</p>
-						<p class="m-0 p-0">8133056380</p>
-						<p>
-							<a href="mailto:arijitsaha240@gmail.com" style="color: #2fdbf7;">arijitsaha240@gmail.com</a>
-						</p>
-
-						<p class="mt-2">
-							<a href="https://www.linkedin.com/in/arijit-saha-b35a10b9/"
-								class="fab fa-linkedin fa-4x m-2" target="_blank"></a> <a
-								href="https://github.com/ArijitSahaE-dac2020"
-								class="fab fa-github-square fa-4x m-2" target="_blank"></a>
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-
-
-			<div class="col-3 flip-card m-3">
-				<div class="flip-card-inner">
-					<div class="flip-card-front">
-						<img src="./images/SnehaMore.jpeg" alt="Avatar"
-							style="width: 100%; height: 100%; border-radius: 5%; box-shadow: white 0px 0px 10px 8px;" />
-					</div>
-					<div class="flip-card-back"
-						style="box-shadow: white 0px 0px 10px 8px;">
-						<h4 class="mt-4">Sneha More</h4>
-						<p class="m-0 p-0">Developer &amp; Engineer</p>
-						<p class="m-0 p-0">7588417971</p>
-						<p>
-							<a href="mailto:moresneha7588@gmail.com" style="color: #2fdbf7;">moresneha7588@gmail.com</a>
-						</p>
-
-						<p class="mt-2">
-							<a href="https://www.linkedin.com/in/sneha-more-45277a167"
-								class="fab fa-linkedin fa-4x m-2" target="_blank"></a> <a
-								href="https://github.com/SnehaRmore"
-								class="fab fa-github-square fa-4x m-2" target="_blank"></a>
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-
-
-			<div class="col-3 flip-card m-3">
-				<div class="flip-card-inner">
-					<div class="flip-card-front">
-						<img src="./images/AjinkyaPatwardhan.jpeg" alt="Avatar"
-							style="width: 100%; height: 100%; border-radius: 5%; box-shadow: white 0px 0px 10px 8px;" />
-					</div>
-					<div class="flip-card-back"
-						style="box-shadow: white 0px 0px 10px 8px;">
-						<h4 class="mt-4">Ajinkya Patwardhan</h4>
-						<p class="m-0 p-0">Developer &amp; Engineer</p>
-						<p class="m-0 p-0">7757049562</p>
-						<p>
-							<a href="mailto:ajinkyapatwardhan1@gmail.com"
-								style="color: #2fdbf7;">ajinkyapatwardhan1@gmail.com </a>
-						</p>
-
-						<p class="mt-2">
-							<a href="https://www.linkedin.com/in/ajinkya-patwardhan-716150ab"
-								class="fab fa-linkedin fa-4x m-2" target="_blank"></a> <a
-								href="https://github.com/Ajinkya107/Ajinkya_Patwardhan_E-Dac2020"
-								class="fab fa-github-square fa-4x m-2" target="_blank"></a>
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-
-			<div class="col-3 flip-card m-3">
-				<div class="flip-card-inner">
-					<div class="flip-card-front">
-						<img src="./images/Sachin.jpg" alt="Avatar"
-							style="width: 100%; height: 100%; border-radius: 5%; box-shadow: white 0px 0px 10px 8px;" />
-					</div>
-					<div class="flip-card-back"
-						style="box-shadow: white 0px 0px 10px 8px;">
-						<h4 class="mt-4">Komal Valivadekar</h4>
-						<p class="m-0 p-0">Developer &amp; Engineer</p>
-						<p class="m-0 p-0">9284161610</p>
-						<p>
-							<a href="mailto:komalvalivadekar2905@gmail.com"
-								style="color: #2fdbf7;">komalvalivadekar2905@gmail.com</a>
-						</p>
-
-						<p class="mt-2">
-							<a href="https://www.linkedin.com/in/komal-valivadekar-78b796168"
-								class="fab fa-linkedin fa-4x m-2" target="_blank"></a> <a
-								href="https://Github.com/komalvalivadekar20"
-								class="fab fa-github-square fa-4x m-2" target="_blank"></a>
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-
-
-			<div class="col-3 flip-card m-3">
-				<div class="flip-card-inner">
-					<div class="flip-card-front">
-						<img src="./images/Sachin.jpg" alt="Avatar"
-							style="width: 100%; height: 100%; border-radius: 5%; box-shadow: white 0px 0px 10px 8px;" />
-					</div>
-					<div class="flip-card-back"
-						style="box-shadow: white 0px 0px 10px 8px;">
-						<h4 class="mt-4">Sahil Bhagwat</h4>
-						<p class="m-0 p-0">Developer &amp; Engineer</p>
-						<p class="m-0 p-0">8149460110</p>
-						<p>
-							<a href="mailto:sahilbhagwat000@gmail.com"
-								style="color: #2fdbf7;">sahilbhagwat000@gmail.com</a>
-						</p>
-
-						<p class="mt-2">
-							<a
-								href="https://www.linkedin.com/in/sahil-manoj-bhagwat-014551137/"
-								class="fab fa-linkedin fa-4x m-2" target="_blank"></a> <a
-								href="https://github.com/sahil318"
-								class="fab fa-github-square fa-4x m-2" target="_blank"></a>
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-
-			<div class="col-3 flip-card m-3">
-				<div class="flip-card-inner">
-					<div class="flip-card-front">
-						<img src="./images/PavanJadhav.jpeg" alt="Avatar"
-							style="width: 100%; height: 100%; border-radius: 5%; box-shadow: white 0px 0px 10px 8px;" />
-					</div>
-					<div class="flip-card-back"
-						style="box-shadow: white 0px 0px 10px 8px;">
-						<h4 class="mt-4">Pavan Jadhav</h4>
-						<p class="m-0 p-0">Developer &amp; Engineer</p>
-						<p class="m-0 p-0">8956783901</p>
-						<p>
-							<a href="mailto:jpavan111@gmail.com" style="color: #2fdbf7;">jpavan111@gmail.com</a>
-						</p>
-
-						<p class="mt-2">
-							<a href="https://www.linkedin.com/in/pavan-jadhav-0b409989/"
-								class="fab fa-linkedin fa-4x m-2" target="_blank"></a> <a
-								href="https://github.com/jpavan111"
-								class="fab fa-github-square fa-4x m-2" target="_blank"></a>
-						</p>
-
-					</div>
-				</div>
-			</div>
-
-
-
-
-
-
-
+				
+			<%	
+				}
+			%>
+			
 		</div>
 
 	</div>
