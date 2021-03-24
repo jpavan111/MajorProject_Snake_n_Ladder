@@ -298,6 +298,17 @@
 				<div class="card" style="width: 90%; background-color:#f2bd10c2">
 					<div class="card-body ">
 						<div class="card-title" style="margin-bottom: 9%; font-size: 2em; font-weight: 600">Welcome <%= player.getPlayerName()%></div>
+						
+						<c:if test="${answerMessage == 1}">
+							<div style="margin-bottom: 9%; font-size: 1em; font-weight: 800; color: green">
+							Right Answer &#128526;</div>
+						</c:if>
+						
+						<c:if test="${answerMessage == 0}">
+							<div style="margin-bottom: 9%; font-size: 1em; font-weight: 800; color: red">
+							Wrong Answer &#x1F613;</div>
+						</c:if>
+						
 						<div class="card-title" style="margin-bottom: 9%; font-size: 1em; font-weight: 800">Your Current Score <br><span style="margin-bottom: 9%; font-size: 3em; font-weight: 800">
 										<%= player.getJavaScore()%> </span></div>
 						<div style="align-text: center;">

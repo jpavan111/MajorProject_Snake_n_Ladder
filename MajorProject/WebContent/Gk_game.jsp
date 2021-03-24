@@ -328,8 +328,8 @@
 						<div class="card-title" style="margin-bottom: 9%; font-size: 2em; font-weight: 600">Welcome <%= player.getPlayerName()%></div>
 						
 						<c:if test="${answerMessage == 1}">
-							<div style="margin-bottom: 9%; font-size: 1em; font-weight: 800">
-							Correct Answer <i class="far fa-grin-beam"></i></div>
+							<div style="margin-bottom: 9%; font-size: 1em; font-weight: 800; color: green">
+							Right Answer <i class="far fa-grin-beam"></i></div>
 						</c:if>
 						
 						<c:if test="${answerMessage == 0}">
