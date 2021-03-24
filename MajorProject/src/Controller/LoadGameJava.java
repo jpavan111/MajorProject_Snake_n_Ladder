@@ -3,6 +3,7 @@ package Controller;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.LinkedList;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -13,7 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.hibernate.Session;
 
+import Dao.BoardDao;
 import Dao.ReadLeaderBoardDao;
+import Entity.Cell;
 import Entity.Leaderboard;
 import Entity.Player;
 import Entity.User;
@@ -33,6 +36,16 @@ public class LoadGameJava extends HttpServlet {
 			Object playerName = request.getSession().getAttribute("playerName");
 			Object playerEmail = request.getSession().getAttribute("playerEmail");
 			
+			
+			BoardDao bdao = new BoardDao();
+			Cell cellArray[] = bdao.cellCreation();
+			
+			LinkedList<Cell> ab = new LinkedList<Cell>();
+			
+			for (int i = 0; i < cellArray.length; i++) {
+				ab.add(cellArray[i]);
+			 }
+				ab.remove(0);
 			
 //			Creating + Setting values from user to Player Object
 			Player player = new Player();
@@ -64,6 +77,7 @@ public class LoadGameJava extends HttpServlet {
 			
 			
 			request.getSession().setAttribute("itsme", player);
+			request.getSession().setAttribute("cells", ab);
 			response.sendRedirect("Java_game.jsp");
 		}
 		catch (Exception e) {

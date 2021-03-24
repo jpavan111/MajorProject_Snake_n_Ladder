@@ -165,7 +165,7 @@
 		<img src='./images/ladder1.png' id='l7'>
 		<img src='./images/ladder1.png' id='l8'>
 		<img src='./images/ladder1.png' id='l9'>
-		<img src='./images/ladder1.png' id='l10'>
+		 <img src='./images/ladder1.png' id='l10'> 
 		<img src='./images/s1.png' id='s1'>
 		<img src='./images/s2.png' id='s2'>
 		<img src='./images/s3.png' id='s3'>
@@ -186,7 +186,7 @@
        
   <% 
   	/* Getting Player Object from Session */
-  	Player player=null;
+  	Player player = null;
   	if(session.getAttribute("newSession") == null)
 		response.sendRedirect("login.jsp");
 	else
@@ -202,41 +202,18 @@
 	<script>
 	 function cursorPosition()
      {
-    	 
     	 position = <%= positionBack %>;
     	 var cursorElem = document.getElementById("cursor");
     	 var newPosElem = document.getElementById(position);
     		newPosElem.children[0].append(cursorElem);
-    	
      } 
 	 
 	 
-	 	var position = 1;
+	 	var position = <%= positionBack %>;
 	    
-	 	var currentPosition = 1;
-		var snakeAndLadderPos = [
-		
-		{old: 19, new: 38},
-		{old: 11, new: 28},
-		{old: 24, new: 6},
-		{old: 15, new: 34},
-		{old: 25, new: 44},
-		{old: 59, new: 38},
-		{old: 32, new: 53},
-		{old: 50, new: 30},
-		{old: 51, new: 72},
-		{old: 68, new: 36},
-		{old: 58, new: 65},
-		{old: 59, new: 38},
-		{old: 60, new: 79},
-		{old: 94, new: 75},
-		{old: 77, new: 98},
-		{old: 76, new: 66},
-		{old: 67, new: 88},
-		{old: 91, new: 72},
-		{old: 99, new: 78}
-	];
-	function moveCursor(digits) {
+	 	var currentPosition = <%= positionBack %>;
+
+	 	function moveCursor(digits) {
 		var cursorElem = document.getElementById("cursor");
 		var newPosElem = document.getElementById(position = position + digits);
 		newPosElem.children[0].append(cursorElem);
@@ -248,12 +225,6 @@
 	}
 	function checkSnakeOrLadder() {
 		var cursorElem = document.getElementById("cursor");
-		for(var i = 0; i < snakeAndLadderPos.length; i++){
-			if(snakeAndLadderPos[i].old === position){
-				position = snakeAndLadderPos[i].new;
-				break;
-			}
-		}
 		var newPosElem = document.getElementById(position);
 		newPosElem.children[0].append(cursorElem);
 	}

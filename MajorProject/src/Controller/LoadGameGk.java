@@ -3,6 +3,8 @@ package Controller;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Iterator;
+import java.util.LinkedList;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -13,7 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.hibernate.Session;
 
+import Dao.BoardDao;
 import Dao.ReadLeaderBoardDao;
+import Entity.Cell;
 import Entity.Leaderboard;
 import Entity.Player;
 import Entity.User;
@@ -34,12 +38,24 @@ public class LoadGameGk extends HttpServlet {
 			Object playerEmail = request.getSession().getAttribute("playerEmail");
 			
 			
+			BoardDao bdao = new BoardDao();
+			Cell cellArray[] = bdao.cellCreation();
+			
+			LinkedList<Cell> ab = new LinkedList<Cell>(); 
+		
+		 for (int i = 0; i < cellArray.length; i++) {
+			ab.add(cellArray[i]);
+		 }
+			ab.remove(0);
+			
+			
+			
 //			Creating + Setting values from user to Player Object
 			Player player = new Player();
 			player.setPlayerId((Integer)playerId);
 			player.setPlayerName((String)playerName);
 			player.setEmail((String)playerEmail);
-			player.setPosition(1);
+			player.setPosition(ab.get(0).getValue());
 			player.setGkScore(0);
 			player.setJavaScore(0);
 			
@@ -51,7 +67,7 @@ public class LoadGameGk extends HttpServlet {
 		    
 			player.setInstance(formattedDate);
 			
-//			Creating + Inserting player entry into leaderboard
+//			Creating + Inserting player entry into leader board
 			ReadLeaderBoardDao lb = new ReadLeaderBoardDao();
 			Leaderboard objlb = new Leaderboard();
 			objlb.setId(player.getPlayerId());
@@ -62,9 +78,8 @@ public class LoadGameGk extends HttpServlet {
 			
 			lb.createGetLeaderboardGk(objlb);
 			
-			
-			
 			request.getSession().setAttribute("itsme", player);
+			request.getSession().setAttribute("cells", ab);
 			response.sendRedirect("Gk_game.jsp");
 		}
 		catch (Exception e) {
