@@ -1,6 +1,6 @@
 body{
   
-  background: url('./images/back41.jpg') no-repeat center top fixed;
+  background: url('./images/back6.jpg') no-repeat center top fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -8,19 +8,18 @@ body{
       height: 100vh;
   position: relative;
   margin: 0;
-  overflow:hidden;
 }
 
    
    @media only screen and (max-width: 767px) {
   body {
-    background-image: url(./images/back415.jpg);
+    background-image: url(./images/back1.jpg);
   }
 	}
     
 .box{ 
     float:left;
-	height:9.6vmin;
+	height:9vmin;
 	width:9.6vmin;
 	border:0.25vmin solid black;
 	text-align:center;
@@ -38,7 +37,7 @@ body{
 	right:0;
 	bottom:20rem;
 	border:2vmin solid #7fb383; /* #00cd84; #38a32a; #5d9b4e; */
-	height:100vmin;
+	height:94vmin;
 	width:100vmin;
  }
 
