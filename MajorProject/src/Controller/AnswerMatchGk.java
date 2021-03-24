@@ -79,6 +79,7 @@ public class AnswerMatchGk extends HttpServlet {
 					response.sendRedirect("GameEndGk.jsp");
 				else
 					{
+						request.setAttribute("answerMessage", 1);
 						request.getSession().setAttribute("itsme", player);
 						response.sendRedirect("Gk_game.jsp");
 					}
@@ -101,6 +102,7 @@ public class AnswerMatchGk extends HttpServlet {
 					response.sendRedirect("GameEndGk.jsp");
 				else
 					{
+						request.setAttribute("answerMessage", 0);
 						request.getSession().setAttribute("itsme", player);
 						response.sendRedirect("Gk_game.jsp");
 					}

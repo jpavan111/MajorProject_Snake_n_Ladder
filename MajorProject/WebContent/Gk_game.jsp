@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page errorPage="error.jsp"%>
+<%-- <%@page errorPage="error.jsp"%> --%>
 
 <!DOCTYPE html>
 <html>
@@ -209,7 +209,7 @@
 												<div class='box' id='13'><button onclick="playAudio()" class='button5' name="block" value="13">13</button></div>
 									            <div class='box' id='12'><button onclick="playAudio()" class='button5' name="block" value="12">12</button></div>
 											    <div class='box' id='11'><button onclick="playAudio()" class='button5' name="block" value="11">11</button></div>
-												<div class='box' id='1'><button onclick="playAudio()" class='button5' name="block" value="1">1 <img id="cursor" src="./images/token_red.png" /></button></div>
+												<div class='box' id='1'><button onclick="playAudio()" class='button5' name="block" value="1">1 <div id="cursor" class="center"><div class="pointer"><div class="shadow"></div></div></div></button></div>
 									            <div class='box' id='2'><button onclick="playAudio()" class='button5' name="block" value="2">2</button></div>	
 												<div class='box' id='3'><button onclick="playAudio()" class='button5' name="block" value="3">3</button></div>	
 												<div class='box' id='4'><button onclick="playAudio()" class='button5' name="block" value="4">4</button></div>
@@ -326,6 +326,17 @@
 				<div class="card" style="width: 90%; background-color:#86b3ffb3">
 					<div class="card-body ">
 						<div class="card-title" style="margin-bottom: 9%; font-size: 2em; font-weight: 600">Welcome <%= player.getPlayerName()%></div>
+						
+						<c:if test="${answerMessage == 1}">
+							<div style="margin-bottom: 9%; font-size: 1em; font-weight: 800">
+							Correct Answer <i class="far fa-grin-beam"></i></div>
+						</c:if>
+						
+						<c:if test="${answerMessage == 0}">
+							<div style="margin-bottom: 9%; font-size: 1em; font-weight: 800; color: red">
+							Wrong Answer <i class="far fa-frown"></i></div>
+						</c:if>
+						
 						<div class="card-title" style="margin-bottom: 9%; font-size: 1em; font-weight: 800">Your Current Score <br><span style="margin-bottom: 9%; font-size: 3em; font-weight: 800">
 										<%= player.getGkScore()%> </span></div>
 						<div style="align-text: center;">

@@ -80,6 +80,7 @@ public class AnswerMatchJava extends HttpServlet {
 					response.sendRedirect("GameEndJava.jsp");
 				else
 					{
+//						request.setAttribute("answerMessage", 1);
 						request.getSession().setAttribute("itsme", player);
 						response.sendRedirect("Java_game.jsp");
 					}
@@ -104,6 +105,7 @@ public class AnswerMatchJava extends HttpServlet {
 					response.sendRedirect("GameEndJava.jsp");
 				else
 					{
+//						request.setAttribute("answerMessage", 0);
 						request.getSession().setAttribute("itsme", player);
 						response.sendRedirect("Java_game.jsp");
 					}

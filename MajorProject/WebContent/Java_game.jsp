@@ -215,7 +215,7 @@
 												<div class='box' id='13'><button onclick="playAudio()" class='button5' name="block" value="13">13</button></div>
 									            <div class='box' id='12'><button onclick="playAudio()" class='button5' name="block" value="12">12</button></div>
 											    <div class='box' id='11'><button onclick="playAudio()" class='button5' name="block" value="11">11</button></div>
-												<div class='box' id='1'><button onclick="playAudio()" class='button5' name="block" value="1">1<img id="cursor" src="./images/token_red.png" /></button></div>
+												<div class='box' id='1'><button onclick="playAudio()" class='button5' name="block" value="1">1 <div id="cursor" class="center"><div class="pointer"><div class="shadow"></div></div></div></button></div>
 									            <div class='box' id='2'><button onclick="playAudio()" class='button5' name="block" value="2">2</button></div>	
 												<div class='box' id='3'><button onclick="playAudio()" class='button5' name="block" value="3">3</button></div>	
 												<div class='box' id='4'><button onclick="playAudio()" class='button5' name="block" value="4">4</button></div>
