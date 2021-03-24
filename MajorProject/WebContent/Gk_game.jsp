@@ -29,12 +29,10 @@
 <style>
 <%@ include file="./styles/GameCss.css"%>
 </style>
-
 <meta charset="ISO-8859-1">
 <title>GK Snakes and Ladders</title>
 </head>
 <body onload="cursorPosition()">
-
 		<%
 			/* Getting Player Object from Session */
 			Player player = null;
@@ -45,15 +43,12 @@
 				player = (Player) request.getSession().getAttribute("itsme");
 				 /* diceValue= (int)request.getAttribute("diceValue"); */
 			}
-
 			int positionBack = player.getPosition();
 			/* System.out.println(positionBack); */
-		
 		%>
-
 	<div class="container-fluid">
 		<div class="row">
-
+		
 			<div class="col-3 text-center">
 				<div class="container1"
 					style="display: block; margin-left: 35%; margin-top: 30%">
@@ -61,13 +56,12 @@
 						<div class="card-body">
 							<div style="align-text: center;">
 								<form action="RollDiceActionGk" method="post">
-									<input type="submit" class="btn btn-secondary btn-lg" onsubmit="moveCursor(this)" value="Roll Dice">
-
+									<input type="submit" class="btn btn-secondary btn-lg" value="Roll Dice">
 								</form>
 							</div>
 							<div class="card-title"
 								style="margin-top: 15%;" >
-								<input type="hidden" id="diceButton" onchange="moveCursor(this)" value="${diceValue}" >
+								<%-- <input type="hidden" id="diceButton" onchange="moveCursor(this)" value="${diceValue}" > --%>
 								 
 								 <c:if test="${diceValue == 1}">
 						          	<img src="./images/dice_1.png">
@@ -96,7 +90,7 @@
 								</div>
 						</div>
 					</div>
-					<!-- <i class="fas fa-pause"></i>
+					<i class="fas fa-pause"></i>
 					<div style="margin: 3%;">
 						<button onclick="moveCursor(1)" value="1">1</button>
 						<button onclick="moveCursor(2)" value="2">2</button>
@@ -104,19 +98,15 @@
 						<button onclick="moveCursor(4)" value="4">4</button>
 						<button onclick="moveCursor(5)" value="5">5</button>
 						<button onclick="moveCursor(6)" value="6">6</button>
-					</div> -->
+					</div>
 				</div>
 			</div>
-
-
-
 			<div class="col-6">
 				<div class="container-sm">
 					<div class="container-md">
 						<div class="container-lg">
 							<div class="container-xl">
 								<div class="container-xxl">
-
 									<div class="container">
 									
 									<nav class="navbar navbar-light bg-light" style="opacity: 80%">
@@ -256,9 +246,7 @@
 											<audio id="myAudio">
 									          <source src="./images/click.mp3" type="audio/mpeg">
 									        </audio>
-
-
-			<script>
+			<%-- <script>
 			
 				function cursorPosition() {
 					position =
@@ -268,15 +256,12 @@
 					var newPosElem = document.getElementById(position);
 					newPosElem.children[0].append(cursorElem);
 				}
-
 				var position =
 			<%=positionBack%>
 				;
-
 				var currentPosition =
 			<%=positionBack%>
 				;
-
 				function moveCursor(pop) {
 					var cursorElem = document.getElementById("cursor");
 					var digits = pop.value;
@@ -286,7 +271,6 @@
 							.getElementById(position = position + digits);
 					newPosElem.children[0].append(cursorElem);
 					checkSnakeOrLadder();
-
 					document.getElementById("cursor").click();
 					currentPosition = document.getElementById("cursor");
 				}
@@ -295,7 +279,38 @@
 					var newPosElem = document.getElementById(position);
 					newPosElem.children[0].append(cursorElem);
 				}
-			</script>
+			</script> --%>
+			
+			
+											<script>
+												 function cursorPosition()
+											     {
+											    	 position = <%= positionBack %>;
+											    	 var cursorElem = document.getElementById("cursor");
+											    	 var newPosElem = document.getElementById(position);
+											    		newPosElem.children[0].append(cursorElem);
+											     } 
+												 
+												 
+												 	var position = <%= positionBack %>;
+												    
+												 	var currentPosition = <%= positionBack %>;
+												 	function moveCursor(digits) {
+													var cursorElem = document.getElementById("cursor");
+													var newPosElem = document.getElementById(position = position + digits);
+													newPosElem.children[0].append(cursorElem);
+													checkSnakeOrLadder();
+													
+													
+												 	document.getElementById("cursor").click(); 
+													currentPosition = document.getElementById("cursor");
+												}
+												function checkSnakeOrLadder() {
+													var cursorElem = document.getElementById("cursor");
+													var newPosElem = document.getElementById(position);
+													newPosElem.children[0].append(cursorElem);
+												}
+											</script>
 										</div>
 									</div>
 								</div>

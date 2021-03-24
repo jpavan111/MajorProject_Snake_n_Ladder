@@ -48,7 +48,6 @@
 
 			int positionBack = player.getPosition();
 			/* System.out.println(positionBack); */
-		
 		%>
 
 	<div class="container-fluid">
@@ -62,12 +61,11 @@
 							<div style="align-text: center;">
 								<form action="RollDiceActionJava" method="post">
 									<input type="submit" class="btn btn-secondary btn-lg" value="Roll Dice">
-
 								</form>
 							</div>
 							<div class="card-title"
 								style="margin-top: 15%;" >
-								<input type="hidden" id="diceButton" onchange="moveCursor(this)" value="${diceValue}" >
+								<%-- <input type="hidden" id="diceButton" onchange="moveCursor(this)" value="${diceValue}" > --%>
 								 
 								 <c:if test="${diceValue == 1}">
 						          	<img src="./images/dice_1.png">
@@ -96,7 +94,7 @@
 								</div>
 						</div>
 					</div>
-					<!-- <i class="fas fa-pause"></i>
+					<i class="fas fa-pause"></i>
 					<div style="margin: 3%;">
 						<button onclick="moveCursor(1)" value="1">1</button>
 						<button onclick="moveCursor(2)" value="2">2</button>
@@ -104,7 +102,7 @@
 						<button onclick="moveCursor(4)" value="4">4</button>
 						<button onclick="moveCursor(5)" value="5">5</button>
 						<button onclick="moveCursor(6)" value="6">6</button>
-					</div> -->
+					</div>
 				</div>
 			</div>
 
@@ -257,35 +255,26 @@
 
 								
 											<script>
-											
-												function cursorPosition() {
-													position =
-											<%=positionBack%>
-												;
+												 function cursorPosition()
+											     {
+											    	 position = <%= positionBack %>;
+											    	 var cursorElem = document.getElementById("cursor");
+											    	 var newPosElem = document.getElementById(position);
+											    		newPosElem.children[0].append(cursorElem);
+											     } 
+												 
+												 
+												 	var position = <%= positionBack %>;
+												    
+												 	var currentPosition = <%= positionBack %>;
+												 	function moveCursor(digits) {
 													var cursorElem = document.getElementById("cursor");
-													var newPosElem = document.getElementById(position);
-													newPosElem.children[0].append(cursorElem);
-												}
-								
-												var position =
-											<%=positionBack%>
-												;
-								
-												var currentPosition =
-											<%=positionBack%>
-												;
-								
-												function moveCursor(pop) {
-													var cursorElem = document.getElementById("cursor");
-													var digits = pop.value;
-													System.out.println("Dice Value: "+digits);
-													
-													var newPosElem = document
-															.getElementById(position = position + digits);
+													var newPosElem = document.getElementById(position = position + digits);
 													newPosElem.children[0].append(cursorElem);
 													checkSnakeOrLadder();
-								
-													document.getElementById("cursor").click();
+													
+													
+												 	document.getElementById("cursor").click(); 
 													currentPosition = document.getElementById("cursor");
 												}
 												function checkSnakeOrLadder() {

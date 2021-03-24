@@ -42,6 +42,9 @@ public class AnswerMatchGk extends HttpServlet {
 			
 			LinkedList<Cell> boardObject = (LinkedList<Cell>)request.getSession().getAttribute("cells");
 			
+//			int newPositionByDice = (int)request.getSession().getAttribute("diceValue1");
+//			player.setPosition(player.getPosition()+newPositionByDice);
+			
 			if(check == true)
 			{	
 				player.setGkScore(player.getGkScore()+1);
@@ -71,8 +74,14 @@ public class AnswerMatchGk extends HttpServlet {
 				
 				score.setGK_Score(lb);
 				
-				request.getSession().setAttribute("itsme", player);
-				response.sendRedirect("Gk_game.jsp");
+//				Checking the end of game.
+				if(player.getPosition() == 100)
+					response.sendRedirect("GameEndGk.jsp");
+				else
+					{
+						request.getSession().setAttribute("itsme", player);
+						response.sendRedirect("Gk_game.jsp");
+					}
 			}
 			else {
 
@@ -87,8 +96,14 @@ public class AnswerMatchGk extends HttpServlet {
 					player.setPosition(boardObject.get(player.getPosition()-1).getSnake().getFinalPosition());
 				}
 			
-				request.getSession().setAttribute("itsme", player);
-				response.sendRedirect("Gk_game.jsp");
+//				Checking the end of game.
+				if(player.getPosition() == 100)
+					response.sendRedirect("GameEndGk.jsp");
+				else
+					{
+						request.getSession().setAttribute("itsme", player);
+						response.sendRedirect("Gk_game.jsp");
+					}
 			}
 		}
 		

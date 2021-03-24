@@ -32,7 +32,7 @@
 
 <link rel="stylesheet" type="text/css" href="styles.css">
 <style>
-	<%@ include file="./styles/UpdateUserProfile.css"%>
+<%@ include file="./styles/UpdateUserProfile.css"%>
 </style>
 </head>
 
@@ -45,10 +45,11 @@
 
 
 	<div class="container d-flex justify-content-center align-items-center">
+			<div class="row">
+			<div class="col-12 d-flex justify-content-center">
 		<form action="update-user-by-profile" method="post" id="changePassword">
 
-			<div>
-				<div class="card ">
+				<div class="card">
 					<div class="card-header">
 
 						<h2>Edit Profile</h2>
@@ -102,17 +103,21 @@
 					<div class="form-group ">
 						<label class="col-md-3 control-label"></label>
 						<div class="col-md-12 d-flex justify-content-center">
-							<input type="submit" class="btn btn-warning" value="Save Changes">
-							<span></span>&nbsp;&nbsp; <input type="reset"
-								class="btn btn-warning text-right pl-4 pr-4 pt-3 pb-3"
-								value="Reset">
-
+							<input type="submit" class="btn btn-warning ml-2" value="Save Changes">
+							<input type="reset" class="btn btn-warning text-right pl-4 pr-4 pt-3 pb-3 ml-2" value="Reset">
 						</div>
 					</div>
 				</div>
-			</div>
 		</form>
-
+			</div>
+		<div class="row">
+		<div class="col-12 d-flex justify-content-center mt-4">
+		<form action="index.jsp">
+		<input type="submit" class="btn btn-warning text-right pl-4 pr-4 pt-3 pb-3" value="Back">
+		</form>
+		</div>
+		</div>
+		</div>
 	</div>
 
 	<script>

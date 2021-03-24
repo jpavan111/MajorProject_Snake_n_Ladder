@@ -32,7 +32,7 @@ public class RollDiceActionGk extends HttpServlet {
 		
 		request.setAttribute("diceValue",value);
 		
-		request.getSession().setAttribute("diceValue",value);
+		request.getSession().setAttribute("diceValue1",value);
 
 		
 		request.getRequestDispatcher("Gk_game.jsp").forward(request, response);

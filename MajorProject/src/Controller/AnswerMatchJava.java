@@ -44,6 +44,9 @@ public class AnswerMatchJava extends HttpServlet {
 			
 			LinkedList<Cell> boardObject = (LinkedList<Cell>)request.getSession().getAttribute("cells");
 			
+//			int newPositionByDice = (int)request.getSession().getAttribute("diceValue1");
+//			player.setPosition(player.getPosition()+newPositionByDice);
+			
 			if(check == true)
 			{	
 				player.setJavaScore(player.getJavaScore()+1);
@@ -72,8 +75,16 @@ public class AnswerMatchJava extends HttpServlet {
 				
 				score.setJava_Score(lb);
 				
-				request.getSession().setAttribute("itsme", player);
-				response.sendRedirect("Java_game.jsp");
+//				Checking the end of game.
+				if(player.getPosition() == 100)
+					response.sendRedirect("GameEndJava.jsp");
+				else
+					{
+						request.getSession().setAttribute("itsme", player);
+						response.sendRedirect("Java_game.jsp");
+					}
+					
+					
 			}
 			else
 			{
@@ -88,8 +99,14 @@ public class AnswerMatchJava extends HttpServlet {
 					player.setPosition(boardObject.get(player.getPosition()-1).getSnake().getFinalPosition());
 				}
 				
-				request.getSession().setAttribute("itsme", player);
-				response.sendRedirect("Java_game.jsp");
+//				Checking the end of game.
+				if(player.getPosition() == 100)
+					response.sendRedirect("GameEndJava.jsp");
+				else
+					{
+						request.getSession().setAttribute("itsme", player);
+						response.sendRedirect("Java_game.jsp");
+					}
 			}
 		}
 		
