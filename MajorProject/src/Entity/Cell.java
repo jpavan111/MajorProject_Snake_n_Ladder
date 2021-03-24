@@ -1,27 +1,23 @@
 package Entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="Tile")
 public class Cell {
 	
-	@Id
-	@Column(name="Value")
 	private int value;
-	
-	@Column(name="Snake")
 	Snake snake;
-	
-	@Column(name="Ladder")
 	Ladder ladder;
 
 	public Cell() {
 		super();
 	}
+
+	
+	
+	public Cell(int value) {
+		super();
+		this.value = value;
+	}
+
+
 
 	public Cell(int value, Snake snake, Ladder ladder) {
 		super();
@@ -53,9 +49,5 @@ public class Cell {
 	public void setLadder(Ladder ladder) {
 		this.ladder = ladder;
 	}
-
-
-	
-	
 	
 }

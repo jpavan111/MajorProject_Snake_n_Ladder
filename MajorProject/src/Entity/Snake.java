@@ -1,19 +1,8 @@
 package Entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="Snake")
 public class Snake {
 	
-	@Id
-	@Column(name="Initial_Position")
 	int initialPosition;
-	
-	@Column(name="Final_Position")
 	int finalPosition;
 
 	public Snake() {

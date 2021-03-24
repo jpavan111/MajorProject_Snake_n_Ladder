@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.Random;
 
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Dao.BlockDao;
+import Entity.Cell;
 import Entity.General_Knowledge;
 import Entity.Player;
 import Entity.VisitedBlock;
@@ -31,8 +33,8 @@ public class GetBlockValueGk extends HttpServlet {
 			Object blockId = (String)request.getParameter("block");
 			Player player = (Player)request.getSession().getAttribute("itsme");
 			
-			 int pos=Integer.parseInt(new String((String) blockId));
-			 player.setPosition(pos);
+			int pos = Integer.parseInt(new String((String) blockId));
+			player.setPosition(pos);
 			
 			
 			int questionNo=0;

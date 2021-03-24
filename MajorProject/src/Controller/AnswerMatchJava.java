@@ -1,6 +1,8 @@
 package Controller;
 
 import java.io.IOException;
+import java.util.LinkedList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import Dao.BlockDao;
 import Dao.JavaBlockDao;
 import Dao.ReadLeaderBoardDao;
+import Entity.Cell;
 import Entity.General_Knowledge;
 import Entity.JavaMcq;
 import Entity.Leaderboard;
@@ -39,6 +42,8 @@ public class AnswerMatchJava extends HttpServlet {
 			
 			Boolean check = dao.getAnswer(java);
 			
+			LinkedList<Cell> boardObject = (LinkedList<Cell>)request.getSession().getAttribute("cells");
+			
 			if(check == true)
 			{	
 				player.setJavaScore(player.getJavaScore()+1);
@@ -52,6 +57,19 @@ public class AnswerMatchJava extends HttpServlet {
 				lb.setDate(player.getInstance());
 				
 				ReadLeaderBoardDao score = new ReadLeaderBoardDao();
+				
+				if(player.getPosition() == 11 || player.getPosition() == 15 || player.getPosition() == 32 ||
+				   player.getPosition() == 19 || player.getPosition() == 25 || player.getPosition() == 51 ||
+				   player.getPosition() == 58 || player.getPosition() == 60 || player.getPosition() == 67 ||
+				   player.getPosition() == 77)
+				{
+					//System.out.println(boardObject.get(10).getLadder().getInitialPosition());
+					//System.out.println(boardObject.get(10).getLadder().getFinalPosition());
+					//System.out.println(boardObject.get(12).toString());
+					lb.setJavaScore(player.getJavaScore()+10);
+					player.setPosition(boardObject.get(player.getPosition()-1).getLadder().getFinalPosition());
+				}
+				
 				score.setJava_Score(lb);
 				
 				request.getSession().setAttribute("itsme", player);
@@ -59,6 +77,17 @@ public class AnswerMatchJava extends HttpServlet {
 			}
 			else
 			{
+				if(player.getPosition() == 24 || player.getPosition() == 68 || player.getPosition() == 50 ||
+				   player.getPosition() == 59 || player.getPosition() == 76 || player.getPosition() == 91 ||
+				   player.getPosition() == 94 || player.getPosition() == 99)
+				{
+					//System.out.println(boardObject.get(10).getLadder().getInitialPosition());
+					//System.out.println(boardObject.get(10).getLadder().getFinalPosition());
+					//System.out.println(boardObject.get(12).toString());
+					
+					player.setPosition(boardObject.get(player.getPosition()-1).getSnake().getFinalPosition());
+				}
+				
 				request.getSession().setAttribute("itsme", player);
 				response.sendRedirect("Java_game.jsp");
 			}

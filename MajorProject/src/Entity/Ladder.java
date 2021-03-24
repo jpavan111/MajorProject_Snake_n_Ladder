@@ -1,19 +1,7 @@
 package Entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="Ladder")
 public class Ladder {
-	
-	@Id
-	@Column(name="Initial_Position")
 	private int initialPosition;
-	
-	@Column(name="Final_Position")
 	private int finalPosition;
 
 	public Ladder() {
