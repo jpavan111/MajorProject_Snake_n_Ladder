@@ -3,6 +3,7 @@ package Controller;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -33,6 +34,9 @@ public class LoadGameGk extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
+//			ArrayList<Integer> visitedQuestion = new ArrayList<Integer> (150);
+//			visitedQuestion.add(0);
+			
 			Object playerId = request.getSession().getAttribute("playerId");
 			Object playerName = request.getSession().getAttribute("playerName");
 			Object playerEmail = request.getSession().getAttribute("playerEmail");
@@ -79,6 +83,7 @@ public class LoadGameGk extends HttpServlet {
 			lb.createGetLeaderboardGk(objlb);
 			
 			request.getSession().setAttribute("itsme", player);
+//			request.getSession().setAttribute("visitedQuestion", visitedQuestion);
 			request.getSession().setAttribute("cells", ab);
 			response.sendRedirect("Gk_game.jsp");
 		}

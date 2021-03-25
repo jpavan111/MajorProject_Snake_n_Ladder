@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -39,6 +40,22 @@ public class LoginServlet extends HttpServlet {
 			p.setActive(1);
 			
 			if(check == true) {
+				
+				if(request.getParameter("remember") != null)
+				{
+					String remember = request.getParameter("remember");
+					Cookie ckEmail=new Cookie("email",email);
+					ckEmail.setMaxAge(60 * 60 * 24 * 365);
+					response.addCookie(ckEmail);
+					
+					Cookie ckPassword=new Cookie("password",password);
+					ckPassword.setMaxAge(60 * 60 * 24 * 365);
+					response.addCookie(ckPassword);
+					
+					Cookie ckRemember=new Cookie("remember",remember);
+					ckRemember.setMaxAge(60 * 60 * 24 * 365);
+					response.addCookie(ckRemember);
+				}
 				
 //				Setting player object into Session
 				HttpSession session=request.getSession();

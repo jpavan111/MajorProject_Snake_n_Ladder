@@ -35,7 +35,7 @@ else {
 </head>
 <body>
 
-<jsp:include page="Header.jsp"></jsp:include>
+<jsp:include page="Header.jsp"></jsp:include>`
 	
 	<div class="hero">
 		<h1>Snakes & Ladders</h1>

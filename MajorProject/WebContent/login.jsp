@@ -23,6 +23,25 @@
     
   </head>
   <body>
+  
+<%
+Cookie[] cookies=request.getCookies();
+String Email="",Password="", RememberVal="";
+if (cookies != null) {
+     for (Cookie cookie : cookies) {
+       if (cookie.getName().equals("email")) {
+           Email=cookie.getValue();
+       }
+       if(cookie.getName().equals("password")){
+           Password=cookie.getValue();
+       }
+       if(cookie.getName().equals("remember")){
+           RememberVal=cookie.getValue();
+       }
+    }
+}
+%>
+  
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
@@ -55,7 +74,7 @@
               
               <input type="email" placeholder="Email" name="email"
                 class="form-control" id="exampleInputEmail1"
-				aria-describedby="emailHelp" 
+				aria-describedby="emailHelp" value="<%=Email%>"
                 pattern="^[a-zA-Z0-9.!#$%&+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$"
 				onchange="try{setCustomValidity('')}catch(e){}"
 				oninput="setCustomValidity(' ')"
@@ -65,7 +84,8 @@
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" name="password" placeholder="Password" required="required"/>
+              <input type="password" value="<%=Password%>"
+               name="password" placeholder="Password" required="required"/>
             </div>
             
             
@@ -84,7 +104,8 @@
             
             
             <div class="row align-items-center remember">
-	        	<input type="checkbox">Remember Me
+	        	<input type="checkbox" name="remember"
+	        	 value="1" <%= "1".equals(RememberVal) ? "checked=\"checked\"" : "" %>> &nbsp;Remember Me
 			</div>
 			<div class="pass-link">
                 <a href="ForgotPassword.jsp">Forgot password?</a>
