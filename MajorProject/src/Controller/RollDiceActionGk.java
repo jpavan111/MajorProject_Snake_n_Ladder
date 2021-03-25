@@ -25,8 +25,9 @@ public class RollDiceActionGk extends HttpServlet {
 	    }
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-         RollDiceActionGk d=new RollDiceActionGk();
+		int countMyNumber=0;
+
+        RollDiceActionGk d=new RollDiceActionGk();
 		
 		int value=d.rollDice();
 		
@@ -34,6 +35,8 @@ public class RollDiceActionGk extends HttpServlet {
 		
 		request.getSession().setAttribute("diceValue1",value);
 
+		countMyNumber++;
+		request.setAttribute("countmyNumber", countMyNumber);
 		
 		request.getRequestDispatcher("Gk_game.jsp").forward(request, response);
 		

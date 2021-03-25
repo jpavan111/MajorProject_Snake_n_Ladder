@@ -39,22 +39,14 @@
 <%
 	/* Getting Player Object from Session */
 	Player player = null;
-/* 	int diceValue = 1; */
 	
 	if (session.getAttribute("newSession") == null)
 		response.sendRedirect("login.jsp");
-	
 	else {
 			player = (Player) request.getSession().getAttribute("itsme");
-
-			/* if(request.getSession().getAttribute("diceValue") == null)
-				diceValue = 0;
-			else
-				diceValue = (int) request.getSession().getAttribute("diceValue"); */
-		}
+		 }
 	
 	int positionBack = player.getPosition();
-	System.out.println(positionBack);
 %>
 
 	<div class="container-fluid">
@@ -67,12 +59,12 @@
 						<div class="card-body">
 							<div style="align-text: center;">
 								<form action="RollDiceActionJava" method="post">
-									<input type="submit" class="btn btn-secondary btn-lg" value="Roll Dice">
+									<input type="submit" class="btn btn-secondary btn-lg"  onclick="mycouterPart()" value="Roll Dice">
 								</form>
 							</div>
+							
 							<div class="card-title"
 								style="margin-top: 15%;" >
-								<%-- <input type="hidden" id="diceButton" onchange="moveCursor(this)" value="${diceValue}" > --%>
 								 
 								 <c:if test="${diceValue == 1}">
 						          	<img src="./images/dice_1.png">
@@ -100,15 +92,6 @@
 								
 								</div>
 						</div>
-					</div>
-					<i class="fas fa-pause"></i>
-					<div style="margin: 3%;">
-						<button onclick="moveCursor(1)" value="1">1</button>
-						<button onclick="moveCursor(2)" value="2">2</button>
-						<button onclick="moveCursor(3)" value="3">3</button>
-						<button onclick="moveCursor(4)" value="4">4</button>
-						<button onclick="moveCursor(5)" value="5">5</button>
-						<button onclick="moveCursor(6)" value="6">6</button>
 					</div>
 				</div>
 			</div>
@@ -262,47 +245,39 @@
 
 								
 											<script>
-						
-						var dicePos = <%= request.getAttribute("diceValue") %> ;
-						console.log("Dice Value is: " + dicePos);
-						
-						function cursorPosition()
-						   {
-							 console.log("Dice Value on loding page: " + dicePos);
-							
-							 var position = <%= positionBack %>;
-						  	 var cursorElem = document.getElementById("cursor");
-						  	 
-						  	 var newPosElem = document.getElementById(position);
-						  		newPosElem.children[0].append(cursorElem);
-						   } 
-						
-						
-						  	
-						 	console.log("Position Back is: " + <%= positionBack %>);
-						 	position = <%= positionBack %>;
-						 	var currentPosition = <%= positionBack %>;
-						 	
-						 	function moveCursor() {
-							var cursorElem = document.getElementById("cursor");
-							
-							console.log("dicePos Value is: " + dicePos);
-							var newPosElem = document.getElementById(position = position + dicePos);
-							newPosElem.children[0].append(cursorElem);
-							checkSnakeOrLadder();
-							
-							
-						 	document.getElementById("cursor").click(); 
-							currentPosition = document.getElementById("cursor");
-						}
-						 	
-						function checkSnakeOrLadder() {
-							var cursorElem = document.getElementById("cursor");
-							var newPosElem = document.getElementById(position);
-							newPosElem.children[0].append(cursorElem);
-						}
-						/* moveCursor(); */
-						</script>
+											 	console.log("Position Back is: " + <%= positionBack %>);
+											 	position = <%= positionBack %>;
+											 	var currentPosition = <%= positionBack %>;
+												
+											 	var dicePos = <%= request.getAttribute("diceValue") %> ;
+												function cursorPosition()
+												   {
+													
+													
+													 var position = <%= positionBack %>;
+												  	 var cursorElem = document.getElementById("cursor");
+												  	 
+												  	 var newPosElem = document.getElementById(position);
+												  		newPosElem.children[0].append(cursorElem);
+												  		
+												   }
+												
+										 	
+										 	function moveCursor() {
+												var cursorElem = document.getElementById("cursor");
+												
+												var newPosElem = document.getElementById(position = position + dicePos);
+												newPosElem.children[0].append(cursorElem);
+												
+												document.getElementById("cursor").click(); 
+											}
+										 	
+											if(dicePos!=null){
+												moveCursor();
+											}
+											console.log("Dice Value is: " + dicePos);
+											
+											</script>
 										</div>
 									</div>
 								</div>

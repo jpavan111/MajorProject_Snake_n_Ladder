@@ -25,8 +25,9 @@ public class RollDiceActionJava extends HttpServlet {
 	    }
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-         RollDiceActionJava d=new RollDiceActionJava();
+		int countMyNumber=0;
+		
+        RollDiceActionJava d=new RollDiceActionJava();
 		
 		int value=d.rollDice();
 		
@@ -34,6 +35,8 @@ public class RollDiceActionJava extends HttpServlet {
 		
 		request.getSession().setAttribute("diceValue",value);
 
+		countMyNumber++;
+		request.setAttribute("countmyNumber", countMyNumber);
 		
 		request.getRequestDispatcher("Java_game.jsp").forward(request, response);
 		
