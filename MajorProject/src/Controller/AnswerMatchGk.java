@@ -43,7 +43,7 @@ public class AnswerMatchGk extends HttpServlet {
 			LinkedList<Cell> boardObject = (LinkedList<Cell>)request.getSession().getAttribute("cells");
 			
 //			int newPositionByDice = (int)request.getSession().getAttribute("diceValue1");
-//			player.setPosition(player.getPosition()+newPositionByDice);
+//			player.setPosition(player.getPosition() + newPositionByDice);
 			
 			if(check == true)
 			{	

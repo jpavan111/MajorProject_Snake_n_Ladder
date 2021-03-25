@@ -35,20 +35,27 @@
 </head>
 <body onload="cursorPosition()">
 
-		<%
-			/* Getting Player Object from Session */
-			Player player = null;
-		/* int diceValue=1; */
-			if (session.getAttribute("newSession") == null)
-				response.sendRedirect("login.jsp");
-			else {
-				player = (Player) request.getSession().getAttribute("itsme");
-				 /* diceValue= (int)request.getAttribute("diceValue"); */
-			}
+		
+<%
+	/* Getting Player Object from Session */
+	Player player = null;
+/* 	int diceValue = 1; */
+	
+	if (session.getAttribute("newSession") == null)
+		response.sendRedirect("login.jsp");
+	
+	else {
+			player = (Player) request.getSession().getAttribute("itsme");
 
-			int positionBack = player.getPosition();
-			/* System.out.println(positionBack); */
-		%>
+			/* if(request.getSession().getAttribute("diceValue") == null)
+				diceValue = 0;
+			else
+				diceValue = (int) request.getSession().getAttribute("diceValue"); */
+		}
+	
+	int positionBack = player.getPosition();
+	System.out.println(positionBack);
+%>
 
 	<div class="container-fluid">
 		<div class="row">
@@ -255,34 +262,47 @@
 
 								
 											<script>
-												 function cursorPosition()
-											     {
-											    	 position = <%= positionBack %>;
-											    	 var cursorElem = document.getElementById("cursor");
-											    	 var newPosElem = document.getElementById(position);
-											    		newPosElem.children[0].append(cursorElem);
-											     } 
-												 
-												 
-												 	var position = <%= positionBack %>;
-												    
-												 	var currentPosition = <%= positionBack %>;
-												 	function moveCursor(digits) {
-													var cursorElem = document.getElementById("cursor");
-													var newPosElem = document.getElementById(position = position + digits);
-													newPosElem.children[0].append(cursorElem);
-													checkSnakeOrLadder();
-													
-													
-												 	document.getElementById("cursor").click(); 
-													currentPosition = document.getElementById("cursor");
-												}
-												function checkSnakeOrLadder() {
-													var cursorElem = document.getElementById("cursor");
-													var newPosElem = document.getElementById(position);
-													newPosElem.children[0].append(cursorElem);
-												}
-											</script>
+						
+						var dicePos = <%= request.getAttribute("diceValue") %> ;
+						console.log("Dice Value is: " + dicePos);
+						
+						function cursorPosition()
+						   {
+							 console.log("Dice Value on loding page: " + dicePos);
+							
+							 var position = <%= positionBack %>;
+						  	 var cursorElem = document.getElementById("cursor");
+						  	 
+						  	 var newPosElem = document.getElementById(position);
+						  		newPosElem.children[0].append(cursorElem);
+						   } 
+						
+						
+						  	
+						 	console.log("Position Back is: " + <%= positionBack %>);
+						 	position = <%= positionBack %>;
+						 	var currentPosition = <%= positionBack %>;
+						 	
+						 	function moveCursor() {
+							var cursorElem = document.getElementById("cursor");
+							
+							console.log("dicePos Value is: " + dicePos);
+							var newPosElem = document.getElementById(position = position + dicePos);
+							newPosElem.children[0].append(cursorElem);
+							checkSnakeOrLadder();
+							
+							
+						 	document.getElementById("cursor").click(); 
+							currentPosition = document.getElementById("cursor");
+						}
+						 	
+						function checkSnakeOrLadder() {
+							var cursorElem = document.getElementById("cursor");
+							var newPosElem = document.getElementById(position);
+							newPosElem.children[0].append(cursorElem);
+						}
+						/* moveCursor(); */
+						</script>
 										</div>
 									</div>
 								</div>

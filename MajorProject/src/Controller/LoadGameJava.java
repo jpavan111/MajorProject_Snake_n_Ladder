@@ -3,6 +3,7 @@ package Controller;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import javax.servlet.ServletException;
@@ -32,6 +33,9 @@ public class LoadGameJava extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
+//			ArrayList<Integer> visitedQuestion = new ArrayList<Integer> (150);
+//			visitedQuestion.add(0);
+			
 			Object playerId = request.getSession().getAttribute("playerId");
 			Object playerName = request.getSession().getAttribute("playerName");
 			Object playerEmail = request.getSession().getAttribute("playerEmail");
