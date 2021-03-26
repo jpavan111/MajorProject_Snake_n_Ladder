@@ -1,87 +1,127 @@
-<%@page import="Entity.User"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@page errorPage="error.jsp" %>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%
-if (session.getAttribute("newSession") == null)
-	response.sendRedirect("login.jsp");
-else {
-	Object playerObj = session.getAttribute("playerObject");
-	User player = (User) playerObj;
-	System.out.println(player.getId());
-}
+<%@ include file="Header.jsp"%>
+
+<% 
+  	if(session.getAttribute("newSession") == null)
+		response.sendRedirect("login.jsp");
 %>
 
-
-<!DOCTYPE html>
-<html>
-<head>
-<title>Home</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <style>
-<%@ include file= "./styles/index.css" %>
-</style>
-</head>
-<body>
 
-<jsp:include page="Header.jsp"></jsp:include>`
+div[class*=box] {
+  height: 20%;
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+}
+
+.btn:hover {
+    color: #ff0000;
+    text-decoration: none;
+}
+
+.btn {
+  line-height: 52px;
+  height: 50px;
+  text-align: center;
+  width: 250px;
+  cursor: pointer;
+  font-family: cursive;
+}
+
+.btn-two {
+  color: #19ffea;
+  transition: all 0.5s;
+  position: relative; 
+}
+.btn-two span {
+  z-index: 2; 
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: 25px;
+  font-weight: 600;
+}
+.btn-two::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 111%;
+  height: 145%;
+  z-index: 1;
+  transition: all 0.5s;
+  border: 1px solid rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.1);
+}
+.btn-two::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 111%;
+  height: 145%;
+  z-index: 1;
+  transition: all 0.5s;
+  border: 1px solid rgba(255,255,255,0.2);
+  background-color: #fc03034d;
+}
+.btn-two:hover::before {
+  transform: rotate(-45deg);
+  background-color: rgba(255,255,255,0);
+}
+.btn-two:hover::after {
+  transform: rotate(45deg);
+  background-color: rgba(255,255,255,0);
+}
+body {
+	font-family: 'Lato', sans-serif;
+	background-image: url(images/board.png);
+	background-size: cover;
+	overflow-y: hidden;
+}
 	
-	<div class="hero">
-		<h1>Snakes & Ladders</h1>
-		<h3>Learn With Fun</h3>
+</style>
 
 
-		<form action="load-game" method="post">
-<!-- 			<button class="button"> -->
-			<button class="button" type="submit" ><span><b>Play</b></span><h6><b>with G.K.</b></h6></button>
-			<input type="hidden" name="obj" value="${playerObj}">
-		</form>
-		<!-- 	</button> -->
-		&nbsp; &nbsp;
-		
-		<form action="load-game-java" method="post">
-<!-- 			<button class="button"> -->
-			<button class="button" type="submit" ><span><b>Play</b></span><h6><b>with Java</b></h6></button>
-			<input type="hidden" name="obj" value="${playerObj}">
-		</form>
-		
-	</div>
 
+<div class="container-fluid">
+<div class="row">
+<div class="col-8">
+</div>
+<div class="col-4" style="margin-top: 22%; ">
 
-<!-- 
-	<div class="laan">
-		 <img src="./images/sn.png">
-		<img src="./images/la.png"> 
-	</div>
- -->
-	<!-- <div class="snn">
-          <img src="./images/sn.png">
-          <span style="margin-left: 10%"></span>
-          <img src="./images/la.png">
-     </div>
- -->
+<div><a href="load-game">
+  <div class="btn btn-two">
+    <span>Play with G.K.</span>
+  </div></a>
+</div>
 
-	<script>
-		function showMenu() {
-			var toggle = document.getElementById("mobileMenu");
-			if (toggle.style.height == "0px") {
-				toggle.style.height = "200px";
-			} else {
-				toggle.style.height = "0px";
-			}
-		}
-	</script>
+</div>
+</div>
 
+<div class="row">
+<div class="col-8">
+</div>
+<div class="col-4" style="padding-top: 9%;">
+
+<div><a href="load-game-java">
+  <div class="btn btn-two">
+    <span>Play with JAVA</span>
+  </div></a>
+</div>
+
+</div>
+</div>
+</div>
+<div style="margin-top: 7%">
+	<%@ include file="footer.jsp"%>
+</div>
 </body>
+
 </html>

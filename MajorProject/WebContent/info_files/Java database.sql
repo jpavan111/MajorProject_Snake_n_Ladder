@@ -588,7 +588,7 @@ insert into Java values("106","H","class Test {
 "1"
 );
 
-insert into Java values("107","H","Way to secure web appâ€™s URL.",
+insert into Java values("107","H","Way to secure web app’s URL.",
 "servlet filters",
 "refresh-check-delay",
 "http servlet filters",
@@ -710,3 +710,254 @@ insert into Java values("120","H","Which tag should be used to pass information 
 " Using <%jsp:useBean> tag",
 "Using <%jsp:page> tag"
 );
+
+insert into Java values
+("121","H","Which of these statement is incorrect?",
+"A thread can be formed by implementing Runnable interface only",
+ "A thread can be formed by a class that extends Thread class",
+ "start() method is used to begin execution of the thread",
+ "run() method is used to begin execution of a thread before start() method in special cases",
+  "run() method is used to begin execution of a thread before start() method in special cases"
+);
+
+
+insert into Java values
+("122","H","What will happen if two thread of the same priority are called to be processed simultaneously?",
+"Anyone will be executed first lexographically",
+ "Both of them will be executed simultaneously",
+ "None of them will be executed",
+ "It is dependent on the operating system",
+  "It is dependent on the operating system"
+);
+
+
+insert into Java values
+("123","H","Which of these statements is incorrect?",
+"By multithreading CPU idle time is minimized, and we can take maximum use of it",
+ "By multitasking CPU idle time is minimized, and we can take maximum use of it",
+ "Two thread in Java can have the same priority",
+ "A thread can exist only in two states, running and blocked",
+  "A thread can exist only in two states, running and blocked"
+);
+
+
+insert into Java values
+("124","H","What is true about time slicing?",
+"Time slicing is OS service that allocates CPU time to available runnable thread",
+ "Time slicing is the process to divide the available CPU time to available runnable thread",
+ "Time slicing depends on its implementation in OS",
+ "Time slicing allocates more resources to thread",
+  "Time slicing is the process to divide the available CPU time to available runnable thread"
+);
+
+insert into Java values
+("125","H","Which of the following stops execution of a thread?",
+"Calling SetPriority() method on a Thread object",
+ "Calling notify() method on an object",
+ "Time slicing depends on its implementation in OS",
+ "Calling read() method on an InputStream object",
+  "Calling notify() method on an object"
+);
+
+
+insert into Java values
+("126","H","What is synchronization in reference to a thread?",
+"It’s a process of handling situations when two or more threads need access to a shared resource",
+ "It’s a process by which many thread are able to access same shared resource simultaneously",
+ "It’s a process by which a method is able to access many different threads simultaneously",
+ "It’s a method that allow too many threads to access any information the require",
+  "It’s a process of handling situations when two or more threads need access to a shared resource"
+);
+
+
+insert into Java values
+("127","H","Which of these values is returned by read() method when end of file (EOF) is encountered?",
+"0",
+ "1",
+ "-1",
+ "Null",
+  "-1"
+);
+
+
+insert into Java values
+("128","H","What are the two types of Streams offered by java 8?",
+"sequential and parallel",
+ "sequential and random",
+ "parallel and random",
+ "parallel and random",
+  "sequential and parallel"
+);
+
+
+
+insert into Java values
+("129","H","Which feature of java 8 enables us to create a work stealing thread pool using all available processors at its target?",
+"workPool",
+ "newWorkStealingPool",
+ "threadPool",
+ "workThreadPool",
+  "newWorkStealingPool"
+);
+
+insert into Java values
+("130","H","What does Files.lines(Path path) do",
+"It reads all the files at the path specified as a String",
+ "It reads all the lines from a file as a Stream",
+ "It reads the filenames at the path specified",
+ "It counts the number of lines for files at the path specified",
+  "It reads all the lines from a file as a Stream"
+);
+
+insert into Java values
+("131","H","What is Optional object used for?",
+"Optional is used for optional runtime argument",
+ "Optional is used for optional spring profile",
+ "Optional is used to represent null with absent value",
+ "Optional means it’s not mandatory for method to return object",
+  "Optional is used to represent null with absent value"
+);
+
+insert into Java values
+("132","H","What does SAM stand for in the context of Functional Interface?",
+"Single Ambivalue Method",
+ "Single Abstract Method",
+ "Simple Active Markup",
+ "Simple Abstract Markup",
+  "Single Abstract Method"
+);
+
+
+insert into Java values
+("133","H","Which method is used to create a directory with fileattributes?",
+"Path.create()",
+ "Path.createDirectory()",
+ "Files.createDirectory(path, fileAttributes)",
+ "Files.create(fileAttributes)",
+  "Files.createDirectory(path, fileAttributes)"
+);
+
+
+insert into Java values
+("134","H","How can we filter lines based on content?",
+"lines.filter()",
+ "filter(lines)",
+ "lines.contains(filter)",
+ "lines.select()",
+  "lines.filter()"
+);
+
+
+insert into Java values
+("135","H","Which of the following is not true about session?",
+"All users connect to the same session",
+ "All users have same session variable",
+ "Default timeout value for session variable is 20 minutes",
+ "New session cannot be created for a new user",
+  "Default timeout value for session variable is 20 minutes"
+);
+
+insert into Java values
+("136","H","Which object is used by spring for authentication?",
+"ContextHolder",
+ "SecurityHolder",
+ "AnonymousHolder",
+ "SecurityContextHolder",
+  "SecurityContextHolder"
+);
+
+insert into Java values
+("137","H","What is an event in delegation event model used by Java programming language?",
+"An event is an object that describes a state change in a source",
+ "An event is an object that describes a state change in processing",
+ "An event is an object that describes any change by the user and system",
+ "An event is a class used for defining object, to create events",
+  "An event is an object that describes a state change in a source"
+);
+
+
+
+
+insert into Java values
+("138","H","What is a listener in context to event handling?",
+"A listener is a variable that is notified when an event occurs",
+ "A listener is a object that is notified when an event occurs",
+ "A listener is a method that is notified when an event occurs",
+ "None of the mentioned",
+  "A listener is a object that is notified when an event occurs"
+);
+
+
+insert into Java values
+("139","H","What is a listener in context to event handling?",
+"A listener is a variable that is notified when an event occurs",
+ "A listener is a object that is notified when an event occurs",
+ "A listener is a method that is notified when an event occurs",
+ "None of the mentioned",
+  "A listener is a object that is notified when an event occurs"
+);
+
+
+insert into Java values
+("140","H","What is the significance of Matcher class for regular expression in java?",
+"interpretes pattern in the string",
+ "Performs match in the string",
+ "interpreted both pattern and performs match operations in the string",
+ "None of the mentioned",
+  "interpreted both pattern and performs match operations in the string"
+);
+
+
+
+insert into Java values
+("141","H","what does public String replaceAll(string replace) do?",
+"Replace all characters that matches pattern with a replacement string",
+ "Replace first subsequence that matches pattern with a replacement string",
+ "Replace all other than first subsequence of that matches pattern with a replacement string",
+ "Replace every subsequence of the input sequence that matches pattern with a replacement string",
+  "Replace every subsequence of the input sequence that matches pattern with a replacement string"
+);
+
+insert into Java values
+("142","H","How method can be invoked on unknown object?",
+"obj.getClass().getDeclaredMethod()",
+ "obj.getClass().getDeclaredField()",
+ "obj.getClass().getMethod()",
+ "obj.getClass().getObject()",
+  "obj.getClass().getMethod()"
+);
+
+
+insert into Java values
+("143","H","What does foo.getClass().getMethod(“doSomething”, null) return?",
+"doSomething method instance",
+ "Method is returned and we can call the method as method.invoke(foo,null);",
+ "Class object",
+ "Exception is thrown",
+  "Method is returned and we can call the method as method.invoke(foo,null);"
+);
+
+
+insert into Java values
+("144","H","What is the use of Flushable interface?",
+"Flushes this stream by writing any buffered output to the underlying stream",
+ "Flushes this stream and starts reading again",
+ "Flushes this connection and closes it",
+ "Flushes this stream and throws FlushException",
+  "Flushes this stream by writing any buffered output to the underlying stream"
+);
+
+insert into Java values
+("145","H","Which of the following is not pre defined annotation in Java?",
+"@Deprecated",
+ "@Overriden",
+ "@SafeVarags",
+ "@FunctionInterface",
+  "@Overriden"
+);
+
+insert into Java values("146","M","Which of these methods is used to print stack trace?","obtainStackTrace()","printStackTrace()","getStackTrace()","displayStackTrace()","printStackTrace()");
+insert into Java values("147","M","Which of these classes is super class of Exception class?","Throwable","System","RunTime","Class","Throwable");
+insert into Java values("148","M","Which of this method is used to find out that a thread is still running or not?","run()","Alive()","isAlive()","checkRun()","isAlive()");
+insert into Java values("149","M","What is the default value of priority variable MIN_PRIORITY AND MAX_PRIORITY?","0 & 256","0 & 1","1 & 10","1 & 256","1 & 10");
+insert into Java values("150","M","Which of these method is used to explicitly set the priority of a thread?","set()","make()","setPriority()","makePriority()","setPriority()");

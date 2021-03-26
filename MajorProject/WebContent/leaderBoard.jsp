@@ -1,7 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ include file="Header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%-- <jsp:include page="Header.jsp"></jsp:include> --%>
 <%@page errorPage="error.jsp"%>
 
 <%
@@ -41,39 +39,23 @@ if (session.getAttribute("newSession") == null)
 	crossorigin="anonymous" />
 
 <style>
+	<%@ include file= "./styles/index1.css" %>
 	<%@ include file= "./styles/leaderBoard.css" %>
 </style>
-
-<style>
-<%@ include file= "./styles/index.css" %>
-</style>
-
 </head>
 
-<body>
+<body style="background-image: url('./images/board.png');">
 
-<jsp:include page="Header.jsp"></jsp:include>
-
-	<div class=" d-flex align-items-center justify-content-center mt-5 ">
+	<div class=" d-flex align-items-center justify-content-end" style="margin-top: 25%; margin-right: 19%;">
 		<div>
 			<form action="read-leaderboard-gk" method="post">
-<!-- 			<button class="button"> -->
-			<button class="button" type="submit" ><span><b>G.K</b></span><h6><b>Leaderboard</b></h6></button>
-
-			
-			</form>
-		<!-- 	</button> -->
-		&nbsp; &nbsp;
-		
-		<form action="read-leaderboard-java" method="post">
-<!-- 			<button class="button"> -->
-			<button class="button" type="submit" ><span><b>JAVA</b></span><h6><b>Leaderboard</b></h6></button>
-
-			
+				<button class="button" type="submit" ><span><b>G.K</b></span><h6><b>Leader Board</b></h6></button>
 			</form>
 		
-	</div>
-			
+			<form action="read-leaderboard-java" method="post">
+				<button class="button mt-5" type="submit" ><span><b>JAVA</b></span><h6><b>Leader Board</b></h6></button>
+			</form>
 		</div>
+	</div>
 </body>
 </html>

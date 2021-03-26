@@ -4,6 +4,6 @@
 
 <footer class="pt-4 pb-2">
   
-    <p>© 2021 Key. All Rights Reserved | Design By Sumit Vyas</p>
+    <p>© 2021 Key. All Rights Reserved | Design By Sumit Vyas, Vaibhav Baraskar & Team | CDAC Mumbai</p>
    
 </footer>

@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page errorPage="error.jsp"%>
+
+<%@ include file="Header.jsp"%>
 
 <% 
   	if(session.getAttribute("newSession") == null)
@@ -39,67 +40,60 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	
 <style>
-<%@ include file= "./styles/index.css" %>
+body {
+	font-family: 'Lato', sans-serif;
+	background-image: url(./images/Instructions.png);
+	background-size: cover;
+}
+
+.rules{
+	ont-size:2.5rem;
+	font-family:cursive;
+	margin-bottom: 1%;
+	color: white;
+	font-size: 1.5rem;
+}
+
+.even{
+	color: #00f3ff;
+}
+
+.odd{
+	color: #ffbc00;
+}
+
+<%@ include file= "./styles/index1.css" %>
 </style>
 </head>
 
 <body>
 
+<div class="container mt-5 mb-4">
 
-<div class="nav-bar">
-		<div class="nav-logo">
-			<img src="./images/logo.png">
-		</div>
-		<div class="nav-links" id="mobileMenu">
-			<ul>
-				<a href="index.jsp"><li>Home</li></a>
-				<a href="GameInstructions.jsp"><li>Instructions</li></a>
-				<a href="read-leaderboard"><li>Leader board</li></a>
-				<a href="AboutUs.jsp"><li>About Us</li></a>
-				
-				<!-- UserProfile -->
+	<div class="p-5" style="border: none; background-color: #000000a1; border-radius:10px; box-shadow: #ffffffc7 0px 0px 20px 20px inset;">
+		<div class="container d-flex justify-content-center mb-4" style="color: #fff">
+			<h2>Game Instructions</h2></div>
+		<div class="pr-3 pl-3 pt-0">
+			  <p class="rules odd">1. You should have a valid email-id to verify yourself and enter into the game.</p>
 
-				<button class="btn" type="button" id="dropdownMenuButton"
-					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<span class="navbar-text p-0">
-					<i class='fas fa-user-tie' style='font-size:30px;color:white'></i>
-					</span>
-					<span class="d-flex justify-content-center align-items-center" style='color:white'>&nbsp;Hi ${playerObject.getUsername()}</span>
-				</button>
-				
-				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					<a class="dropdown-item" href="load-profile"><i class="fas fa-user-cog"></i>&nbsp; Profile</a>
-					<a class="dropdown-item" href="logout"><i class="fas fa-sign-out-alt"></i>&nbsp; Log Out</a>
-				</div>
-		</div>
-		</ul>
-	</div>
-
-
-	<div class="container-fluid">
-		<div class="row text-light justify-content-center align-items-center" style="background-color:#000; height: 100vh;">
-
+			  <p class="rules even">2. This isn't the normal game you have played before.</p>
 		
-			
-		<div class="alert alert-success col-9 border border-warning pb-5" role="alert">
-  <h1 class="alert-heading" style="font-family:cursive; text-align:center;">Instructions!!!</h1>
-  <p style="font-size:1.5rem;font-family:cursive">Yes...We know you are not finding dice there.</p>
-  <hr>
-  <p class="mb-0" style="font-size:1.5rem;font-family:cursive">The faster you solve the question the bigger number you will get on dice.</p>
-  <hr>
-  <p class="mb-0" style="font-size:1.5rem;font-family:cursive">You can check the leader board to know your and your friend's positions </p>
-  <hr>
-  <p class="mb-0" style="font-size:1.5rem;font-family:cursive">If you have given wrong Answer then you will remain on same position.</p>
-  <hr>
-  <p class="mb-0" style="font-size:1.5rem;font-family:cursive">You can pause the play if you want to using pause button.</p>
+			  <p class="rules odd">3. You have to click on "Roll Dice" button to play. The cursor will move automatically and question will appear.</p>
+
+			  <p class="rules even">4. You have to answer the questions to earn points on each correct answer. Wrong answer does not carry any point.</p>
+
+			  <p class="rules odd">5. If you arrive on Ladder, you have to give right answer to climb up the ladder, if your answer is wrong, you cannot climb up and continue to move in same row.</p>
+
+			  <p class="rules even">6. If you arrives on Snake, you have to give correct answer to get rid of the snake, then and only then you will be able continue moving the same row and if you give wrong answer, you will get bitten by snake and get shifted to lower blocks.</P>
+
+			  <p class="rules odd">7. If you reach the 100th position, game will be ended.</p>
+		</div>
+	</div>
 </div>
-			
-		
-			
-
-		</div>
-
-	</div>
+<div style="margin-top: 1.5%">
+	<%@ include file="footer.jsp"%> 
+</div>
 </body>
 </html>

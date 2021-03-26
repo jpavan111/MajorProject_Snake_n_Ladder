@@ -87,7 +87,7 @@
 		<div class="modal-dialog " style="margin-top: 12%">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3>Q${que.getId()}.${que.getQuestion()}</h3>
+					<h3>Q. ${que.getQuestion()}</h3>
 				</div>
 				<div class="modal-body">
 					<div class="col-xs-3 5"></div>
