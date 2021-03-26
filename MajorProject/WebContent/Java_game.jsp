@@ -2,7 +2,7 @@
 <%@page import="org.hibernate.internal.build.AllowSysOut"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@page errorPage="error.jsp"%>
+<%-- <%@page errorPage="error.jsp"%> --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -33,7 +33,7 @@
 <meta charset="ISO-8859-1">
 <title>Java Snakes and Ladders</title>
 </head>
-<body onload="cursorPosition()">
+<body onload="cursorPosition()" style="overflow-y: hidden">
 
 		
 <%
@@ -55,7 +55,7 @@
 			<div class="col-3 text-center">
 				<div class="container1"
 					style="display: block; margin-left: 35%; margin-top: 30%">
-					<div class="card" style="height: 39%; width: 90%; background-color:#f2bd10c2">
+					<div class="card" style="height: 39%; width: 90%; background-color:#10f2e3b0">
 						<div class="card-body">
 							<div style="align-text: center;">
 								<form action="RollDiceActionJava" method="post">
@@ -108,12 +108,12 @@
 											<nav class="navbar navbar-light bg-light" style="opacity: 80%">
   												<div style="opacity: 100%">
 	    											<marquee style="font-family:Book Antiqua; font-size: 0.7rem" scrollamount="2">
-	    											<h3 style="font-weight: 800;"><i>Showing seeds of knowledge while playing is our prime motive</i></h3>
+	    											<h3 style="font-weight: 800;"><i>Sowing seeds of knowledge while playing is our prime motive</i></h3>
 	    											</marquee>
   												</div>
 											</nav>
 										
-										<div id='main' style="margin-top:-1.5%">
+										<div id='main' style="margin-top:-0.3%">
 											<form action="GetBlockValueJava" method="post" style="pointer-events: none">
 											    <div class='box' id='100'><button onclick="playAudio()" class='button5' name="block" value="100">100</button></div>	
 												<div class='box' id='99'><button onclick="playAudio()" class='button5' name="block" value="99">99</button></div>	
@@ -252,14 +252,11 @@
 											 	var dicePos = <%= request.getAttribute("diceValue") %> ;
 												function cursorPosition()
 												   {
-													
-													
 													 var position = <%= positionBack %>;
 												  	 var cursorElem = document.getElementById("cursor");
 												  	 
 												  	 var newPosElem = document.getElementById(position);
 												  		newPosElem.children[0].append(cursorElem);
-												  		
 												   }
 												
 										 	
@@ -290,7 +287,7 @@
 		<div class="col-3">
 			<div class="container2 text-center"
 				style="display: block; margin-right: 30%; margin-top: 30%; margin-left: 8%">
-				<div class="card" style="width: 90%; background-color:#f2bd10c2">
+				<div class="card" style="width: 90%; background-color:#10f2e3b0">
 					<div class="card-body ">
 						<div class="card-title" style="margin-bottom: 9%; font-size: 2em; font-weight: 600">Welcome <%= player.getPlayerName()%></div>
 						
@@ -305,7 +302,7 @@
 						</c:if>
 						
 						<div class="card-title" style="margin-bottom: 9%; font-size: 1em; font-weight: 800">Your Current Score <br><span style="margin-bottom: 9%; font-size: 3em; font-weight: 800">
-										<%= player.getJavaScore()%> </span></div>
+										<%= player.getJavaScore()*10 %> </span></div>
 						<div style="align-text: center;">
 							<a href="index.jsp" class="btn btn-danger btn-lg" style="width: 80%">Exit</a>
 						</div>

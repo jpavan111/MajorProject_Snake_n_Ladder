@@ -34,7 +34,7 @@
 </head>
 
 
-<body onload="cursorPosition()">
+<body onload="cursorPosition()" style="overflow-y: hidden">
 
 <%
 	/* Getting Player Object from Session */
@@ -106,12 +106,12 @@
 									<nav class="navbar navbar-light bg-light" style="opacity: 80%">
   										<div style="opacity: 100%">
 	    									<marquee style="font-family:Book Antiqua; font-size: 0.7rem" scrollamount="2">
-	    									<h3 style="font-weight: 800;"><i>Showing seeds of knowledge while playing is our prime motive</i></h3>
+	    									<h3 style="font-weight: 800;"><i>Sowing seeds of knowledge while playing is our prime motive</i></h3>
 	    									</marquee>
   										</div>
 									</nav>
 									
-										<div id='main' style="margin-top:-1.5%">
+										<div id='main' style="margin-top:-0.3%">
 											<form action="GetBlockValueGk" method="post" style="pointer-events: none">
 											    <div class='box' id='100'><button onclick="playAudio()" class='button5' name="block" value="100">100</button></div>	
 												<div class='box' id='99'><button onclick="playAudio()" class='button5' name="block" value="99">99</button></div>	
@@ -307,7 +307,7 @@
 						</c:if>
 						
 						<div class="card-title" style="margin-bottom: 9%; font-size: 1em; font-weight: 800">Your Current Score <br><span style="margin-bottom: 9%; font-size: 3em; font-weight: 800">
-										<%= player.getGkScore()%> </span></div>
+										<%= player.getGkScore()*10%> </span></div>
 						<div style="align-text: center;">
 							<a href="index.jsp" class="btn btn-danger btn-lg" style="width: 80%">Exit</a>
 						</div>

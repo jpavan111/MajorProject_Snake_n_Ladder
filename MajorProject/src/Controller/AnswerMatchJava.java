@@ -56,7 +56,7 @@ public class AnswerMatchJava extends HttpServlet {
 				lb.setId(player.getPlayerId());
 				lb.setName(player.getPlayerName());
 				lb.setGkScore(0);
-				lb.setJavaScore(player.getJavaScore());
+				lb.setJavaScore(player.getJavaScore()*10);
 				lb.setDate(player.getInstance());
 				
 				ReadLeaderBoardDao score = new ReadLeaderBoardDao();
@@ -69,7 +69,7 @@ public class AnswerMatchJava extends HttpServlet {
 					//System.out.println(boardObject.get(10).getLadder().getInitialPosition());
 					//System.out.println(boardObject.get(10).getLadder().getFinalPosition());
 					//System.out.println(boardObject.get(12).toString());
-					lb.setJavaScore(player.getJavaScore()+10);
+//					lb.setJavaScore(player.getJavaScore()+10);
 					player.setPosition(boardObject.get(player.getPosition()-1).getLadder().getFinalPosition());
 				}
 				
@@ -85,8 +85,6 @@ public class AnswerMatchJava extends HttpServlet {
 						request.getRequestDispatcher("Java_game.jsp").forward(request, response);
 //						response.sendRedirect("Java_game.jsp");
 					}
-					
-					
 			}
 			else
 			{

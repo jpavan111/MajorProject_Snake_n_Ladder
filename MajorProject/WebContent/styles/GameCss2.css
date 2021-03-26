@@ -1,6 +1,6 @@
 body{
   
-  background: url('./images/back41.jpg') no-repeat center top fixed;
+  background: url('./images/back7.jpg') no-repeat center top fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -8,23 +8,22 @@ body{
       height: 100vh;
   position: relative;
   margin: 0;
-  overflow:hidden;
 }
 
    
    @media only screen and (max-width: 767px) {
   body {
-    background-image: url(./images/back415.jpg);
+    background-image: url(./images/back7.jpg);
   }
 	}
     
 .box{ 
     float:left;
-	height:9.6vmin;
-	width:9.6vmin;
-	border:0.25vmin solid black;
+	height:8.5vmin;
+	width:9vmin;
+	border:0.15vmin solid black;
 	text-align:center;
-	line-height:8.8vmin;
+	line-height:7.8vmin;
 	font-size:3vmin;
 	background-color:rgb(243, 245, 137);
 
@@ -33,18 +32,18 @@ body{
 #main{
 	position: absolute;
 	margin:auto;
-	top:9vh;
+	top:8.9vh;
 	left:0;
 	right:0;
-	bottom:20rem;
+	bottom:10rem;
 	border:2vmin solid #7fb383; /* #00cd84; #38a32a; #5d9b4e; */
-	height:100vmin;
-	width:100vmin;
+	height:89vmin;
+	width:94vmin;
  }
 
  .button5 {
   position: relative;
-  background-color:#3f6535;
+  background-color:#4d9788fc;
   border: none;
   font-size: 18px;
   color:#FFFFFF;
@@ -82,8 +81,8 @@ body{
 } 
 
 img{
-	height:100%;
-	width:100%;
+	height:99%;
+	width:98%;
 }
 
 
@@ -94,8 +93,8 @@ img{
 
 #l1{
 	transform:scaleX(0.15) scaleY(0.2) rotate(31deg);
-	top: 22.8vmin;
-    left: -28.5vmin;
+	top: 21.8vmin;
+    left: -26vmin;
 }
 
 #l2{
@@ -105,102 +104,101 @@ img{
 }
 #l3{
 	transform:scaleX(0.15) scaleY(0.2) rotate(31deg);
-	top:-13.7vmin;
-	left:-39.3vmin;
+	top:-12.7vmin;
+	left:-35.3vmin;
 }
 
 #l4{
 	transform:scaleX(0.15) scaleY(0.2) rotate(31deg);
-	top:-22.4vmin;
-	left:19.5vmin;
+	top:-21.4vmin;
+	left:18.5vmin;
 }
 
 #l5{
 	transform:scaleX(0.15) scaleY(0.2) rotate(-31deg);
 	top:12.9vmin;
-	left:-9.7vmin;
+	left:-8.7vmin;
 }
 
 #l6{
 	transform:scaleX(0.15) scaleY(0.2) rotate(-31deg);
-	top:5.9vmin;
-	left:29.5vmin;
+	top:3.9vmin;
+	left:27.5vmin;
 }
 
 #l7{
 	transform:scaleX(0.15) scaleY(0.2) rotate(-31deg);
-	top:-13.7vmin;
-	left:39.3vmin;
+	top:-12.7vmin;
+	left:36.3vmin;
 }
 
 #l8{
 	transform:scaleX(0.15) scaleY(0.2) rotate(-31deg);
-	top:-31.8vmin;
-	left:-19.5vmin;
+	top:-29.8vmin;
+	left:-17.5vmin;
 }
 
 #l9{
 	transform:scaleX(0.2) scaleY(0.2) rotate(65deg);
 	top:-8.5vmin;
-	left:-14.8vmin;
+	left:-12.5vmin;
 }
 
 #l10{
 	transform:scaleX(0.17) scaleY(0.2) rotate(-65deg);
-	top:28.2vmin;
-	left:33.1vmin;
+	top:26.2vmin;
+	left:32.1vmin;
 }
 
 #s1{
 	transform:scaleX(0.3) scaleY(0.35) rotate(90deg);
-	left:8.7vmin;
+	left:9.7vmin;
 	top:-1vmin;
 }
 
 #s2{
 	transform:scaleX(0.2) scaleY(0.2);
-	left:-29.7vmin;
-	top:3.5vmin;
+	left:-26.7vmin;
+	top:4.5vmin;
 }
 
 #s3{
 	transform:scaleX(0.18) scaleY(0.18);
-	top:-18vmin;
+	top:-16vmin;
 	left:0.4vmin;
 }
 
 #s4{
 	transform:scaleX(0.3) scaleY(0.2) rotate(10deg);
 	top:31vmin;
-	left:-7vmin;
+	left:-4vmin;
 }
 
 #s5{
 	transform:scaleX(0.19) scaleY(0.19) rotate(90deg);
-	top:-32vmin;
+	top:-30vmin;
 	left:10vmin;
 }
 
 #s6{
 	transform:scaleX(0.17) scaleY(0.17) rotate(5deg);
-	top:-32.5vmin;
-	left:-28vmin;
+	top:-29.5vmin;
+	left:-27vmin;
 }
 #s7{
 	transform: scaleX(0.2) scaleY(0.2) rotate(68deg);
-    top: -32.5vmin;
+    top: -31.5vmin;
     left: 38vmin;
 }
 
 #s8{
 	transform:scaleX(0.2) scaleY(0.2) rotate(50deg);
 	top:13.5vmin;
-	left:42.2vmin;
+	left:40.2vmin;
 
 }
 
-/* 
-#cursor {
+/* #cursor {
 	width: 100%;
 	height: 100%;
 	opacity: 0.8;
@@ -222,7 +220,6 @@ img{
   align-items:right; /* vertically aligned! */
   justify-content: center;
 }
-
 
 
 /* ////////////// Pointer Css ///////////////// */

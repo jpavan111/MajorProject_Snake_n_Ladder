@@ -62,22 +62,12 @@
 	color: rgb(0, 0, 0);
 }
 
-.fa1-facebook {
-	background: #3B5998;
-	color: white;
-}
-
-.fa1-twitter {
-	background: #55ACEE;
-	color: white;
-}
 
 .fa1-linkedin {
 	background: #007bb5;
 	color: white;
 }
 
-.fa1-instagram {
-	background: #125688;
-	color: white;
+.fa-4x {
+    font-size: 2em;
 }
