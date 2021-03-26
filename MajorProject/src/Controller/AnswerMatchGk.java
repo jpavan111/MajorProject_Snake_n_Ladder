@@ -53,7 +53,7 @@ public class AnswerMatchGk extends HttpServlet {
 				Leaderboard lb = new Leaderboard();
 				lb.setId(player.getPlayerId());
 				lb.setName(player.getPlayerName());
-				lb.setGkScore(player.getGkScore());
+				lb.setGkScore(player.getGkScore()*10);
 				lb.setJavaScore(0);
 				lb.setDate(player.getInstance());
 				
@@ -68,7 +68,7 @@ public class AnswerMatchGk extends HttpServlet {
 					//System.out.println(boardObject.get(10).getLadder().getInitialPosition());
 					//System.out.println(boardObject.get(10).getLadder().getFinalPosition());
 					//System.out.println(boardObject.get(12).toString());
-					lb.setGkScore(player.getGkScore()+10);
+//					lb.setGkScore(player.getGkScore()+10);
 					player.setPosition(boardObject.get(player.getPosition()-1).getLadder().getFinalPosition());
 				}
 				

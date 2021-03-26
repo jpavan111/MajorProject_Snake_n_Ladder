@@ -2,12 +2,14 @@ create database major_project_snake_n_ladder;
 
 use major_project_snake_n_ladder;
 
--- ======================= User =======================
+-- ==================== User ====================
 
 desc user;
 select * from user;
-update user set active = 0 where id =2;
-delete from user where id=1;
+update user set active = 1 where id =1;
+delete from user where id=8;
+
+SELECT * FROM user WHERE email="sumitvyas786@gmail.com" or username="sumit";
 
 -- ==================== Leaderboard ====================
 
@@ -16,8 +18,8 @@ select * from leaderboard;
 update leaderboard set id=1 where id=2;
 delete from leaderboard where id=7;
 
-
 -- =============== Compulsary to run ====================
+
 ALTER TABLE `major_project_snake_n_ladder`.`leaderboard` 
 CHANGE COLUMN `leaderboardId` `leaderboardId` INT(11) NOT NULL AUTO_INCREMENT ;
 

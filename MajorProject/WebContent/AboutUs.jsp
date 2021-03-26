@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ include file="Header.jsp"%>
 <%@page errorPage="error.jsp"%>
 
 <%
@@ -49,14 +48,12 @@ if (session.getAttribute("newSession") == null)
 
 
 <style>
-	<%@ include file="./styles/index.css" %>
+	<%@ include file="./styles/index1.css" %>
 	<%@ include file="./styles/AboutUs.css" %>
 </style>
 
 </head>
 <body>
-
-	<jsp:include page="Header.jsp"></jsp:include>
 
 	<div class="container-fluid">
 		<div class="row text-dark justify-content-center align-items-center"
