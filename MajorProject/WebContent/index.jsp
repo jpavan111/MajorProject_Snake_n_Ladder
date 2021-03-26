@@ -161,44 +161,35 @@
 
 <div class="container" style="overflow-x:auto;">
 
-	<table class="table table-style" style="color: #161717; border-radius: 10px">
+	<table class="col-11 table table-striped table-dark mr-20 align-center pr-8">
 		<thead>
 			<tr style="background-color: #00000073; color: #1dc4f6">
-				<th scope="col">Flight No</th>
-				<th scope="col">Airlines</th>
-				<th scope="col">Source</th>
-				<th scope="col">Departure</th>
-				<th style="color: red" scope="col">Departure Delay</th>
-				<th scope="col">Destination</th>
-				<th scope="col">Arrival</th>
-				<th style="color: red" scope="col">Arrival Delay</th>
-				<th scope="col">Operations</th>
+				<th scope="col">Rank</th>
+				<th scope="col">Name</th>
+				<th scope="col">Time</th>
+				<th scope="col">G.K. Score</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach  var="item" items="${userList}">
+				<%
+				int count = 1;
+				if (count == 1) {
+				%>
+			<c:forEach var="item" items="${playerList}">
 				<tr>
-					<th scope="row">${item.flightNo}</th>
-					<td>${item.airlines}</td>
-					<td>${item.source}</td>
-					<td>${item.departure}</td>
-					<td style="color: red">${item.sDelay}</td>
-					<td>${item.destination}</td>
-					<td>${item.arrival}</td>
-					<td style="color: red">${item.aDelay}</td>
-
-					<td><a href="schedule-one?id=${item.flightNo}"> <i class='far fa-edit mr-4' style='font-size:24px; color: #dee2e6'></i></a>
-					<a href="schedule-delete?id=${item.flightNo}"> <i class='fas fa-trash-alt' style='font-size:24px; color: #dee2e6'></i>
-					</a> 
-					</td>
+						<th scope="row"><%=count++%></th>
+						<td>${item.name}</td>
+						<td>${item.date}</td>
+						<td>${item.gkScore}</td>
 
 				</tr>
 			</c:forEach>
-
+				<%
+				}
+				count = 1;
+				%>
 		</tbody>
-		
 	</table>
-	
 </div>
 
 <%@ include file="footer.jsp"%> --%>
@@ -276,6 +267,7 @@ body {
 	font-family: 'Lato', sans-serif;
 	background-image: url(images/board.png);
 	background-size: cover;
+	overflow-y: hidden;
 }
 	
 </style>

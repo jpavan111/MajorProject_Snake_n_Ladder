@@ -38,7 +38,7 @@
  </style>
 </head>
 
-<body style="overflow-y: hidden;">
+<body>
 	<div>
 		<nav class="navbar navbar-expand-lg" id="header-color">
 			<a class="navbar-brand logo" href="home.jsp?s=1"><i class="fad fa-snake"></i><!-- <img src="./images/logo.jpg"> --></a>

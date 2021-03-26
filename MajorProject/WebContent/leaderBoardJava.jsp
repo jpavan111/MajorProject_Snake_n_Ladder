@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ include file="Header.jsp"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%-- <jsp:include page="Header.jsp"></jsp:include> --%>
 <%@page errorPage="error.jsp"%>
@@ -51,50 +51,61 @@ table {
 th {
 	width: 200px;
 }
+body {
+	font-family: 'Lato', sans-serif;
+	background-image: url(./images/leaderboardJava.jpg);
+	background-size: cover;
+}
+.table-dark {
+    color: #fff;
+    background-color: #00000094;
+}
 </style>
+
 <style>
-<%@ include file= "./styles/index.css" %>
+<%@ include file= "./styles/index1.css" %>
 </style>
+
 </head>
 
 <body>
+	<div class="container d-flex justify-content-center mt-5 mb-4 form-container">
 
-<jsp:include page="Header.jsp"></jsp:include>
-
-	<div class=" d-flex align-items-center justify-content-center mt-5 ">
-		<div>
-			<table 
-				class="col-11 table table-striped table-dark mr-20 align-center pr-8">
+	<div class="p-5" style="border: none; background-color: #00000040; border-radius:10px; box-shadow: #ffffffc7 0px 0px 20px 20px inset;">
+	<div class="container d-flex justify-content-center mb-5" style="color: #fff">
+	<h2>G.K. Leader Board</h2></div>
+	
+			<div class=" d-flex align-items-center justify-content-center ">
+			<table class="col-11 table table-striped table-dark mr-20 align-center">
 				<thead>
-					<tr>
+					<tr style="background-color: #00000073; color: #1dc4f6">
 						<th scope="col">Rank</th>
 						<th scope="col">Name</th>
 						<th scope="col">Time</th>
-						<th scope="col">Java Score</th>
-						
+						<th scope="col">G.K. Score</th>
 					</tr>
 				</thead>
-
 				<tbody>
-					<%
-					int count = 1;
-					if (count == 1) {
-					%>
-					<c:forEach var="item" items="${playerList}">
-						<tr>
-							<th scope="row"><%=count++%></th>
-							<td>${item.name}</td>
-							<td>${item.date}</td>
-							<td>${item.javaScore}</td>
-							
-						</tr>
-					</c:forEach>
-					<%
-					}
-					count = 1;
-					%>
-				</tbody>
-			</table>
+				
+				<%
+				int count = 1;
+				if (count == 1) {
+				%>
+				<c:forEach var="item" items="${playerList}">
+					<tr>
+						<th scope="row"><%=count++%></th>
+						<td>${item.name}</td>
+						<td>${item.date}</td>
+						<td>${item.javaScore}</td>
+					</tr>
+				</c:forEach>
+				<%
+				}
+				count = 1;
+				%>
+		</tbody>
+	</table>
+	</div>
 		</div>
 	</div>
 </body>
