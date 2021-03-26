@@ -303,7 +303,9 @@ body {
 </div>
 </div>
 </div>
-<%@ include file="footer.jsp"%> --%>
+<div style="margin-top: 7%">
+	<%@ include file="footer.jsp"%>
+</div>
 </body>
 
 </html>
