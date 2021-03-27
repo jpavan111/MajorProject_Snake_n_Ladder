@@ -73,7 +73,7 @@ body {
 
 	<div class="p-5" style="border: none; background-color: #00000040; border-radius:10px; box-shadow: #ffffffc7 0px 0px 20px 20px inset;">
 	<div class="container d-flex justify-content-center mb-5" style="color: #fff">
-	<h2>G.K. Leader Board</h2></div>
+	<h2>Java Leader Board</h2></div>
 	
 			<div class=" d-flex align-items-center justify-content-center ">
 			<table class="col-11 table table-striped table-dark mr-20 align-center">
