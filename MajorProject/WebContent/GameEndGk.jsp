@@ -28,7 +28,7 @@
 <div>
 <h1 style=color:#f4cc3d;>Congratulations <%= player.getPlayerName() %>!</h1>
 <h2 style=color:#6eba4e;>You have successfully completed the game & your final score is</h2>
-<h1 style=color:#6eba4e;><%= player.getGkScore() %></h1>
+<h1 style=color:#6eba4e;><%= player.getGkScore()*10 %></h1>
 <a href="index.jsp" style="text-decoration: none;"><button class="button btnSubmit"><span><b>Home</b></span></button></a>
 <a href="read-leaderboard-gk" style="text-decoration: none;"><button class="button"><span><b>Leader Board</b></span></button></a>
 </div>
