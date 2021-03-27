@@ -82,7 +82,7 @@ body {
 						<th scope="col">Rank</th>
 						<th scope="col">Name</th>
 						<th scope="col">Time</th>
-						<th scope="col">G.K. Score</th>
+						<th scope="col">Java Score</th>
 					</tr>
 				</thead>
 				<tbody>
