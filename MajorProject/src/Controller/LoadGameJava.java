@@ -57,8 +57,8 @@ public class LoadGameJava extends HttpServlet {
 			player.setPlayerName((String)playerName);
 			player.setEmail((String)playerEmail);
 			player.setPosition(1);
-			player.setGkScore(0);
-			player.setJavaScore(0);
+			player.setScore(0);
+			player.setGameType("java");
 
 //			Generating & saving current date-time
 			LocalDateTime myDateObj = LocalDateTime.now();
@@ -73,8 +73,8 @@ public class LoadGameJava extends HttpServlet {
 			Leaderboard objlb= new Leaderboard();
 			objlb.setId(player.getPlayerId());
 			objlb.setName(player.getPlayerName());
-			objlb.setGkScore(0);
-			objlb.setJavaScore(0);
+			objlb.setScore(0);
+			objlb.setGameType("java");
 			objlb.setDate(formattedDate);
 			
 			lb.createGetLeaderboardJava(objlb);

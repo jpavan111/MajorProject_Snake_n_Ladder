@@ -21,8 +21,10 @@ public class ReadLeaderBoardDao {
 	public List<Leaderboard> readLeaderBoard() {
 		Session session = sessionFactory.openSession();
 
-		String sql = "SELECT * FROM leaderboard ORDER BY gkScore DESC";
-		List<Leaderboard> list = session.createNativeQuery(sql, Leaderboard.class).list();
+		String sql = "SELECT * FROM leaderboard WHERE gameType=:gameType ORDER BY score DESC";
+		List<Leaderboard> list = session.createNativeQuery(sql, Leaderboard.class)
+										.setParameter("gameType", "gk")
+										.list();
 
 		session.close();
 		return list;
@@ -34,10 +36,11 @@ public class ReadLeaderBoardDao {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 
-		String sql = "UPDATE leaderboard SET gkScore=:gkScore where date=:date AND name=:name";
+		String sql = "UPDATE leaderboard SET score=:score where date=:date AND name=:name AND gameType=:gameType";
 
 		session.createNativeQuery(sql)
-				.setParameter("gkScore", lb.getGkScore())
+				.setParameter("score", lb.getScore())
+				.setParameter("gameType", lb.getGameType())
 				.setParameter("date", lb.getDate())
 				.setParameter("name", lb.getName())
 				.executeUpdate();
@@ -76,10 +79,11 @@ public class ReadLeaderBoardDao {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 
-		String sql = "UPDATE leaderboard SET javaScore=:javaScore WHERE date=:date AND name=:name";
+		String sql = "UPDATE leaderboard SET score=:score WHERE date=:date AND name=:name AND gameType=:gameType";
 
 		session.createNativeQuery(sql)
-				.setParameter("javaScore", lb.getJavaScore())
+				.setParameter("score", lb.getScore())
+				.setParameter("gameType", lb.getGameType())
 				.setParameter("date", lb.getDate())
 				.setParameter("name", lb.getName())
 				.executeUpdate();
@@ -112,8 +116,10 @@ public class ReadLeaderBoardDao {
 	public List<Leaderboard> readLeaderBoardJava() {
 		Session session = sessionFactory.openSession();
 
-		String sql = "SELECT * FROM leaderboard ORDER BY javaScore DESC";
-		List<Leaderboard> list = session.createNativeQuery(sql, Leaderboard.class).list();
+		String sql = "SELECT * FROM leaderboard WHERE gameType=:gameType ORDER BY score DESC";
+		List<Leaderboard> list = session.createNativeQuery(sql, Leaderboard.class)
+										.setParameter("gameType","java")
+										.list();
 
 		session.close();
 		return list;

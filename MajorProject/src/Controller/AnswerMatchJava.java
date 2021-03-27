@@ -49,14 +49,14 @@ public class AnswerMatchJava extends HttpServlet {
 			
 			if(check == true)
 			{	
-				player.setJavaScore(player.getJavaScore()+1);
+				player.setScore(player.getScore()+1);
 				
 //				Updating score into leaderboard
 				Leaderboard lb = new Leaderboard();
 				lb.setId(player.getPlayerId());
 				lb.setName(player.getPlayerName());
-				lb.setGkScore(0);
-				lb.setJavaScore(player.getJavaScore()*10);
+				lb.setGameType(player.getGameType());
+				lb.setScore(player.getScore()*10);
 				lb.setDate(player.getInstance());
 				
 				ReadLeaderBoardDao score = new ReadLeaderBoardDao();

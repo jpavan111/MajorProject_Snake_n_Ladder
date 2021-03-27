@@ -96,7 +96,7 @@ body {
 						<th scope="row"><%=count++%></th>
 						<td>${item.name}</td>
 						<td>${item.date}</td>
-						<td>${item.javaScore}</td>
+						<td>${item.score}</td>
 					</tr>
 				</c:forEach>
 				<%
