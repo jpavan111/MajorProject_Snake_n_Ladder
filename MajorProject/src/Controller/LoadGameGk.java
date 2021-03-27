@@ -60,8 +60,8 @@ public class LoadGameGk extends HttpServlet {
 			player.setPlayerName((String)playerName);
 			player.setEmail((String)playerEmail);
 			player.setPosition(ab.get(0).getValue());
-			player.setGkScore(0);
-			player.setJavaScore(0);
+			player.setScore(0);
+			player.setGameType("gk");
 			
 //			Generating & saving current date-time
 			LocalDateTime myDateObj = LocalDateTime.now();
@@ -76,8 +76,8 @@ public class LoadGameGk extends HttpServlet {
 			Leaderboard objlb = new Leaderboard();
 			objlb.setId(player.getPlayerId());
 			objlb.setName(player.getPlayerName());
-			objlb.setGkScore(0);
-			objlb.setJavaScore(0);
+			objlb.setScore(0);
+			objlb.setGameType("gk");
 			objlb.setDate(formattedDate);
 			
 			lb.createGetLeaderboardGk(objlb);

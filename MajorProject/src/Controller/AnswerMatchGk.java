@@ -47,14 +47,14 @@ public class AnswerMatchGk extends HttpServlet {
 			
 			if(check == true)
 			{	
-				player.setGkScore(player.getGkScore()+1);
+				player.setScore(player.getScore()+1);
 				
 //				Updating score into leader board
 				Leaderboard lb = new Leaderboard();
 				lb.setId(player.getPlayerId());
 				lb.setName(player.getPlayerName());
-				lb.setGkScore(player.getGkScore()*10);
-				lb.setJavaScore(0);
+				lb.setScore(player.getScore()*10);
+				lb.setGameType(player.getGameType());
 				lb.setDate(player.getInstance());
 				
 				ReadLeaderBoardDao score = new ReadLeaderBoardDao();

@@ -11,66 +11,92 @@ import javax.persistence.Table;
 public class Leaderboard {
 	@Id
 //	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int leaderboardId;
+	private int gameInstanceNo;
 	@Column(nullable = false)
-	private int id;
+	private int playerid;
 	@Column(nullable = false)
 	private String name;
 	@Column(nullable = false)
-	private int javaScore;
-	@Column(nullable = false)
-	private int gkScore;
+	private int score;
 	@Column(nullable = false)
 	private String date;
+	@Column(nullable = false)
+	private String gameType;
+
 
 	public Leaderboard() {
 		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	public Leaderboard(int id, String name, int javaScore, int gkScore, String date) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.javaScore = javaScore;
-		this.gkScore = gkScore;
-		this.date = date;
 	}
 
-	public int getLeaderboardId() {
-		return leaderboardId;
-	}
-	public void setLeaderboardId(int leaderboardId) {
-		this.leaderboardId = leaderboardId;
-	}
-	public String getDate() {
-		return date;
-	}
-	public void setDate(String date) {
+	
+	public Leaderboard(int playerid, String name, int score, String date, String gameType) {
+		super();
+		this.playerid = playerid;
+		this.name = name;
+		this.score = score;
 		this.date = date;
+		this.gameType = gameType;
 	}
+
+
+	public int getLeaderboardId() {
+		return gameInstanceNo;
+	}
+
+
+	public void setLeaderboardId(int gameInstanceNo) {
+		this.gameInstanceNo = gameInstanceNo;
+	}
+
+
 	public int getId() {
-		return id;
+		return playerid;
 	}
-	public void setId(int id) {
-		this.id = id;
+
+
+	public void setId(int playerid) {
+		this.playerid = playerid;
 	}
+
+
 	public String getName() {
 		return name;
 	}
+
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getJavaScore() {
-		return javaScore;
+
+
+	public int getScore() {
+		return score;
 	}
-	public void setJavaScore(int javaScore) {
-		this.javaScore = javaScore;
+
+
+	public void setScore(int score) {
+		this.score = score;
 	}
-	public int getGkScore() {
-		return gkScore;
+
+
+	public String getDate() {
+		return date;
 	}
-	public void setGkScore(int gkScore) {
-		this.gkScore = gkScore;
+
+
+	public void setDate(String date) {
+		this.date = date;
 	}
+
+
+	public String getGameType() {
+		return gameType;
+	}
+
+
+	public void setGameType(String gameType) {
+		this.gameType = gameType;
+	}
+	
+	
 }

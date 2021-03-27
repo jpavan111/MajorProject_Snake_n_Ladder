@@ -1,3 +1,5 @@
+<%@page import="Entity.Cell"%>
+<%@page import="java.util.LinkedList"%>
 <%@page import="Entity.Player"%>
 <%@page import="org.hibernate.internal.build.AllowSysOut"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -46,6 +48,7 @@
 			player = (Player) request.getSession().getAttribute("itsme");
 		 }
 	
+	LinkedList<Cell> CellBlock= (LinkedList<Cell>)request.getSession().getAttribute("cells");
 	int positionBack = player.getPosition();
 %>
 
@@ -115,106 +118,106 @@
 										
 										<div id='main' style="margin-top:-0.3%">
 											<form action="GetBlockValueJava" method="post" style="pointer-events: none">
-											    <div class='box' id='100'><button onclick="playAudio()" class='button5' name="block" value="100">100</button></div>	
-												<div class='box' id='99'><button onclick="playAudio()" class='button5' name="block" value="99">99</button></div>	
-												<div class='box' id='98'><button onclick="playAudio()" class='button5' name="block" value="98">98</button></div>	
-												<div class='box' id='97'><button onclick="playAudio()" class='button5' name="block" value="97">97</button></div>	
-												<div class='box' id='96'><button onclick="playAudio()" class='button5' name="block" value="96">96</button></div>		
-												<div class='box' id='95'><button onclick="playAudio()" class='button5' name="block" value="95">95</button></div>	
-									            <div class='box' id='94'><button onclick="playAudio()" class='button5' name="block" value="94">94</button></div>		
-												<div class='box' id='93'><button onclick="playAudio()" class='button5' name="block" value="93">93</button></div>		
-												<div class='box' id='92'><button onclick="playAudio()" class='button5' name="block" value="92">92</button></div>		
-												<div class='box' id='91'><button onclick="playAudio()" class='button5' name="block" value="91">91</button></div>		
-												<div class='box' id='81'><button onclick="playAudio()" class='button5' name="block" value="81">81</button></div>		
-												<div class='box' id='82'><button onclick="playAudio()" class='button5' name="block" value="82">82</button></div>		
-												<div class='box' id='83'><button onclick="playAudio()" class='button5' name="block" value="83">83</button></div>	
-									            <div class='box' id='84'><button onclick="playAudio()" class='button5' name="block" value="84">84</button></div>		
-									            <div class='box' id='85'><button onclick="playAudio()" class='button5' name="block" value="85">85</button></div>		
-												<div class='box' id='86'><button onclick="playAudio()" class='button5' name="block" value="86">86</button></div>		
-												<div class='box' id='87'><button onclick="playAudio()" class='button5' name="block" value="87">87</button></div>		
-												<div class='box' id='88'><button onclick="playAudio()" class='button5' name="block" value="88">88</button></div>		
-												<div class='box' id='89'><button onclick="playAudio()" class='button5' name="block" value="89">89</button></div>		
-												<div class='box' id='90'><button onclick="playAudio()" class='button5' name="block" value="90">90</button></div>		
-												<div class='box' id='80'><button onclick="playAudio()" class='button5' name="block" value="80">80</button></div>
-									            <div class='box' id='79'><button onclick="playAudio()" class='button5' name="block" value="79">79</button></div>	
-												<div class='box' id='78'><button onclick="playAudio()" class='button5' name="block" value="78">78</button></div>	
-												<div class='box' id='77'><button onclick="playAudio()" class='button5' name="block" value="77">77</button></div>
-												<div class='box' id='76'><button onclick="playAudio()" class='button5' name="block" value="76">76</button></div>	
-												<div class='box' id='75'><button onclick="playAudio()" class='button5' name="block" value="75">75</button></div>
-												<div class='box' id='74'><button onclick="playAudio()" class='button5' name="block" value="74">74</button></div>
-												<div class='box' id='73'><button onclick="playAudio()" class='button5' name="block" value="73">73</button></div>
-									            <div class='box' id='72'><button onclick="playAudio()" class='button5' name="block" value="72">72</button></div>
-									            <div class='box' id='72'><button onclick="playAudio()" class='button5' name="block" value="71">71</button></div>
-												<div class='box' id='61'><button onclick="playAudio()" class='button5' name="block" value="61">61</button></div>
-												<div class='box' id='62'><button onclick="playAudio()" class='button5' name="block" value="62">62</button></div>
-												<div class='box' id='63'><button onclick="playAudio()" class='button5' name="block" value="63">63</button></div>	
-												<div class='box' id='64'><button onclick="playAudio()" class='button5' name="block" value="64">64</button></div>	
-												<div class='box' id='65'><button onclick="playAudio()" class='button5' name="block" value="65">65</button></div>	
-												<div class='box' id='66'><button onclick="playAudio()" class='button5' name="block" value="66">66</button></div>
-									            <div class='box' id='67'><button onclick="playAudio()" class='button5' name="block" value="67">67</button></div>	
-												<div class='box' id='68'><button onclick="playAudio()" class='button5' name="block" value="68">68</button></div>	
-												<div class='box' id='69'><button onclick="playAudio()" class='button5' name="block" value="69">69</button></div>	
-												<div class='box' id='70'><button onclick="playAudio()" class='button5' name="block" value="70">70</button></div>	
-												<div class='box' id='60'><button onclick="playAudio()" class='button5' name="block" value="60">60</button></div>	
-												<div class='box' id='59'><button onclick="playAudio()" class='button5' name="block" value="59">59</button></div>	
-												<div class='box' id='58'><button onclick="playAudio()" class='button5' name="block" value="58">58</button></div>
-									            <div class='box' id='57'><button onclick="playAudio()" class='button5' name="block" value="57">57</button></div>
-									            <div class='box' id='56'><button onclick="playAudio()" class='button5' name="block" value="56">56</button></div>	
-												<div class='box' id='55'><button onclick="playAudio()" class='button5' name="block" value="55">55</button></div>	
-												<div class='box' id='54'><button onclick="playAudio()" class='button5' name="block" value="54">54</button></div>	
-												<div class='box' id='53'><button onclick="playAudio()" class='button5' name="block" value="53">53</button></div>	
-												<div class='box' id='52'><button onclick="playAudio()" class='button5' name="block" value="52">52</button></div>	
-												<div class='box' id='51'><button onclick="playAudio()" class='button5' name="block" value="51">51</button></div>	
-												<div class='box' id='41'><button onclick="playAudio()" class='button5' name="block" value="41">41</button></div>
-									            <div class='box' id='42'><button onclick="playAudio()" class='button5' name="block" value="42">42</button></div>	
-												<div class='box' id='43'><button onclick="playAudio()" class='button5' name="block" value="43">43</button></div>	
-												<div class='box' id='44'><button onclick="playAudio()" class='button5' name="block" value="44">44</button></div>	
-												<div class='box' id='45'><button onclick="playAudio()" class='button5' name="block" value="45">45</button></div>	
-												<div class='box' id='46'><button onclick="playAudio()" class='button5' name="block" value="45">46</button></div>	
-												<div class='box' id='47'><button onclick="playAudio()" class='button5' name="block" value="47">47</button></div>	
-												<div class='box' id='48'><button onclick="playAudio()" class='button5' name="block" value="48">48</button></div>
-									            <div class='box' id='49'><button onclick="playAudio()" class='button5' name="block" value="49">49</button></div>	
-									            <div class='box' id='50'><button onclick="playAudio()" class='button5' name="block" value="50">50</button></div>	
-												<div class='box' id='40'><button onclick="playAudio()" class='button5' name="block" value="40">40</button></div>	
-												<div class='box' id='39'><button onclick="playAudio()" class='button5' name="block" value="39">39</button></div>	
-												<div class='box' id='38'><button onclick="playAudio()" class='button5' name="block" value="38">38</button></div>	
-												<div class='box' id='37'><button onclick="playAudio()" class='button5' name="block" value="37">37</button></div>	
-												<div class='box' id='36'><button onclick="playAudio()" class='button5' name="block" value="36">36</button></div>	
-												<div class='box' id='35'><button onclick="playAudio()" class='button5' name="block" value="35">35</button></div>
-									            <div class='box' id='34'><button onclick="playAudio()" class='button5' name="block" value="34">34</button></div>	
-												<div class='box' id='33'><button onclick="playAudio()" class='button5' name="block" value="33">33</button></div>
-												<div class='box' id='32'><button onclick="playAudio()" class='button5' name="block" value="32">32</button></div>
-												<div class='box' id='31'><button onclick="playAudio()" class='button5' name="block" value="31">31</button></div>	
-												<div class='box' id='21'><button onclick="playAudio()" class='button5' name="block" value="21">21</button></div>	
-												<div class='box' id='22'><button onclick="playAudio()" class='button5' name="block" value="22">22</button></div>	
-												<div class='box' id='23'><button onclick="playAudio()" class='button5' name="block" value="23">23</button></div>
-									            <div class='box' id='24'><button onclick="playAudio()" class='button5' name="block" value="24">24</button></div>	
-									            <div class='box' id='25'><button onclick="playAudio()" class='button5' name="block" value="25">25</button></div>	
-												<div class='box' id='26'><button onclick="playAudio()" class='button5' name="block" value="26">26</button></div>
-												<div class='box' id='27'><button onclick="playAudio()" class='button5' name="block" value="27">27</button></div>	
-												<div class='box' id='28'><button onclick="playAudio()" class='button5' name="block" value="28">28</button></div>	
-												<div class='box' id='29'><button onclick="playAudio()" class='button5' name="block" value="29">29</button></div>	
-												<div class='box' id='30'><button onclick="playAudio()" class='button5' name="block" value="30">30</button></div>	
-												<div class='box' id='20'><button onclick="playAudio()" class='button5' name="block" value="20">20</button></div>
-									            <div class='box' id='19'><button onclick="playAudio()" class='button5' name="block" value="19">19</button></div>	
-												<div class='box' id='18'><button onclick="playAudio()" class='button5' name="block" value="18">18</button></div>	
-												<div class='box' id='17'><button onclick="playAudio()" class='button5' name="block" value="17">17</button></div>	
-												<div class='box' id='16'><button onclick="playAudio()" class='button5' name="block" value="16">16</button></div>	
-												<div class='box' id='15'><button onclick="playAudio()" class='button5' name="block" value="15">15</button></div>	
-												<div class='box' id='14'><button onclick="playAudio()" class='button5' name="block" value="14">14</button></div>	
-												<div class='box' id='13'><button onclick="playAudio()" class='button5' name="block" value="13">13</button></div>
-									            <div class='box' id='12'><button onclick="playAudio()" class='button5' name="block" value="12">12</button></div>
-											    <div class='box' id='11'><button onclick="playAudio()" class='button5' name="block" value="11">11</button></div>
-												<div class='box' id='1'><button onclick="playAudio()" class='button5' name="block" value="1">1 <div id="cursor" class="center"><div class="pointer"><div class="shadow"></div></div></div></button></div>
-									            <div class='box' id='2'><button onclick="playAudio()" class='button5' name="block" value="2">2</button></div>	
-												<div class='box' id='3'><button onclick="playAudio()" class='button5' name="block" value="3">3</button></div>	
-												<div class='box' id='4'><button onclick="playAudio()" class='button5' name="block" value="4">4</button></div>
-												<div class='box' id='5'><button onclick="playAudio()" class='button5' name="block" value="5">5</button></div>	
-												<div class='box' id='6'><button onclick="playAudio()" class='button5' name="block" value="6">6</button></div>	
-												<div class='box' id='7'><button onclick="playAudio()" class='button5' name="block" value="7">7</button></div>	
-												<div class='box' id='8'><button onclick="playAudio()" class='button5' name="block" value="8">8</button></div>
-												<div class='box' id='9'><button onclick="playAudio()" class='button5' name="block" value="9">9</button></div>
-												<div class='box' id='10'><button onclick="playAudio()" class='button5' name="block" value="10">10</button></div>
+											    <div class='box' id='100'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(99).getValue() %>">100</button></div>	
+												<div class='box' id='99'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(98).getValue() %>">99</button></div>	
+												<div class='box' id='98'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(97).getValue() %>">98</button></div>	
+												<div class='box' id='97'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(96).getValue() %>">97</button></div>	
+												<div class='box' id='96'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(95).getValue() %>">96</button></div>		
+												<div class='box' id='95'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(94).getValue() %>">95</button></div>	
+									            <div class='box' id='94'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(93).getValue() %>">94</button></div>		
+												<div class='box' id='93'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(92).getValue() %>">93</button></div>		
+												<div class='box' id='92'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(91).getValue() %>">92</button></div>		
+												<div class='box' id='91'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(90).getValue() %>">91</button></div>		
+												<div class='box' id='81'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(80).getValue() %>">81</button></div>		
+												<div class='box' id='82'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(81).getValue() %>">82</button></div>		
+												<div class='box' id='83'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(82).getValue() %>">83</button></div>	
+									            <div class='box' id='84'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(83).getValue() %>">84</button></div>		
+									            <div class='box' id='85'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(84).getValue() %>">85</button></div>		
+												<div class='box' id='86'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(85).getValue() %>">86</button></div>		
+												<div class='box' id='87'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(86).getValue() %>">87</button></div>		
+												<div class='box' id='88'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(87).getValue() %>">88</button></div>		
+												<div class='box' id='89'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(88).getValue() %>">89</button></div>		
+												<div class='box' id='90'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(89).getValue() %>">90</button></div>		
+												<div class='box' id='80'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(79).getValue() %>">80</button></div>
+									            <div class='box' id='79'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(78).getValue() %>">79</button></div>	
+												<div class='box' id='78'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(77).getValue() %>">78</button></div>	
+												<div class='box' id='77'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(76).getValue() %>">77</button></div>
+												<div class='box' id='76'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(75).getValue() %>">76</button></div>	
+												<div class='box' id='75'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(74).getValue() %>">75</button></div>
+												<div class='box' id='74'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(73).getValue() %>">74</button></div>
+												<div class='box' id='73'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(72).getValue() %>">73</button></div>
+									            <div class='box' id='72'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(71).getValue() %>">72</button></div>
+									            <div class='box' id='72'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(70).getValue() %>">71</button></div>
+												<div class='box' id='61'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(60).getValue() %>">61</button></div>
+												<div class='box' id='62'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(61).getValue() %>">62</button></div>
+												<div class='box' id='63'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(62).getValue() %>">63</button></div>	
+												<div class='box' id='64'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(63).getValue() %>">64</button></div>	
+												<div class='box' id='65'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(64).getValue() %>">65</button></div>	
+												<div class='box' id='66'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(65).getValue() %>">66</button></div>
+									            <div class='box' id='67'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(66).getValue() %>">67</button></div>	
+												<div class='box' id='68'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(67).getValue() %>">68</button></div>	
+												<div class='box' id='69'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(68).getValue() %>">69</button></div>	
+												<div class='box' id='70'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(69).getValue() %>">70</button></div>	
+												<div class='box' id='60'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(59).getValue() %>">60</button></div>	
+												<div class='box' id='59'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(58).getValue() %>">59</button></div>	
+												<div class='box' id='58'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(57).getValue() %>">58</button></div>
+									            <div class='box' id='57'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(56).getValue() %>">57</button></div>
+									            <div class='box' id='56'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(55).getValue() %>">56</button></div>	
+												<div class='box' id='55'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(54).getValue() %>">55</button></div>	
+												<div class='box' id='54'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(53).getValue() %>">54</button></div>	
+												<div class='box' id='53'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(52).getValue() %>">53</button></div>	
+												<div class='box' id='52'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(51).getValue() %>">52</button></div>	
+												<div class='box' id='51'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(50).getValue() %>">51</button></div>	
+												<div class='box' id='41'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(40).getValue() %>">41</button></div>
+									            <div class='box' id='42'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(41).getValue() %>">42</button></div>	
+												<div class='box' id='43'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(42).getValue() %>">43</button></div>	
+												<div class='box' id='44'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(43).getValue() %>">44</button></div>	
+												<div class='box' id='45'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(44).getValue() %>">45</button></div>	
+												<div class='box' id='46'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(45).getValue() %>">46</button></div>	
+												<div class='box' id='47'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(46).getValue() %>">47</button></div>	
+												<div class='box' id='48'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(47).getValue() %>">48</button></div>
+									            <div class='box' id='49'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(48).getValue() %>">49</button></div>	
+									            <div class='box' id='50'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(49).getValue() %>">50</button></div>	
+												<div class='box' id='40'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(39).getValue() %>">40</button></div>	
+												<div class='box' id='39'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(38).getValue() %>">39</button></div>	
+												<div class='box' id='38'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(37).getValue() %>">38</button></div>	
+												<div class='box' id='37'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(36).getValue() %>">37</button></div>	
+												<div class='box' id='36'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(35).getValue() %>">36</button></div>	
+												<div class='box' id='35'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(34).getValue() %>">35</button></div>
+									            <div class='box' id='34'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(33).getValue() %>">34</button></div>	
+												<div class='box' id='33'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(32).getValue() %>">33</button></div>
+												<div class='box' id='32'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(31).getValue() %>">32</button></div>
+												<div class='box' id='31'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(30).getValue() %>">31</button></div>	
+												<div class='box' id='21'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(20).getValue() %>">21</button></div>	
+												<div class='box' id='22'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(21).getValue() %>">22</button></div>	
+												<div class='box' id='23'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(22).getValue() %>">23</button></div>
+									            <div class='box' id='24'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(23).getValue() %>">24</button></div>	
+									            <div class='box' id='25'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(24).getValue() %>">25</button></div>	
+												<div class='box' id='26'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(25).getValue() %>">26</button></div>
+												<div class='box' id='27'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(26).getValue() %>">27</button></div>	
+												<div class='box' id='28'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(27).getValue() %>">28</button></div>	
+												<div class='box' id='29'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(28).getValue() %>">29</button></div>	
+												<div class='box' id='30'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(29).getValue() %>">30</button></div>	
+												<div class='box' id='20'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(19).getValue() %>">20</button></div>
+									            <div class='box' id='19'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(18).getValue() %>">19</button></div>	
+												<div class='box' id='18'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(17).getValue() %>">18</button></div>	
+												<div class='box' id='17'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(16).getValue() %>">17</button></div>	
+												<div class='box' id='16'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(15).getValue() %>">16</button></div>	
+												<div class='box' id='15'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(14).getValue() %>">15</button></div>	
+												<div class='box' id='14'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(13).getValue() %>">14</button></div>	
+												<div class='box' id='13'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(12).getValue() %>">13</button></div>
+									            <div class='box' id='12'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(11).getValue() %>">12</button></div>
+											    <div class='box' id='11'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(10).getValue() %>">11</button></div>
+												<div class='box' id='1'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(0).getValue() %>">1 <div id="cursor" class="center"><div class="pointer"><div class="shadow"></div></div></div></button></div>
+									            <div class='box' id='2'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(1).getValue() %>">2</button></div>	
+												<div class='box' id='3'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(2).getValue() %>">3</button></div>	
+												<div class='box' id='4'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(3).getValue() %>">4</button></div>
+												<div class='box' id='5'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(4).getValue() %>">5</button></div>	
+												<div class='box' id='6'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(5).getValue() %>">6</button></div>	
+												<div class='box' id='7'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(6).getValue() %>">7</button></div>	
+												<div class='box' id='8'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(7).getValue() %>">8</button></div>
+												<div class='box' id='9'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(8).getValue() %>">9</button></div>
+												<div class='box' id='10'><button onclick="playAudio()" class='button5' name="block" value="<%=CellBlock.get(9).getValue() %>">10</button></div>
 												</form>
 										    
 											    <img src='./images/ladder1.png' id='l1'>
@@ -245,7 +248,6 @@
 
 								
 											<script>
-											 	console.log("Position Back is: " + <%= positionBack %>);
 											 	position = <%= positionBack %>;
 											 	var currentPosition = <%= positionBack %>;
 												
@@ -272,7 +274,6 @@
 											if(dicePos!=null){
 												moveCursor();
 											}
-											console.log("Dice Value is: " + dicePos);
 											
 											</script>
 										</div>
@@ -302,7 +303,7 @@
 						</c:if>
 						
 						<div class="card-title" style="margin-bottom: 9%; font-size: 1em; font-weight: 800">Your Current Score <br><span style="margin-bottom: 9%; font-size: 3em; font-weight: 800">
-										<%= player.getJavaScore()*10 %> </span></div>
+										<%= player.getScore()*10 %> </span></div>
 						<div style="align-text: center;">
 							<a href="index.jsp" class="btn btn-danger btn-lg" style="width: 80%">Exit</a>
 						</div>

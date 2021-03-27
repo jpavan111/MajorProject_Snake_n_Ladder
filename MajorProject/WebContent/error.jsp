@@ -24,8 +24,8 @@
   <div class="error__title">404</div>
   <div class="error__subtitle">Hmmm...</div>
   <div class="error__description">It looks like one of the  developers fell asleep</div>
-  <form><button type="submit" formaction="login.jsp" class="error__button error__button--active">LOGIN</button>
-  <button type="submit" formaction="contactUs.jsp" class="error__button">CONTACT</button></form>
+  <form><button type="submit" formaction="login.jsp" class="error__button error__button--active">BACK TO LOGIN</button>
+  </form>
 </div>
 
 <div class="astronaut">

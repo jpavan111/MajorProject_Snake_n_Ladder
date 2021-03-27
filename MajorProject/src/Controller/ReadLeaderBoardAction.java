@@ -25,7 +25,7 @@ public class ReadLeaderBoardAction extends HttpServlet {
 		
 		request.setAttribute("playerList",list);
 		
-		request.getRequestDispatcher("leaderBoardGk.jsp?p=1").forward(request, response);
+		request.getRequestDispatcher("leaderBoardGk.jsp").forward(request, response);
 	}
 	
 	
