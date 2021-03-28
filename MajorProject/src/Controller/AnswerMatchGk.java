@@ -69,6 +69,8 @@ public class AnswerMatchGk extends HttpServlet {
 					//System.out.println(boardObject.get(10).getLadder().getFinalPosition());
 					//System.out.println(boardObject.get(12).toString());
 //					lb.setGkScore(player.getGkScore()+10);
+					player.setScore(player.getScore()+1);
+					lb.setScore(player.getScore()*10);
 					player.setPosition(boardObject.get(player.getPosition()-1).getLadder().getFinalPosition());
 				}
 				
